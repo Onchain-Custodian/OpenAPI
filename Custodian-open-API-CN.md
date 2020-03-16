@@ -258,7 +258,6 @@ https://github.com/aixingjuele/custodian-sdk-java
 |   estimated_fee |  String  | 预估手续费 |
 |   upper_limit |  String  |   警报上限        |
 |   lower_limit |  String  |  警报下限         |
-|   address_name   |  String   |              钱包名称           |
 |   limit_per_deal |  String   | 单笔交易限额 |
 |   day_limit_amount |  String   |日交易剩余额度|
 |   hour_limit_amount |  String   | 小时内交易剩余额度|
