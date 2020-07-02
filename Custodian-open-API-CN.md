@@ -246,6 +246,7 @@ https://github.com/aixingjuele/custodian-sdk-java
 
 | Parameter  |  Type  |             Description             |
 | :--------: | :----: | :------------------------------ |
+| coin_type | String | coin type(BTC,ETH,USDT-ERC20,USDC,CGT,WTC,REN,FTM,MATIC,XSGD-ERC20,BCH) |
 |   address   | String | 钱包地址  |
 |   address_name   | String | 钱包名称   |
 |   coin_unique_name   | String | 币种代号   |
@@ -726,8 +727,10 @@ https://github.com/aixingjuele/custodian-sdk-java
 ```
 
 ######   request
+
 | Parameter  |  Type  |             Description             |
 | :--------: | :----: | :------------------------------ |
+| notice-type | String | 通知类型: transaction-notice |
 |   address   | String | 交易地址 |
 |   amount   | String | 交易金额  |
 |   coinType   | String | 交易币种  |

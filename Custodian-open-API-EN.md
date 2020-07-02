@@ -247,6 +247,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 
 | Parameter  |  Type  |             Description             |
 | :--------: | :----: | :------------------------------ |
+| coin_type | String | coin type(BTC,ETH,USDT-ERC20,USDC,CGT,WTC,REN,FTM,MATIC,XSGD-ERC20,BCH) |
 |   limit_per_deal |  String   | transaction limit per transaction |
 |   day_limit_amount |  String   |balance of daily transaction limit|
 |   hour_limit_amount |  String   | balance of hourly transaction limit |
@@ -696,6 +697,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 ######   Request:
 | Parameter  |  Type  |             Description             |
 | :--------: | :----: | :------------------------------ |
+| notice-type | String | notice type: transaction-notice |
 |   address   | String | wallet address |
 |   amount   | String | transaction amount |
 |   coinType   | String | coin type |
@@ -704,7 +706,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |   hash   | String | hash on blockchain |
 |   status   | String | transaction status :0=pending,1=success,2=fail |
 |  txId| String | transaction ID |
-|   txType   | String | transaction type  |
+|   txType   | String | transaction type: Withdraw、Deposit |
 
 
 ######   Response:
