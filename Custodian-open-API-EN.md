@@ -7,6 +7,8 @@ This API document is designed to help developers integrate Onchain Custodian's w
 ## 2. API KEY
 In order for developers to deploy any APIs in their system, they must first apply for the API key and other relevant information via the Onchain Custodian platform. The development of APIs shall be carried out according to the details in this document. In case of any questions or suggestions, please reach out to your Onchain Custodian Relationship Manager or our support team at support@oncustodian.com.
 
+**Note**: API Keys have a validity of **90** days. Please create a new API Key and remove the old one before the key expires.
+
 ## 3. REST API
 REST, short for Representational State Transfer, is currently the most commonly used software architecture. It has a clear structure, is easy to expand, and is being adopted by more and more developers. 
 
