@@ -550,8 +550,8 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |          tx_id          | string | transaction ID                                                       |
 |         tx_hash         | string | transaction hash                                                     |
 |        tx_status        | string | transaction status (0=pending,1=success,2=fail)                      |
-|       create_time       |  int   | transaction creation time                                            |
-|      confirm_time       |  int   | transaction confirmation (success or failure) time                   |
+|       create_time       |  date  | transaction creation time                                            |
+|      confirm_time       |  date  | transaction confirmation (success or failure) time                   |
 |    confirm_threshold    |  int   | transaction confirmation threshold (no. of blocks)                   |
 | confirm_threshold_count |  int   | current no. of blocks confirmed after transaction                    |
 |        fee_coin         | string | coin type of the transaction fee                                     |
@@ -583,8 +583,8 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
       "tx_id": "",
       "tx_hash": "",
       "tx_status": "",
-      "create_time": "",
-      "confirm_time": "",
+      "create_time": 1614308646000,
+      "confirm_time": 1614308646000,
       "fee_coin": "",
       "fee": ""
     }
@@ -605,8 +605,8 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |      tx_id       | string | transaction ID                                                       |
 |     tx_hash      | string | transaction hash                                                     |
 |    tx_status     | string | transaction status (0=pending,1=success,2=fail)                      |
-|   create_time    | string | transaction creation time                                            |
-|   confirm_time   | string | transaction confirmation (success or failure) time                   |
+|   create_time    |  date  | transaction creation time                                            |
+|   confirm_time   |  date  | transaction confirmation (success or failure) time                   |
 |     fee_coin     | string | coin type of the transaction fee                                     |
 |       fee        | string | transaction fee amount                                               |
 
