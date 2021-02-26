@@ -227,20 +227,20 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 
 |        参数        | 数据类型 | 说明                                              |
 | :----------------: | :------: | :------------------------------------------------ |
-|      address       |  String  | 钱包地址                                          |
-|    address_name    |  String  | 钱包名称                                          |
-|  coin_unique_name  |  String  | 币种在本系统中的代号                              |
-|    coin_symbol     |  String  | 币种缩写                                          |
-|   coin_full_name   |  String  | 币种全称                                          |
-|    coin_decimal    | Integer  | 余额值精度                                        |
-|  deposit_allowed   | Integer  | 可否充值（0=不允许，1=允许）                      |
-| withdrawal_allowed | Integer  | 可否提现（0=不允许，1=允许）                      |
-|  current_balance   |  String  | 当前余额                                          |
-|      fee_coin      |  String  | 手续费所用币种                                    |
-|   estimated_fee    |  String  | 预估手续费数额                                    |
-|    upper_limit     |  String  | 触发提示邮件的账户余额上限                        |
-|    lower_limit     |  String  | 触发提示邮件的账户余额下限                        |
-|  alarm_frequency   |  String  | 提示邮件频率设置（0=每笔交易，1=每小时， 2=每天） |
+|      address       |  string  | 钱包地址                                          |
+|    address_name    |  string  | 钱包名称                                          |
+|  coin_unique_name  |  string  | 币种在本系统中的代号                              |
+|    coin_symbol     |  string  | 币种缩写                                          |
+|   coin_full_name   |  string  | 币种全称                                          |
+|    coin_decimal    |   int    | 余额值精度                                        |
+|  deposit_allowed   |   int    | 可否充值（0=不允许，1=允许）                      |
+| withdrawal_allowed |   int    | 可否提现（0=不允许，1=允许）                      |
+|  current_balance   |  string  | 当前余额                                          |
+|      fee_coin      |  string  | 手续费所用币种                                    |
+|   estimated_fee    |  string  | 预估手续费数额                                    |
+|    upper_limit     |  string  | 触发提示邮件的账户余额上限                        |
+|    lower_limit     |  string  | 触发提示邮件的账户余额下限                        |
+|  alarm_frequency   |   int    | 提示邮件频率设置（0=每笔交易，1=每小时， 2=每天） |
 
 #### 7.1.2 根据币种查询钱包详情
 
@@ -284,29 +284,29 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 
 |   参数    | 数据类型 | 说明                      | 必要 |
 | :-------: | :------: | :------------------------ | :--- |
-| coin_type |  String  | 币种（[参考](#币种名称)） | 是   |
+| coin_type |  string  | 币种（[参考](#币种名称)） | 是   |
 
 ##### 响应参数
 
 |        参数        | 数据类型 | 说明                                              |
 | :----------------: | :------: | :------------------------------------------------ |
-|      address       |  String  | 钱包地址                                          |
-|    address_name    |  String  | 钱包名称                                          |
-|  coin_unique_name  |  String  | 币种在本系统中的代号                              |
-|   coin_full_name   |  String  | 币种全称                                          |
-|    coin_symbol     |  String  | 币种缩写                                          |
-|    coin_decimal    | Integer  | 余额值精度                                        |
-|  deposit_allowed   | Integer  | 可否充值（0=不允许，1=允许）                      |
-| withdrawal_allowed | Integer  | 可否提现（0=不允许，1=允许）                      |
-|  current_balance   |  String  | 当前余额                                          |
-|      fee_coin      |  String  | 手续费所用币种                                    |
-|   estimated_fee    |  String  | 预估手续费                                        |
-|    upper_limit     |  String  | 触发提示邮件的账户余额上限                        |
-|    lower_limit     |  String  | 触发提示邮件的账户余额下限                        |
-|   limit_per_deal   |  String  | 单笔交易限额                                      |
-|  day_limit_amount  |  String  | 当日剩余可交易额度                                |
-| hour_limit_amount  |  String  | 当前小时剩余可交易额度                            |
-|  alarm_frequency   |  String  | 提示邮件频率设置（0=每笔交易，1=每小时， 2=每天） |
+|      address       |  string  | 钱包地址                                          |
+|    address_name    |  string  | 钱包名称                                          |
+|  coin_unique_name  |  string  | 币种在本系统中的代号                              |
+|   coin_full_name   |  string  | 币种全称                                          |
+|    coin_symbol     |  string  | 币种缩写                                          |
+|    coin_decimal    |   int    | 余额值精度                                        |
+|  deposit_allowed   |   int    | 可否充值（0=不允许，1=允许）                      |
+| withdrawal_allowed |   int    | 可否提现（0=不允许，1=允许）                      |
+|  current_balance   |  string  | 当前余额                                          |
+|      fee_coin      |  string  | 手续费所用币种                                    |
+|   estimated_fee    |  string  | 预估手续费                                        |
+|    upper_limit     |  string  | 触发提示邮件的账户余额上限                        |
+|    lower_limit     |  string  | 触发提示邮件的账户余额下限                        |
+|   limit_per_deal   |  string  | 单笔交易限额                                      |
+|  day_limit_amount  |  string  | 当日剩余可交易额度                                |
+| hour_limit_amount  |  string  | 当前小时剩余可交易额度                            |
+|  alarm_frequency   |   int    | 提示邮件频率设置（0=每笔交易，1=每小时， 2=每天） |
 
 #### 7.1.3 根据币种查询钱包地址
 
@@ -333,14 +333,14 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 
 |   参数    | 数据类型 | 说明                      | 必要 |
 | :-------: | :------: | :------------------------ | :--- |
-| coin_type |  String  | 币种（[参考](#币种名称)） | 是   |
+| coin_type |  string  | 币种（[参考](#币种名称)） | 是   |
 
 ##### 响应参数
 
 |       参数       | 数据类型 | 说明                 |
 | :--------------: | :------: | :------------------- |
-| coin_unique_name |  String  | 币种在本系统中的代号 |
-| deposit_address  |  String  | 充值地址             |
+| coin_unique_name |  string  | 币种在本系统中的代号 |
+| deposit_address  |  string  | 充值地址             |
 
 #### 7.1.4 验证钱包充值地址是否正确
 
@@ -366,8 +366,8 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 
 |   参数    | 数据类型 | 说明                      | 必要 |
 | :-------: | :------: | :------------------------ | :--- |
-| coin_type |  String  | 币种（[参考](#币种名称)） | 是   |
-|  address  |  String  | 主地址                    | 是   |
+| coin_type |  string  | 币种（[参考](#币种名称)） | 是   |
+|  address  |  string  | 主地址                    | 是   |
 
 ##### 响应参数
 
@@ -433,32 +433,36 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 
 |      参数      | 数据类型 | 说明                        | 必要 |
 | :------------: | :------: | :-------------------------- | :--- |
-| master_address |  String  | 热钱包主地址                | 是   |
+| master_address |  string  | 热钱包主地址                | 是   |
 |   hd_address   |  array   | 子地址。数组参数最大 100 个 | 否   |
-|   coin_type    |  String  | 币种                        | 否   |
-| start_balance  |  String  | 所查询地址的最小余额        | 否   |
-|  end_balance   |  String  | 所查询地址的最大余额        | 否   |
-|    page_num    |  String  | 页数                        | 否   |
-|   page_size    |  String  | 每页数据条数                | 否   |
+|   coin_type    |  string  | 币种                        | 否   |
+| start_balance  |  string  | 所查询地址的最小余额        | 否   |
+|  end_balance   |  string  | 所查询地址的最大余额        | 否   |
+|    page_num    |   int    | 页码                        | 否   |
+|   page_size    |   int    | 每页数据条数                | 否   |
 
 ##### 响应参数
 
 |        参数        | 数据类型 | 说明                                              |
 | :----------------: | :------: | :------------------------------------------------ |
-|      address       |  String  | 子地址                                            |
-|    address_name    |  String  | 子地址名称                                        |
-|    coin_decimal    | Integer  | 余额值精度                                        |
-|   coin_full_name   |  String  | 币种全称                                          |
-|    coin_symbol     |  String  | 币种缩写                                          |
-|  coin_unique_name  |  String  | 币种在本系统中的代号                              |
-|  current_balance   |  String  | 当前余额                                          |
-|  deposit_allowed   | Integer  | 可否充值,0=不允许,1 允许                          |
-|   estimated_fee    |  String  | 预估手续费                                        |
-|      fee_coin      |  String  | 手续费所用币种                                    |
-| withdrawal_allowed | Integer  | 可否提现,0=不允许,1 允许                          |
-|    lower_limit     |  String  | 触发提示邮件的账户余额下限                        |
-|    upper_limit     |  String  | 触发提示邮件的账户余额上限                        |
-|  alarm_frequency   |  String  | 提示邮件频率设置（0=每笔交易，1=每小时， 2=每天） |
+|      address       |  string  | 子地址                                            |
+|    address_name    |  string  | 子地址名称                                        |
+|    coin_decimal    |   int    | 余额值精度                                        |
+|   coin_full_name   |  string  | 币种全称                                          |
+|    coin_symbol     |  string  | 币种缩写                                          |
+|  coin_unique_name  |  string  | 币种在本系统中的代号                              |
+|  current_balance   |  string  | 当前余额                                          |
+|  deposit_allowed   |   int    | 可否充值,0=不允许,1 允许                          |
+|   estimated_fee    |  string  | 预估手续费                                        |
+|      fee_coin      |  string  | 手续费所用币种                                    |
+| withdrawal_allowed |   int    | 可否提现,0=不允许,1 允许                          |
+|    lower_limit     |  string  | 触发提示邮件的账户余额下限                        |
+|    upper_limit     |  string  | 触发提示邮件的账户余额上限                        |
+|  alarm_frequency   |   int    | 提示邮件频率设置（0=每笔交易，1=每小时， 2=每天） |
+|      page_num      |   int    | 当前页码                                          |
+|     page_size      |   int    | 每页数据条数                                      |
+|       total        |   int    | 总数据条数                                        |
+|       pages        |   int    | 总页数                                            |
 
 ### 7.2 交易详情
 
@@ -487,24 +491,31 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
     "code": 0,
     "msg": "SUCCESS",
     "result": {
-      "total": 120,
-      "records": [
+      "page_num": 1,
+      "page_size": 10,
+      "total": 1882,
+      "pages": 189,
+      "list": [
         {
-          "wallet_name": "",
-          "coin_unique_name": "",
-          "coin_full_name": "",
-          "coin_decimal": "",
-          "address": "",
-          "source_address": "",
-          "tx_type": "1-withdrawal,2-master address deposit,3-hd address deposit,4-collect transaction",
-          "amount": 100,
-          "tx_id": "",
-          "tx_hash": "",
-          "tx_status": "",
-          "create_time": "",
-          "confirm_time": "",
-          "fee_coin": "",
-          "fee": ""
+          "wallet_name": "XSGD_test",
+          "coin_unique_name": "ETH",
+          "coin_symbol": "ETH",
+          "coin_full_name": "Ethereum",
+          "coin_decimal": 18,
+          "address": "0x99dc5fe06a7c6ec548dd283e3b67c28dea289d4e",
+          "source_address": "0x975e71b7b89183bb9f86b098d0bb9af3baedff79",
+          "tx_type": "2",
+          "amount": "0.009000000000000000",
+          "tx_id": "20210226030405202339",
+          "tx_hash": "0x1439a2634cea40e4673498fc3aad600a9360a37531df919f9ec94413ef692a75",
+          "tx_status": "1",
+          "create_time": 1614308646000,
+          "confirm_time": 1614308646000,
+          "confirm_threshold": 6,
+          "confirm_threshold_count": 6,
+          "fee_coin": "ETH",
+          "fee": "0",
+          "fee_coin_decimal": 18
         }
       ]
     }
@@ -516,34 +527,42 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 
 |      参数       | 数据类型 | 说明                          | 必要 |
 | :-------------: | :------: | :---------------------------- | :--- |
-|     tx_type     |  String  | 交易类型（[参考](#交易类型)） | 否   |
-|    coin_type    |  String  | 币种（[参考](#币种名称)）     | 否   |
-|     address     |  String  | 交易地址                      | 否   |
-|      tx_id      |  String  | 交易单号                      | 否   |
-| start_tx_Amount |  String  | 所查询交易的最小交易金额      | 否   |
-|  end_tx_amount  |  String  | 所查询交易的最大交易金额      | 否   |
-|    page_num     |   int    | 页数                          | 否   |
+|     tx_type     |  string  | 交易类型（[参考](#交易类型)） | 否   |
+|    coin_type    |  string  | 币种（[参考](#币种名称)）     | 否   |
+|     address     |  string  | 交易地址                      | 否   |
+|      tx_id      |  string  | 交易单号                      | 否   |
+| start_tx_Amount |  string  | 所查询交易的最小交易金额      | 否   |
+|  end_tx_amount  |  string  | 所查询交易的最大交易金额      | 否   |
+|    page_num     |   int    | 页码                          | 否   |
 |    page_size    |   int    | 每页数据条数                  | 否   |
 
 ##### 响应参数
 
-|       参数       | 数据类型 | 说明                                          |
-| :--------------: | :------: | :-------------------------------------------- |
-|   wallet_name    |  String  | 钱包名称                                      |
-| coin_unique_name |  String  | 币种在本系统中的代号                          |
-|  coin_full_name  |  String  | 币种全称                                      |
-|   coin_decimal   | Integer  | 余额值精度                                    |
-|     address      |  String  | 钱包地址                                      |
-|  source_address  |  String  | 交易对方地址                                  |
-|     tx_type      |  String  | 交易类型（[参考](#交易类型)）                 |
-|      amount      |  String  | 交易金额                                      |
-|      tx_id       |  String  | 交易单号                                      |
-|     tx_hash      |  String  | 交易哈希                                      |
-|    tx_status     |  String  | 交易状态（0=待确认，1=成功，2=失败,3=审核中） |
-|   create_time    |  String  | 交易创建时间                                  |
-|   confirm_time   |  String  | 交易状态（成功或失败)确定时间                 |
-|     fee_coin     |  String  | 手续费所用币种                                |
-|       fee        |  String  | 手续费                                        |
+|          参数           | 数据类型 | 说明                                          |
+| :---------------------: | :------: | :-------------------------------------------- |
+|        page_num         |   int    | 当前页码                                      |
+|        page_size        |   int    | 每页数据条数                                  |
+|          total          |   int    | 总数据条数                                    |
+|          pages          |   int    | 总页数                                        |
+|       wallet_name       |  string  | 钱包名称                                      |
+|    coin_unique_name     |  string  | 币种在本系统中的代号                          |
+|       coin_symbol       |  string  | 币种缩写                                      |
+|     coin_full_name      |  string  | 币种全称                                      |
+|      coin_decimal       |   int    | 余额值精度                                    |
+|         address         |  string  | 钱包地址                                      |
+|     source_address      |  string  | 交易对方地址                                  |
+|         tx_type         |  string  | 交易类型（[参考](#交易类型)）                 |
+|         amount          |  string  | 交易金额                                      |
+|          tx_id          |  string  | 交易单号                                      |
+|         tx_hash         |  string  | 交易哈希                                      |
+|        tx_status        |  string  | 交易状态（0=待确认，1=成功，2=失败,3=审核中） |
+|       create_time       |   date    | 交易创建时间                                  |
+|      confirm_time       |   date    | 交易状态（成功或失败)确定时间                 |
+|    confirm_threshold    |   int    | 交易确认数（区块数）                          |
+| confirm_threshold_count |   int    | 交易完成后已确认区块数                        |
+|        fee_coin         |  string  | 手续费所用币种                                |
+|           fee           |  string  | 手续费金额                                    |
+|    fee_coin_decimal     |   int    | 手续费所用币种精度                            |
 
 #### 7.2.2 根据交易单号查询交易详情
 
@@ -581,21 +600,21 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 
 |       参数       | 数据类型 | 说明                                          |
 | :--------------: | :------: | :-------------------------------------------- |
-|   wallet_name    |  String  | 钱包名称                                      |
-| coin_unique_name |  String  | 币种在本系统中的代号                          |
-|  coin_full_name  |  String  | 币种全称                                      |
-|   coin_decimal   | Integer  | 余额值精度                                    |
-|     address      |  String  | 钱包地址                                      |
-|  source_address  |  String  | 交易对方地址                                  |
-|     tx_type      |  String  | 交易类型[参考](#交易类型)）                   |
-|      amount      |  String  | 交易金额                                      |
-|      tx_id       |  String  | 交易单号                                      |
-|     tx_hash      |  String  | 交易哈希                                      |
-|    tx_status     |  String  | 交易状态（0=待确认，1=成功，2=失败,3=审核中） |
-|   create_time    |  String  | 交易创建时间                                  |
-|   confirm_time   |  String  | 交易状态（成功或失败)确定时间                 |
-|     fee_coin     |  String  | 手续费所用币种                                |
-|       fee        |  String  | 手续费                                        |
+|   wallet_name    |  string  | 钱包名称                                      |
+| coin_unique_name |  string  | 币种在本系统中的代号                          |
+|  coin_full_name  |  string  | 币种全称                                      |
+|   coin_decimal   |   int    | 余额值精度                                    |
+|     address      |  string  | 钱包地址                                      |
+|  source_address  |  string  | 交易对方地址                                  |
+|     tx_type      |  string  | 交易类型[参考](#交易类型)）                   |
+|      amount      |   int    | 交易金额                                      |
+|      tx_id       |  string  | 交易单号                                      |
+|     tx_hash      |  string  | 交易哈希                                      |
+|    tx_status     |  string  | 交易状态（0=待确认，1=成功，2=失败,3=审核中） |
+|   create_time    |  date  | 交易创建时间                                  |
+|   confirm_time   |  date  | 交易状态（成功或失败)确定时间                 |
+|     fee_coin     |  string  | 手续费所用币种                                |
+|       fee        |  string  | 手续费金额                                    |
 
 ### 7.3 出金
 
@@ -608,10 +627,10 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
   "Method": "POST",
 
   "Params": {
-    "request_id": "",
+    "request_id": 10,
     "coin_type": "",
     "to_address": "",
-    "tx_amount": 99.99,
+    "tx_amount": "",
     "note": ""
   },
 
@@ -629,17 +648,17 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 
 |    参数    | 数据类型 | 说明                          | 必要 |
 | :--------: | :------: | :---------------------------- | :--- |
-| request_id |  String  | 单次请求 ID，每次请求不得重复 | 是   |
-| coin_type  |  String  | 币种（[参考](#币种名称)）     | 是   |
-| to_address |  String  | 入金地址                      | 是   |
-| tx_amount  |  String  | 出金金额                      | 是   |
-|    note    |  String  | 备注                          | 否   |
+| request_id |   int    | 单次请求 ID，每次请求不得重复 | 是   |
+| coin_type  |  string  | 币种（[参考](#币种名称)）     | 是   |
+| to_address |  string  | 入金地址                      | 是   |
+| tx_amount  |  string  | 出金金额                      | 是   |
+|    note    |  string  | 备注                          | 否   |
 
 ##### 响应参数
 
 | 参数  | 数据类型 | 说明                   |
 | :---: | :------: | :--------------------- |
-| tx_id |  String  | 请求成功则返回交易单号 |
+| tx_id |  string  | 请求成功则返回交易单号 |
 
 ### 7.4 子地址管理
 
@@ -670,11 +689,11 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 
 ##### 请求参数
 
-|  参数   | 数据类型 | 说明                                  | 必要 |
-| :-----: | :------: | :------------------------------------ | :--- |
-| address |  String  | 子地址的主地址                        | 是   |
-|  count  | Integer  | 需要创建子地址的个数，单次最大为 5 个 | 是   |
-| remarks | String[] | 子地址名称。传入个数与 count 数值一致 | 是   |
+|  参数   |   数据类型   | 说明                                  | 必要 |
+| :-----: | :----------: | :------------------------------------ | :--- |
+| address |    string    | 子地址的主地址                        | 是   |
+|  count  |     int      | 需要创建子地址的个数，单次最大为 5 个 | 是   |
+| remarks | string array | 子地址名称。传入个数与 count 数值一致 | 是   |
 
 ##### 响应参数
 
@@ -706,8 +725,8 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 
 |  参数   | 数据类型 | 说明               | 必要 |
 | :-----: | :------: | :----------------- | :--- |
-| address |  String  | 子地址的主地址     | 是   |
-| remark  |  String  | 修改后的子地址名称 | 是   |
+| address |  string  | 子地址的主地址     | 是   |
+| remark  |  string  | 修改后的子地址名称 | 是   |
 
 ### 7.5 接口回调
 
@@ -744,23 +763,23 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 
 |      参数       | 数据类型 | 说明                                  |
 | :-------------: | :------: | :------------------------------------ |
-|   notice-type   |  String  | 通知类型。目前只有 transaction-notice |
-|     address     |  String  | 交易地址                              |
-|     amount      |  String  | 交易金额                              |
-|    coinType     |  String  | 交易币种名称（[参考](#币种名称)）     |
-| confirmedBlocks |  String  | 区块确认数                            |
-|       fee       |  String  | 手续费                                |
-|      hash       |  String  | 交易哈希                              |
-|     status      |  String  | 交易状态（0=等待，1=成功，2=失败）    |
-|      txId       |  String  | 交易单号。同一交易可多次通知，ID 唯一 |
-|     txType      |  String  | 交易类型（[参考](#交易类型)）         |
+|   notice-type   |  string  | 通知类型。目前只有 transaction-notice |
+|     address     |  string  | 交易地址                              |
+|     amount      |  string  | 交易金额                              |
+|    coinType     |  string  | 交易币种名称（[参考](#币种名称)）     |
+| confirmedBlocks |  string  | 区块确认数                            |
+|       fee       |  string  | 手续费                                |
+|      hash       |  string  | 交易哈希                              |
+|     status      |  string  | 交易状态（0=等待，1=成功，2=失败）    |
+|      txId       |  string  | 交易单号。同一交易可多次通知，ID 唯一 |
+|     txType      |  string  | 交易类型（[参考](#交易类型)）         |
 
 ##### 响应参数
 
 | 参数 | 数据类型 | 说明                                                                                              |
 | :--: | :------: | :------------------------------------------------------------------------------------------------ |
 | code |   long   | OpenAPI 收到 0 说明通知成功。如果收到其他返回码或没有收到返回，会继续发送通知直到达到最大通知次数 |
-| msg  |  String  | 返回描述                                                                                          |
+| msg  |  string  | 返回描述                                                                                          |
 
 ## 8. 错误代码
 
