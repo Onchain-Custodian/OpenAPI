@@ -219,22 +219,22 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 }
 ```
 
-|     Parameter      |  Type   | Description                                                                       |
-| :----------------: | :-----: | :-------------------------------------------------------------------------------- |
-|      address       | String  | wallet address                                                                    |
-|    address_name    | String  | wallet address name                                                               |
-|  coin_unique_name  | String  | system alias                                                                      |
-|    coin_symbol     | String  | Coin symbol                                                                       |
-|   coin_full_name   | String  | coin full name                                                                    |
-|    coin_decimal    | Integer | decimal precision of balance value                                                |
-|  deposit_allowed   | Integer | whether deposit is enabled, 0=No,1=Yes                                            |
-| withdrawal_allowed | Integer | whether withdrawal is enabled, 0=No, 1=Yes                                        |
-|  current_balance   | String  | current balance                                                                   |
-|      fee_coin      | String  | coin type of the transaction fee                                                  |
-|   estimated_fee    | String  | estimated transaction fee                                                         |
-|    upper_limit     | String  | email alert trigger upper limit                                                   |
-|    lower_limit     | String  | email alert trigger lower limit                                                   |
-|  alarm_frequency   | String  | notification frequency setting (0: each transaction, 1: every hour, 2: every day) |
+|     Parameter      |  Type  | Description                                                                       |
+| :----------------: | :----: | :-------------------------------------------------------------------------------- |
+|      address       | string | wallet address                                                                    |
+|    address_name    | string | wallet address name                                                               |
+|  coin_unique_name  | string | system alias                                                                      |
+|    coin_symbol     | string | Coin symbol                                                                       |
+|   coin_full_name   | string | coin full name                                                                    |
+|    coin_decimal    |  int   | decimal precision of balance value                                                |
+|  deposit_allowed   |  int   | whether deposit is enabled, 0=No,1=Yes                                            |
+| withdrawal_allowed |  int   | whether withdrawal is enabled, 0=No, 1=Yes                                        |
+|  current_balance   | string | current balance                                                                   |
+|      fee_coin      | string | coin type of the transaction fee                                                  |
+|   estimated_fee    | string | estimated transaction fee                                                         |
+|    upper_limit     | string | email alert trigger upper limit                                                   |
+|    lower_limit     | string | email alert trigger lower limit                                                   |
+|  alarm_frequency   |  int   | notification frequency setting (0: each transaction, 1: every hour, 2: every day) |
 
 #### 7.1.2. Fetch Wallet Details by Coin Type
 
@@ -278,29 +278,29 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 
 | Parameter |  Type  | Description                               | Required |
 | :-------: | :----: | :---------------------------------------- | :------- |
-| coin_type | String | coin type ([Reference table](#coin-type)) | yes      |
+| coin_type | string | coin type ([Reference table](#coin-type)) | yes      |
 
 ##### Response Parameters
 
-|     Parameter      |  Type   | Description                                                                       |
-| :----------------: | :-----: | :-------------------------------------------------------------------------------- |
-|      address       | String  | child address                                                                     |
-|    address_name    | String  | child address name                                                                |
-|  coin_unique_name  | String  | system alias                                                                      |
-|    coin_symbol     | String  | coin symbol                                                                       |
-|   coin_full_name   | String  | coin full name                                                                    |
-|    coin_decimal    | Integer | decimal precision of balance value                                                |
-|  deposit_allowed   | Integer | whether deposit is enabled, 0 = no ,1 = yes                                       |
-| withdrawal_allowed | Integer | whether withdrawal is enabled, 0= no, 1= yes                                      |
-|  current_balance   | String  | balance of the child address                                                      |
-|      fee_coin      | String  | coin type of the transaction fee                                                  |
-|   estimated_fee    | String  | estimated transaction fee                                                         |
-|    upper_limit     | String  | email alert trigger upper limit                                                   |
-|    lower_limit     | String  | email alert trigger lower limit                                                   |
-|   limit_per_deal   | String  | transaction limit value                                                           |
-|  day_limit_amount  | String  | remaining daily transaction quota                                                 |
-| hour_limit_amount  | String  | remaining hourly transaction quota                                                |
-|  alarm_frequency   | String  | notification frequency setting (0: each transaction, 1: every hour, 2: every day) |
+|     Parameter      |  Type  | Description                                                                       |
+| :----------------: | :----: | :-------------------------------------------------------------------------------- |
+|      address       | string | child address                                                                     |
+|    address_name    | string | child address name                                                                |
+|  coin_unique_name  | string | system alias                                                                      |
+|    coin_symbol     | string | coin symbol                                                                       |
+|   coin_full_name   | string | coin full name                                                                    |
+|    coin_decimal    |  int   | decimal precision of balance value                                                |
+|  deposit_allowed   |  int   | whether deposit is enabled, 0 = no ,1 = yes                                       |
+| withdrawal_allowed |  int   | whether withdrawal is enabled, 0= no, 1= yes                                      |
+|  current_balance   | string | balance of the child address                                                      |
+|      fee_coin      | string | coin type of the transaction fee                                                  |
+|   estimated_fee    | string | estimated transaction fee                                                         |
+|    upper_limit     | string | email alert trigger upper limit                                                   |
+|    lower_limit     | string | email alert trigger lower limit                                                   |
+|   limit_per_deal   | string | transaction limit value                                                           |
+|  day_limit_amount  | string | remaining daily transaction quota                                                 |
+| hour_limit_amount  | string | remaining hourly transaction quota                                                |
+|  alarm_frequency   |  int   | notification frequency setting (0: each transaction, 1: every hour, 2: every day) |
 
 #### 7.1.3. Fetch Wallet Address by Coin Type
 
@@ -327,14 +327,14 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 
 | Parameter |  Type  | Description                               | Required |
 | :-------: | :----: | :---------------------------------------- | :------- |
-| coin_type | String | coin type ([Reference table](#coin-type)) | yes      |
+| coin_type | string | coin type ([Reference table](#coin-type)) | yes      |
 
 ##### Response Parameters
 
 |    Parameter     |  Type  | Description     |
 | :--------------: | :----: | :-------------- |
-| coin_unique_name | String | system alias    |
-| deposit_address  | String | deposit address |
+| coin_unique_name | string | system alias    |
+| deposit_address  | string | deposit address |
 
 #### 7.1.4. Verify a Master Deposit Address
 
@@ -360,8 +360,8 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 
 | Parameter |  Type  | Description                               | Required |
 | :-------: | :----: | :---------------------------------------- | :------- |
-| coin_type | String | coin type ([Reference table](#coin-type)) | yes      |
-|  address  | String | Master address                            | yes      |
+| coin_type | string | coin type ([Reference table](#coin-type)) | yes      |
+|  address  | string | Master address                            | yes      |
 
 ##### Response Parameters
 
@@ -427,32 +427,36 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 
 |   Parameter    |  Type  | Description                                         | Required |
 | :------------: | :----: | :-------------------------------------------------- | :------: |
-| master_address | String | master address                                      |   yes    |
+| master_address | string | master address                                      |   yes    |
 |   hd_address   | array  | child addresses, max. 100, optional                 |    no    |
-|   coin_type    | String | coin type, optional ([Reference table](#coin-type)) |    no    |
-| start_balance  | String | minimum balance of addresses fetched                |    no    |
-|  end_balance   | String | maximum balance of addresses fetched                |    no    |
-|    page_num    | String | page number                                         |    no    |
-|   page_size    | String | amount of entries shown on one page                 |    no    |
+|   coin_type    | string | coin type, optional ([Reference table](#coin-type)) |    no    |
+| start_balance  | string | minimum balance of addresses fetched                |    no    |
+|  end_balance   | string | maximum balance of addresses fetched                |    no    |
+|    page_num    |  int   | page number                                         |    no    |
+|   page_size    |  int   | amount of entries shown on one page                 |    no    |
 
 ##### Response:
 
-|     Parameter      |  Type   | Description                                                                       |
-| :----------------: | :-----: | :-------------------------------------------------------------------------------- |
-|      address       | String  | child address                                                                     |
-|    address_name    | String  | child address name                                                                |
-|    coin_decimal    | Integer | decimal precision of balance value                                                |
-|   coin_full_name   | String  | coin full name                                                                    |
-|    coin_symbol     | String  | coin symbol                                                                       |
-|  coin_unique_name  | String  | system alias                                                                      |
-|  current_balance   | String  | balance of the child address                                                      |
-|  deposit_allowed   | Integer | whether deposit is enabled, 0 = no ,1 = yes                                       |
-|   estimated_fee    | String  | estimated transaction fee                                                         |
-|      fee_coin      | String  | transaction fee coin type                                                         |
-| withdrawal_allowed | Integer | whether withdrawal is enabled, 0=No, 1=Yes                                        |
-|    lower_limit     | String  | email alert trigger lower limit                                                   |
-|    upper_limit     | String  | email alert trigger upper limit                                                   |
-|  alarm_frequency   | String  | notification frequency setting (0: each transaction, 1: every hour, 2: every day) |
+|     Parameter      |  Type  | Description                                                                       |
+| :----------------: | :----: | :-------------------------------------------------------------------------------- |
+|      address       | string | child address                                                                     |
+|    address_name    | string | child address name                                                                |
+|    coin_decimal    |  int   | decimal precision of balance value                                                |
+|   coin_full_name   | string | coin full name                                                                    |
+|    coin_symbol     | string | coin symbol                                                                       |
+|  coin_unique_name  | string | system alias                                                                      |
+|  current_balance   | string | balance of the child address                                                      |
+|  deposit_allowed   |  int   | whether deposit is enabled, 0 = no ,1 = yes                                       |
+|   estimated_fee    | string | estimated transaction fee                                                         |
+|      fee_coin      | string | transaction fee coin type                                                         |
+| withdrawal_allowed |  int   | whether withdrawal is enabled, 0=No, 1=Yes                                        |
+|    lower_limit     | string | email alert trigger lower limit                                                   |
+|    upper_limit     | string | email alert trigger upper limit                                                   |
+|  alarm_frequency   |  int   | notification frequency setting (0: each transaction, 1: every hour, 2: every day) |
+|      page_num      |  int   | current page number                                                               |
+|     page_size      |  int   | current page size                                                                 |
+|       total        |  int   | total no. of records in the list                                                  |
+|       pages        |  int   | total no. of pages                                                                |
 
 ### 7.2. Transaction Details
 
@@ -481,24 +485,31 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
     "code": 0,
     "msg": "SUCCESS",
     "result": {
-      "total": 120,
-      "records": [
+      "page_num": 1,
+      "page_size": 10,
+      "total": 1882,
+      "pages": 189,
+      "list": [
         {
-          "wallet_name": "",
-          "coin_unique_name": "",
-          "coin_full_name": "",
-          "coin_decimal": "",
-          "address": "",
-          "source_address": "",
-          "tx_type": "1-withdrawal,2-master address deposit,3-hd address deposit,4-collect transaction",
-          "amount": 100,
-          "tx_id": "",
-          "tx_hash": "",
-          "tx_status": "",
-          "create_time": "",
-          "confirm_time": "",
-          "fee_coin": "",
-          "fee": ""
+          "wallet_name": "XSGD_test",
+          "coin_unique_name": "ETH",
+          "coin_symbol": "ETH",
+          "coin_full_name": "Ethereum",
+          "coin_decimal": 18,
+          "address": "0x99dc5fe06a7c6ec548dd283e3b67c28dea289d4e",
+          "source_address": "0x975e71b7b89183bb9f86b098d0bb9af3baedff79",
+          "tx_type": "2",
+          "amount": "0.009000000000000000",
+          "tx_id": "20210226030405202339",
+          "tx_hash": "0x1439a2634cea40e4673498fc3aad600a9360a37531df919f9ec94413ef692a75",
+          "tx_status": "1",
+          "create_time": 1614308646000,
+          "confirm_time": 1614308646000,
+          "confirm_threshold": 6,
+          "confirm_threshold_count": 6,
+          "fee_coin": "ETH",
+          "fee": "0",
+          "fee_coin_decimal": 18
         }
       ]
     }
@@ -510,34 +521,42 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 
 |    Parameter    |  Type  | Description                                             | Required |
 | :-------------: | :----: | :------------------------------------------------------ | :------: |
-|     tx_type     | String | Transaction type ([Reference table](#transaction-type)) |    no    |
-|    coin_type    | String | Coin type ([Reference table](#coin-type))               |    no    |
-|      tx_id      | String | transaction ID                                          |    no    |
-|     address     | String | transaction address                                     |    no    |
-| start_tx_amount | String | minimum value of transactions fetched                   |    no    |
-|  end_tx_amount  | String | maximum value of transactions fetched                   |    no    |
+|     tx_type     | string | Transaction type ([Reference table](#transaction-type)) |    no    |
+|    coin_type    | string | Coin type ([Reference table](#coin-type))               |    no    |
+|      tx_id      | string | transaction ID                                          |    no    |
+|     address     | string | transaction address                                     |    no    |
+| start_tx_amount | string | minimum value of transactions fetched                   |    no    |
+|  end_tx_amount  | string | maximum value of transactions fetched                   |    no    |
 |    page_num     |  int   | page number                                             |    no    |
 |    page_size    |  int   | amount of entries shown on one page                     |    no    |
 
 ##### Response Parameters
 
-|    Parameter     |  Type   | Description                                                          |
-| :--------------: | :-----: | :------------------------------------------------------------------- |
-|   wallet_name    | String  | wallet name                                                          |
-| coin_unique_name | String  | system alias                                                         |
-|  coin_full_name  | String  | coin full name                                                       |
-|   coin_decimal   | Integer | decimal precision of balance value                                   |
-|     address      | String  | wallet address                                                       |
-|  source_address  | String  | in case of deposit: sender's address. withdrawal: receiver's address |
-|     tx_type      | String  | transaction type ([Reference table](#transaction-type))              |
-|      amount      | String  | transaction amount                                                   |
-|      tx_id       | String  | transaction ID                                                       |
-|     tx_hash      | String  | transaction hash                                                     |
-|    tx_status     | String  | transaction status (0=pending,1=success,2=fail)                      |
-|   create_time    | String  | transaction creation time                                            |
-|   confirm_time   | String  | transaction confirmation (success or failure) time                   |
-|     fee_coin     | String  | coin type of the transaction fee                                     |
-|       fee        | String  | transaction fee amount                                               |
+|        Parameter        |  Type  | Description                                                          |
+| :---------------------: | :----: | :------------------------------------------------------------------- |
+|        page_num         |  int   | current page number                                                  |
+|        page_size        |  int   | current page size                                                    |
+|          total          |  int   | total no. of records in the list                                     |
+|          pages          |  int   | total no. of pages                                                   |
+|       wallet_name       | string | wallet name                                                          |
+|    coin_unique_name     | string | system alias                                                         |
+|       coin_symbol       | string | coin symbol                                                          |
+|     coin_full_name      | string | coin full name                                                       |
+|      coin_decimal       |  int   | decimal precision of balance value                                   |
+|         address         | string | wallet address                                                       |
+|     source_address      | string | in case of deposit: sender's address. withdrawal: receiver's address |
+|         tx_type         | string | transaction type ([Reference table](#transaction-type))              |
+|         amount          | string | transaction amount                                                   |
+|          tx_id          | string | transaction ID                                                       |
+|         tx_hash         | string | transaction hash                                                     |
+|        tx_status        | string | transaction status (0=pending,1=success,2=fail)                      |
+|       create_time       |  int   | transaction creation time                                            |
+|      confirm_time       |  int   | transaction confirmation (success or failure) time                   |
+|    confirm_threshold    |  int   | transaction confirmation threshold (no. of blocks)                   |
+| confirm_threshold_count |  int   | current no. of blocks confirmed after transaction                    |
+|        fee_coin         | string | coin type of the transaction fee                                     |
+|           fee           | string | transaction fee amount                                               |
+|    fee_coin_decimal     |  int   | fee coin decimal precision                                           |
 
 #### 7.2.2. Fetch Transaction Details by Transaction ID
 
@@ -573,23 +592,23 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 }
 ```
 
-|    Parameter     |  Type   | Description                                                          |
-| :--------------: | :-----: | :------------------------------------------------------------------- |
-|   wallet_name    | String  | wallet name                                                          |
-| coin_unique_name | String  | system alias                                                         |
-|  coin_full_name  | String  | coin full name                                                       |
-|   coin_decimal   | Integer | decimal precision of balance value                                   |
-|     address      | String  | wallet address                                                       |
-|  source_address  | String  | in case of deposit: sender's address. withdrawal: receiver's address |
-|     tx_type      | String  | Transaction type ([Reference table](#transaction-type))              |
-|      amount      | String  | transaction amount                                                   |
-|      tx_id       | String  | transaction ID                                                       |
-|     tx_hash      | String  | transaction hash                                                     |
-|    tx_status     | String  | transaction status (0=pending,1=success,2=fail)                      |
-|   create_time    | String  | transaction creation time                                            |
-|   confirm_time   | String  | transaction confirmation (success or failure) time                   |
-|     fee_coin     | String  | coin type of the transaction fee                                     |
-|       fee        | String  | transaction fee amount                                               |
+|    Parameter     |  Type  | Description                                                          |
+| :--------------: | :----: | :------------------------------------------------------------------- |
+|   wallet_name    | string | wallet name                                                          |
+| coin_unique_name | string | system alias                                                         |
+|  coin_full_name  | string | coin full name                                                       |
+|   coin_decimal   |  int   | decimal precision of balance value                                   |
+|     address      | string | wallet address                                                       |
+|  source_address  | string | in case of deposit: sender's address. withdrawal: receiver's address |
+|     tx_type      | string | Transaction type ([Reference table](#transaction-type))              |
+|      amount      |  int   | transaction amount                                                   |
+|      tx_id       | string | transaction ID                                                       |
+|     tx_hash      | string | transaction hash                                                     |
+|    tx_status     | string | transaction status (0=pending,1=success,2=fail)                      |
+|   create_time    | string | transaction creation time                                            |
+|   confirm_time   | string | transaction confirmation (success or failure) time                   |
+|     fee_coin     | string | coin type of the transaction fee                                     |
+|       fee        | string | transaction fee amount                                               |
 
 ### 7.3. Withdrawal
 
@@ -602,10 +621,10 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
   "Method": "POST",
 
   "Params": {
-    "request_id": "",
+    "request_id": 10,
     "coin_type": "",
     "to_address": "",
-    "tx_amount": 99.99,
+    "tx_amount": "",
     "note": ""
   },
 
@@ -623,17 +642,17 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 
 | Parameter  |  Type  | Description                               | Required |
 | :--------: | :----: | :---------------------------------------- | :------: |
-| request_id | String | request ID, different for each request    |   yes    |
-| coin_type  | String | coin type ([Reference table](#coin-type)) |   yes    |
-| to_address | String | deposit address                           |   yes    |
-| tx_amount  | String | transaction amount                        |   yes    |
-|    note    | String | remarks                                   |    no    |
+| request_id |  int   | request ID, different for each request    |   yes    |
+| coin_type  | string | coin type ([Reference table](#coin-type)) |   yes    |
+| to_address | string | deposit address                           |   yes    |
+| tx_amount  | string | transaction amount                        |   yes    |
+|    note    | string | remarks                                   |    no    |
 
 ##### Response Parameters
 
 | Parameter |  Type  | Description    |
 | :-------: | :----: | :------------- |
-|   tx_id   | String | transaction ID |
+|   tx_id   | string | transaction ID |
 
 ### 7.4. Child address management
 
@@ -664,11 +683,11 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 
 ##### Request Parameters
 
-| Parameter |   Type   | Description                             | Required |
-| :-------: | :------: | :-------------------------------------- | :------: |
-|  address  |  String  | master address                          |   yes    |
-|   count   |  String  | number of child addresses to be created |   yes    |
-|  remarks  | String[] | names of the child address              |   yes    |
+| Parameter |     Type     | Description                             | Required |
+| :-------: | :----------: | :-------------------------------------- | :------: |
+|  address  |    string    | master address                          |   yes    |
+|   count   |     int      | number of child addresses to be created |   yes    |
+|  remarks  | string array | names of the child address              |   yes    |
 
 ##### Response Parameters
 
@@ -700,8 +719,8 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 
 | Parameter |  Type  | Description                           | Required |
 | :-------: | :----: | :------------------------------------ | :------: |
-|  address  | String | master address                        |   yes    |
-|  remark   | String | child address name after modification |   yes    |
+|  address  | string | master address                        |   yes    |
+|  remark   | string | child address name after modification |   yes    |
 
 ### 7.5. API Call Back
 
@@ -738,23 +757,23 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 
 |    Parameter    |  Type  | Description                                              |
 | :-------------: | :----: | :------------------------------------------------------- |
-|   notice-type   | String | notice type: transaction-notice                          |
-|     address     | String | wallet address                                           |
-|     amount      | String | transaction amount                                       |
-|    coinType     | String | coin type ([Reference table](#coin-type))                |
-| confirmedBlocks | String | blocks confirmed                                         |
-|       fee       | String | transaction fee                                          |
-|      hash       | String | transaction hash                                         |
-|     status      | String | transaction status (0=pending,1=success,2=fail)          |
-|      txId       | String | transaction ID                                           |
-|     txType      | String | transaction type: ([Reference table](#transaction-type)) |
+|   notice-type   | string | notice type: transaction-notice                          |
+|     address     | string | wallet address                                           |
+|     amount      | string | transaction amount                                       |
+|    coinType     | string | coin type ([Reference table](#coin-type))                |
+| confirmedBlocks | string | blocks confirmed                                         |
+|       fee       | string | transaction fee                                          |
+|      hash       | string | transaction hash                                         |
+|     status      | string | transaction status (0=pending,1=success,2=fail)          |
+|      txId       | string | transaction ID                                           |
+|     txType      | string | transaction type: ([Reference table](#transaction-type)) |
 
 ##### Response Parameters
 
-| Parameter |  Type  | Description                                                                                                                                                                            |
-| :-------: | :----: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|   code    |  long  | If the notifications is successfully sent, **"0"** will be returned. If other codes or no code is returned, notifications will be sent again till the set maximum frequency is reached |
-|    msg    | String | description                                                                                                                                                                            |
+| Parameter |  Type  | Description                                                                                                                              |
+| :-------: | :----: | :--------------------------------------------------------------------------------------------------------------------------------------- |
+|   code    |  long  | **"0"** if notifications is successfully sent. For other codes or no code, notifications will be sent again as per set maximum frequency |
+|    msg    | string | description                                                                                                                              |
 
 ## 8. Error Codes
 
