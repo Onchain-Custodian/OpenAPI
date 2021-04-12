@@ -139,12 +139,16 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |  GET   | [/v1/api/account/deposit-address/{coinType}](#713-fetch-wallet-address-by-coin-type)                | Fetch the deposit address for an asset in the wallet                         |
 |  GET   | [/v1/api/account/verify-deposit-address/{coinType}/{address}](#714-verify-a-master-deposit-address) | Verify if the address is the correct deposit address for an asset            |
 |  GET   | [/v1/api/account/list-hdaddress](#715-fetch-wallet-details-for-master-and-child-addresses)          | Fetch the child addresses using the master key                               |
+|  POST  | [/v1/api/account/balance](#716-fetch-address-wise-balance-details-by-coin-type)                            | Fetch address-wise balance details by coin type                                      |
+|  PUT   | [v1/api/account/collect](#717-collect-funds-from-child-addresses-and-transfer-to-master-address)                                | Collect funds from child addresses and transfer to master address                                         |
+|  PUT  | [v1/api/account/collect/auto](#718-update-auto-collect-configuration)                               | Update auto-collect configuration                                                 |
 |  POST  | [/v1/api/list-trans](#721-fetch-list-of-transactions)                                               | Fetch the transaction history for a wallet, can be filtered using parameters |
 |  GET   | [/v1/api/trans/{tx_id}](#722-fetch-transaction-details-by-transaction-id)                           | Fetch details for a transaction using the transaction ID                     |
 |  POST  | [/v1/api/trans/withdrawal](#731-send-a-withdrawal-request)                                          | Send a withdrawal request                                                    |
 |  POST  | [/v1/api/hd-address](#741-generate-child-addresses-for-a-master-address)                            | Create child addresses for a master key                                      |
 |  PUT   | [/v1/api/hd-address](#742-modify-the-name-of-a-child-wallet-address)                                | Assign a new name to a child address                                         |
 |  POST  | [host:port/{notice-type}](#751-transaction-notification-api-callback)                               | Configurable callback method                                                 |
+
 
 ### Reference Tables
 
@@ -457,6 +461,110 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |     page_size      |  int   | current page size                                                                 |
 |       total        |  int   | total no. of records in the list                                                  |
 |       pages        |  int   | total no. of pages                                                                |
+
+#### 7.1.6. Fetch Address-wise Balance Details by Coin Type
+
+```json
+{
+  "URL": "/v1/api/account/balance",
+
+  "Method": "POST",
+
+  "Params": {
+    "coin_type": ["string"],
+    "include_master_address": true
+  },
+
+  "Response": {
+    "code": 0,
+    "msg": "string",
+    "result": {
+      "balance": {
+        "BTC": "10",
+        "ETH": "5"
+      },
+      "include_master_address": true
+    }
+  }
+}
+```
+
+##### Request Parameters
+
+|       Parameter        |  Type   | Description                                    | Required |
+| :--------------------: | :-----: | :--------------------------------------------- | :------: |
+|       coin_type        | string  | Coin type                                      |    no    |
+| include_master_address | boolean | Whether include the master address in response |    no    |
+
+##### Response Parameters
+
+|       Parameter        |  Type   | Description                           |
+| :--------------------: | :-----: | :------------------------------------ |
+|        balance         | string  | Key: coin unique name, value: balance |
+| include_master_address | boolean | request value                         |
+
+#### 7.1.7. Collect Funds from Child Addresses and Transfer to Master Address
+
+> In case no sub-addresses are passed in the sub_address_list parameter, funds will be collected from all addresses with balance above the specified threshold.
+
+```json
+{
+  "URL": "v1/api/account/collect",
+
+  "Method": "PUT",
+
+  "Params": {
+    "coin_type": "string",
+    "sub_address_list": ["string"],
+    "trigger_threshold": 0
+  },
+
+  "Response": {
+    "code": 0,
+    "msg": "string",
+    "result": {}
+  }
+}
+```
+
+##### Request Parameters
+
+|     Parameter     |     Type     | Description                                   | Required |
+| :---------------: | :----------: | :-------------------------------------------- | :------: |
+|     coin_type     |    string    | Coin type                                     |   yes    |
+| sub_address_list  | string array | Sub-addresses to collect balance from         |    no    |
+| trigger_threshold |    number    | Minimum balance threshold (minimum value = 0) |   yes    |
+
+#### 7.1.8. Update Auto-collect Configuration
+
+```json
+{
+  "URL": "v1/api/account/collect/auto",
+
+  "Method": "PUT",
+
+  "Params": {
+    "coin_type": "string",
+    "switch_collect": true,
+    "threshold": 0
+  },
+
+  "Response": {
+    "code": 0,
+    "msg": "string",
+    "result": {}
+  }
+}
+```
+
+##### Request Parameters
+
+|   Parameter    |  Type   | Description                                         | Required |
+| :------------: | :-----: | :-------------------------------------------------- | :------: |
+|   coin_type    | string  | coin type                                           |   yes    |
+| switch_collect | boolean | Auto collect toggle                                 |   yes    |
+|   threshold    | number  | Minimum balance threshold value (minimum value = 0) |   yes    |
+
 
 ### 7.2. Transaction Details
 
