@@ -143,6 +143,9 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 |   GET    | [/v1/api/account/deposit-address/{coinType}](#713-根据币种查询钱包地址)                      | 获取钱包中一种资产的充值地址         |
 |   GET    | [/v1/api/account/verify-deposit-address/{coinType}/{address}](#714-验证钱包充值地址是否正确) | 验证一个地址是否是某个资产的充值地址 |
 |   GET    | [/v1/api/account/list-hdaddress](#715-获取主地址和子地址详情)                                | 通过主地址获取子地址                 |
+|  POST  | [/v1/api/account/balance](#716-根据币种获取钱包地址余额详情)                            | 根据币种获取钱包地址余额详情                                      |
+|  PUT   | [v1/api/account/collect](#717-将子地址余额归集至主地址)                                | 将子地址余额归集至主地址                                         |
+|  PUT  | [v1/api/account/collect/auto](#718-更新自动归集配置)                               | 更新自动归集配置                                                 |
 |   POST   | [/v1/api/list-trans](#721-获取交易列表)                                                      | 获取钱包交易历史，可通过参数筛选     |
 |   GET    | [/v1/api/trans/{tx_id}](#722-根据交易单号查询交易详情)                                       | 通过交易单号获取交易详情             |
 |   POST   | [/v1/api/trans/withdrawal](#731-发起出金请求)                                                | 发送出金请求                         |
@@ -463,6 +466,110 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 |     page_size      |   int    | 每页数据条数                                      |
 |       total        |   int    | 总数据条数                                        |
 |       pages        |   int    | 总页数                                            |
+
+#### 7.1.6. 根据币种获取钱包地址余额详情
+
+```json
+{
+  "URL": "/v1/api/account/balance",
+
+  "Method": "POST",
+
+  "Params": {
+    "coin_type": ["string"],
+    "include_master_address": true
+  },
+
+  "Response": {
+    "code": 0,
+    "msg": "string",
+    "result": {
+      "balance": {
+        "BTC": "10",
+        "ETH": "5"
+      },
+      "include_master_address": true
+    }
+  }
+}
+```
+
+##### 请求参数
+
+|          参数          | 数据类型 | 说明                   | 必要 |
+| :--------------------: | :------: | :--------------------- | :--: |
+|       coin_type        |  string  | 币种                   |  否  |
+| include_master_address | boolean  | 是否在响应中包含主地址 |  否  |
+
+##### 响应参数
+
+|          参数          | 数据类型 | 说明                                   |
+| :--------------------: | :------: | :------------------------------------- |
+|        balance         |  string  | key: 币种在本系统中的代号，value: 余额 |
+| include_master_address | boolean  | 请求值                                 |
+
+#### 7.1.7. 将子地址余额归集至主地址
+
+> 没有通过 sub_address_list 参数传入子地址时，将从余额超过指定阈值的所有地址收集资金。
+
+```json
+{
+  "URL": "v1/api/account/collect",
+
+  "Method": "PUT",
+
+  "Params": {
+    "coin_type": "string",
+    "sub_address_list": ["string"],
+    "trigger_threshold": 0
+  },
+
+  "Response": {
+    "code": 0,
+    "msg": "string",
+    "result": {}
+  }
+}
+```
+
+##### 请求参数
+
+|       参数        |   数据类型   | 说明                           | 必要 |
+| :---------------: | :----------: | :----------------------------- | :--: |
+|     coin_type     |    string    | 币种                           |  是  |
+| sub_address_list  | string array | 用于余额归集的子地址           |  否  |
+| trigger_threshold |    number    | 触发归集的最小余额阈值（最小值为 0） |  是  |
+
+#### 7.1.8. 更新自动归集配置
+
+```json
+{
+  "URL": "v1/api/account/collect/auto",
+
+  "Method": "PUT",
+
+  "Params": {
+    "coin_type": "string",
+    "switch_collect": true,
+    "threshold": 0
+  },
+
+  "Response": {
+    "code": 0,
+    "msg": "string",
+    "result": {}
+  }
+}
+```
+
+##### 请求参数
+
+|      参数      | 数据类型 | 说明                           | 必要 |
+| :------------: | :------: | :----------------------------- | :--: |
+|   coin_type    |  string  | 币种                           |  是  |
+| switch_collect | boolean  | 自动归集开关                   |  是  |
+|   threshold    |  number  | 触发归集的最小余额阈值（最小值为 0） |  是  |
+
 
 ### 7.2 交易详情
 
