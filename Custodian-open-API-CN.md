@@ -60,6 +60,8 @@ API 接口分以下两种类型：
 
 **API key**字符串由 Custodian 平台生成。
 
+> 每个 API key 与唯一 1 个钱包关联，每个钱包最多可以关联 5 个 API key。API key 不会过期。
+
 #### 签名
 
 签名字符串是对以下多种因素使用 HMAC SHA256 加密方式生成的。
@@ -144,8 +146,9 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 |   GET    | [/v1/api/account/verify-deposit-address/{coinType}/{address}](#714-验证钱包充值地址是否正确) | 验证一个地址是否是某个资产的充值地址 |
 |   GET    | [/v1/api/account/list-hdaddress](#715-获取主地址和子地址详情)                                | 通过主地址获取子地址                 |
 |  POST  | [/v1/api/account/balance](#716-根据币种获取钱包地址余额详情)                            | 根据币种获取钱包地址余额详情                                      |
-|  PUT   | [v1/api/account/collect](#717-将子地址余额归集至主地址)                                | 将子地址余额归集至主地址                                         |
+|  PUT   | [v1/api/account/collect](#717-将子地址余额归集至主地址)                                | 当余额超过指定值时将子地址余额归集至主地址                                         |
 |  PUT  | [v1/api/account/collect/auto](#718-更新自动归集配置)                               | 更新自动归集配置                                                 |
+|  PUT  | [v1/api/account/hd/collect](#719-从子地址收集指定金额并转移到主地址)                               | 从子地址收集指定资产和金额并转移到主地址                                                 |
 |   POST   | [/v1/api/list-trans](#721-获取交易列表)                                                      | 获取钱包交易历史，可通过参数筛选     |
 |   GET    | [/v1/api/trans/{tx_id}](#722-根据交易单号查询交易详情)                                       | 通过交易单号获取交易详情             |
 |   POST   | [/v1/api/trans/withdrawal](#731-发起出金请求)                                                | 发送出金请求                         |
@@ -469,6 +472,8 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 
 #### 7.1.6. 根据币种获取钱包地址余额详情
 
+> 如果沒有传入币种则返回所有币种的余额
+
 ```json
 {
   "URL": "/v1/api/account/balance",
@@ -476,7 +481,7 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
   "Method": "POST",
 
   "Params": {
-    "coin_type": ["string"],
+    "coin_type": ["BTC", "ETH"],
     "include_master_address": true
   },
 
@@ -496,10 +501,10 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 
 ##### 请求参数
 
-|          参数          | 数据类型 | 说明                   | 必要 |
-| :--------------------: | :------: | :--------------------- | :--: |
-|       coin_type        |  string  | 币种                   |  否  |
-| include_master_address | boolean  | 是否在响应中包含主地址 |  否  |
+|          参数          | 数据类型 | 说明                                     | 必要 |
+| :--------------------: | :------: | :--------------------------------------- | :--: |
+|       coin_type        |  string  | 币种                                     |  否  |
+| include_master_address | boolean  | 是否在响应中包含主地址（每个币种均返回） |  否  |
 
 ##### 响应参数
 
@@ -510,7 +515,7 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 
 #### 7.1.7. 将子地址余额归集至主地址
 
-> 没有通过 sub_address_list 参数传入子地址时，将从余额超过指定阈值的所有地址收集资金。
+> 没有传入子地址时，将从余额超过指定阈值的所有地址收集资金。
 
 ```json
 {
@@ -519,8 +524,11 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
   "Method": "PUT",
 
   "Params": {
-    "coin_type": "string",
-    "sub_address_list": ["string"],
+    "coin_type": "ETH",
+    "sub_address_list": [
+      "0x59e29511e5049fef98c00b4ad6954de27cdfafa3",
+      "0xef87123e420b174ba8afcefa45a22d06f4bf482b"
+    ],
     "trigger_threshold": 0
   },
 
@@ -534,10 +542,10 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 
 ##### 请求参数
 
-|       参数        |   数据类型   | 说明                           | 必要 |
-| :---------------: | :----------: | :----------------------------- | :--: |
-|     coin_type     |    string    | 币种                           |  是  |
-| sub_address_list  | string array | 用于余额归集的子地址           |  否  |
+|       参数        |   数据类型   | 说明                                 | 必要 |
+| :---------------: | :----------: | :----------------------------------- | :--: |
+|     coin_type     |    string    | 币种                                 |  是  |
+| sub_address_list  | string array | 用于余额归集的子地址                 |  否  |
 | trigger_threshold |    number    | 触发归集的最小余额阈值（最小值为 0） |  是  |
 
 #### 7.1.8. 更新自动归集配置
@@ -549,7 +557,7 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
   "Method": "PUT",
 
   "Params": {
-    "coin_type": "string",
+    "coin_type": "BTC",
     "switch_collect": true,
     "threshold": 0
   },
@@ -564,11 +572,42 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 
 ##### 请求参数
 
-|      参数      | 数据类型 | 说明                           | 必要 |
-| :------------: | :------: | :----------------------------- | :--: |
-|   coin_type    |  string  | 币种                           |  是  |
-| switch_collect | boolean  | 自动归集开关                   |  是  |
+|      参数      | 数据类型 | 说明                                 | 必要 |
+| :------------: | :------: | :----------------------------------- | :--: |
+|   coin_type    |  string  | 币种                                 |  是  |
+| switch_collect | boolean  | 自动归集开关                         |  是  |
 |   threshold    |  number  | 触发归集的最小余额阈值（最小值为 0） |  是  |
+
+#### 7.1.9. 从子地址收集指定金额并转移到主地址
+
+```json
+{
+  "URL": "v1/api/account/hd/collect",
+
+  "Method": "PUT",
+
+  "Params": {
+    "coin_type": "ETH",
+    "sub_address": "0xef87123e420b174ba8afcefa45a22d06f4bf482b",
+    "tx_amount": 10
+  },
+
+  "Response": {
+    "code": 0,
+    "msg": "string",
+    "result": {}
+  }
+}
+```
+
+##### 请求参数
+
+|    参数     | 数据类型 | 说明                         | 必要 |
+| :---------: | :------: | :--------------------------- | :--: |
+|  coin_type  |  string  | 币种                         |  是  |
+| sub-address |  string  | 转出金额的地址               |  是  |
+|  tx_amount  |  number  | 需要收集并转移到主地址的金额 |  是  |
+
 
 
 ### 7.2 交易详情
