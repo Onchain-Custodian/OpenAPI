@@ -1,5 +1,15 @@
 # OpenAPI Update Log
 
+## 13/04/21 Updates
+
+- New endpoints:
+  7.1.6. Fetch address-wise balance details by coin type
+  7.1.7. Collect funds from child addresses and transfer to master address when balance is greater than the specified threshold
+  7.1.8. Update auto-collect configuration
+  7.1.9. Collect specified amount of an asset from a child address and transfer to master address
+- Other minor fixes
+
+
 ## 26/02/21 Updates
 
 - 7.2.1 Fetch list of transactions 
