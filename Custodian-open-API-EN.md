@@ -139,9 +139,10 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |  GET   | [/v1/api/account/deposit-address/{coinType}](#713-fetch-wallet-address-by-coin-type)                | Fetch the deposit address for an asset in the wallet                         |
 |  GET   | [/v1/api/account/verify-deposit-address/{coinType}/{address}](#714-verify-a-master-deposit-address) | Verify if the address is the correct deposit address for an asset            |
 |  GET   | [/v1/api/account/list-hdaddress](#715-fetch-wallet-details-for-master-and-child-addresses)          | Fetch the child addresses using the master key                               |
-|  POST  | [/v1/api/account/balance](#716-fetch-address-wise-balance-details-by-coin-type)                            | Fetch address-wise balance details by coin type                                      |
-|  PUT   | [v1/api/account/collect](#717-collect-funds-from-child-addresses-and-transfer-to-master-address)                                | Collect funds from child addresses and transfer to master address                                         |
-|  PUT  | [v1/api/account/collect/auto](#718-update-auto-collect-configuration)                               | Update auto-collect configuration                                                 |
+|  POST  | [/v1/api/account/balance](#716-fetch-address-wise-balance-details-by-coin-type)                     | Fetch address-wise balance details by coin type                              |
+|  PUT   | [v1/api/account/collect](#717-collect-funds-from-child-addresses-and-transfer-to-master-address)    | Collect funds from child addresses and transfer to master address            |
+|  PUT   | [v1/api/account/collect/auto](#718-update-auto-collect-configuration)                               | Update auto-collect configuration                                            |
+|  GET   | [v1/api/account/txfee](#719-fetch-current-transaction-fee-by-coin-type)                             | Fetch the current transaction fee for a particular coin type                 |
 |  POST  | [/v1/api/list-trans](#721-fetch-list-of-transactions)                                               | Fetch the transaction history for a wallet, can be filtered using parameters |
 |  GET   | [/v1/api/trans/{tx_id}](#722-fetch-transaction-details-by-transaction-id)                           | Fetch details for a transaction using the transaction ID                     |
 |  POST  | [/v1/api/trans/withdrawal](#731-send-a-withdrawal-request)                                          | Send a withdrawal request                                                    |
@@ -565,6 +566,58 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | switch_collect | boolean | Auto collect toggle                                 |   yes    |
 |   threshold    | number  | Minimum balance threshold value (minimum value = 0) |   yes    |
 
+#### 7.1.9. Fetch Current Transaction Fee by Coin Type
+
+```json
+{
+  "URL": "/v1/api/account/txfee?coin_type={}",
+
+  "Method": "GET",
+
+  "Params": {},
+
+  "Response": {
+    {
+    "code": 0,
+    "msg": "SUCCESS",
+    "result": {
+        "chain_name": "Ethereum",
+        "coin_type": "USDT-ERC20",
+        "list_fee_step": [
+            {
+                "chain_fee": "0.000053",
+                "usd_fee": "0.13945728"
+            },
+            {
+                "chain_fee": "0.0000636",
+                "usd_fee": "0.16734874"
+            },
+            {
+                "chain_fee": "0.0000795",
+                "usd_fee": "0.20918592"
+            }
+        ]
+    }
+}
+  }
+}
+```
+
+##### Request Parameters
+
+| Parameter |  Type  | Description                               | Required |
+| :-------: | :----: | :---------------------------------------- | :------: |
+| coin_type | string | Coin type ([Reference table](#coin-type)) |   yes    |
+
+##### Response Parameters
+
+|   Parameter   |  Type  | Description                                                             |
+| :-----------: | :----: | :---------------------------------------------------------------------- |
+|  chain_name   | string | Chain name                                                              |
+|   coin_type   | string | Queried coin type                                                       |
+| list_fee_step | array  | Contains 3 maps in the order: default (average of latter), fast, faster |
+|   chain_fee   | number | Fee amount                                                              |
+|    usd_fee    | number | Fee amount in USD                                                       |
 
 ### 7.2. Transaction Details
 
@@ -699,6 +752,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
   }
 }
 ```
+##### Response Parameters
 
 |    Parameter     |  Type  | Description                                                          |
 | :--------------: | :----: | :------------------------------------------------------------------- |
@@ -733,7 +787,8 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
     "coin_type": "",
     "to_address": "",
     "tx_amount": "",
-    "note": ""
+    "note": "",
+    "fee": ""
   },
 
   "Response": {
@@ -755,6 +810,9 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | to_address | string | deposit address                           |   yes    |
 | tx_amount  | string | transaction amount                        |   yes    |
 |    note    | string | remarks                                   |    no    |
+|    fee     | string | transaction fee amount                    |   yes    |
+
+> Specifying a higher transaction fee amount can achieve faster transaction confirmation.
 
 ##### Response Parameters
 
