@@ -8,7 +8,7 @@
 
 开发者使用 API 前需先在 Onchain Custodian 平台申请 API key 等信息，再根据此文档详情进行开发。使用过程中如有问题或者建议请联系 Onchain Custodian 客户经理或通过邮箱 support@oncustodian.com 联系支持团队。
 
-> **注意**: API key 有效期为 **90** 天。请在过期前删除旧的 API key，并生成新的 API key 继续使用。
+> **注意**: API key 生成后一直有效。您可以手动删除不需要的 API key。
 
 ## 3. REST API
 
@@ -58,7 +58,7 @@ API 接口分以下两种类型：
 
 #### API KEY
 
-**API key**字符串由 Custodian 平台生成。
+**API key**字符串由 Custodian 账户管理员生成。
 
 > 每个 API key 与唯一 1 个钱包关联，每个钱包最多可以关联 5 个 API key。API key 不会过期。
 
@@ -148,7 +148,7 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 |  POST  | [/v1/api/account/balance](#716-根据币种获取钱包地址余额详情)                            | 根据币种获取钱包地址余额详情                                      |
 |  PUT   | [v1/api/account/collect](#717-将子地址余额归集至主地址)                                | 当余额超过指定值时将子地址余额归集至主地址                                         |
 |  PUT  | [v1/api/account/collect/auto](#718-更新自动归集配置)                               | 更新自动归集配置                                                 |
-|  PUT  | [v1/api/account/hd/collect](#719-从子地址收集指定金额并转移到主地址)                               | 从子地址收集指定资产和金额并转移到主地址                                                 |
+|  PUT  | [v1/api/account/txfee](#719-获取指定币种当前手续费)                               | 获取指定币种当前手续费                                                 |
 |   POST   | [/v1/api/list-trans](#721-获取交易列表)                                                      | 获取钱包交易历史，可通过参数筛选     |
 |   GET    | [/v1/api/trans/{tx_id}](#722-根据交易单号查询交易详情)                                       | 通过交易单号获取交易详情             |
 |   POST   | [/v1/api/trans/withdrawal](#731-发起出金请求)                                                | 发送出金请求                         |
@@ -167,25 +167,52 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 |    3     | 子地址入金 |
 |    4     | 归集交易   |
 
-#### 币种名称
+#### 币种
 
 > 所有币种的 coin_type 的名称和 coin_unique_name 相同。
 
-|  币种种类  | 说明                 |
-| :--------: | -------------------- |
-|    BTC     | 比特币               |
-|    ETH     | 以太币               |
-| USDT-ERC20 | 基于以太坊的 USDT    |
-|    USDC    | USDC                 |
-|    CGT     | Cache Gold 币        |
-|    WTC     | Waltonchain 币       |
-|    REN     | REN 币               |
-|    FTM     | Fantom 币            |
-|   MATIC    | Matic 币             |
-| XSGD-ERC20 | 基于以太坊的 XSGD    |
-|    BCH     | 比特币现金           |
-|    ZIL     | Zilliqa 币           |
-| XSGD-ZRC2  | 基于 Zilliqa 的 XSGD |
+|   币种   |              全称             |      协议       |
+| :------------: | :---------------------------------: | :-----------------: |
+|      BCH       |            Bitcoin Cash             |   Bitcoin（分叉）    |
+|      BTC       |               Bitcoin               |       Bitcoin       |
+|  CGT (ERC-20)  |       Curio Governance Token        |      Ethereum       |
+|  DAI (ERC-20)  |           Dai Stablecoin            |      Ethereum       |
+|      ETH       |              Ethereum               |      Ethereum       |
+|  FTM (ERC-20)  |            Fantom Token             |      Ethereum       |
+|  FXF (ERC-20)  |               Finxflo               |      Ethereum       |
+|  OOE (ERC-20)  |              OpenOcean              |      Ethereum       |
+|  REN (ERC-20)  |              Republic               |      Ethereum       |
+| SATT (ERC-20)  | Smart Advertising Transaction Token |      Ethereum       |
+| USDC (ERC-20)  |              USD Coin               |      Ethereum       |
+| USDT (ERC-20)  |             Tether USD              |      Ethereum       |
+| XSGD (ERC-20)  |                XSGD                 |      Ethereum       |
+|  XSGD (ZRC-2)  |                XSGD                 |       Ziliqa        |
+|      ZIL       |               Ziliqa                |       Ziliqa        |
+|  SNX (ERC-20)  |       Synthetix Network Token       |      Ethereum       |
+| MATIC (ERC-20) |             Matic Token             |      Ethereum       |
+| SHIB (ERC-20)  |              Shiba Inu              |      Ethereum       |
+| 1INCH (ERC-20) |             1Inch Token             |      Ethereum       |
+| SUSHI (ERC-20) |             Sushi Token             |      Ethereum       |
+| AVVE (ERC-20)  |             Aave Token              |      Ethereum       |
+| LINK (ERC-20)  |           ChainLink Token           |      Ethereum       |
+|  CHZ (ERC-20)  |               chiliZ                |      Ethereum       |
+|  BNB (BEP-20)  |            Binance Coin             | Binance Smart Chain |
+|  OKB (ERC-20)  |                 OKB                 |      Ethereum       |
+| BUSD (ERC-20)  |             Binance USD             |      Ethereum       |
+|  YFI (ERC-20)  |            yearn.finance            |      Ethereum       |
+|  HT (ERC-20)   |             Huobi Token             |      Ethereum       |
+| COMP (ERC-20)  |              Compound               |      Ethereum       |
+|  UNI (ERC-20)  |               Uniswap               |      Ethereum       |
+|  MKR (ERC-20)  |                Maker                |      Ethereum       |
+| WAVES (ERC-20) |                Waves                |      Ethereum       |
+| WBTC (ERC-20)  |             Wrapped BTC             |      Ethereum       |
+| HBTC (ERC-20)  |              Huobi BTC              |      Ethereum       |
+|  FTT (ERC-20)  |              FTX Token              |      Ethereum       |
+| TUSD (ERC-20)  |               TrueUSD               |      Ethereum       |
+|  CRO (ERC-20)  |           Crypto.com Coin           |      Ethereum       |
+|  TEL (ERC-20)  |               Telcoin               |      Ethereum       |
+|  CEL (ERC-20)  |               Celsius               |      Ethereum       |
+|  LEO (ERC-20)  |         Bitfinex Leo Token          |      Ethereum       |
 
 > API 请求限速规则如下：
 >
@@ -578,24 +605,37 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 | switch_collect | boolean  | 自动归集开关                         |  是  |
 |   threshold    |  number  | 触发归集的最小余额阈值（最小值为 0） |  是  |
 
-#### 7.1.9. 从子地址收集指定金额并转移到主地址
+#### 7.1.9. 获取指定币种当前手续费
+
+> 目前只支持 ERC-20 币种。
 
 ```json
 {
-  "URL": "v1/api/account/hd/collect",
-
-  "Method": "PUT",
-
-  "Params": {
-    "coin_type": "ETH",
-    "sub_address": "0xef87123e420b174ba8afcefa45a22d06f4bf482b",
-    "tx_amount": 10
-  },
-
+  "URL": "/v1/api/account/txfee?coin_type={}",
+  "Method": "GET",
+  "Params": {},
   "Response": {
     "code": 0,
-    "msg": "string",
-    "result": {}
+    "msg": "SUCCESS",
+    "result": {
+        "chain_name": "Ethereum",
+        "coin_type": "USDT-ERC20",
+        "list_fee_step": [
+            {
+                "chain_fee": "0.000053",
+                "usd_fee": "0.13945728"
+            },
+            {
+                "chain_fee": "0.0000636",
+                "usd_fee": "0.16734874"
+            },
+            {
+                "chain_fee": "0.0000795",
+                "usd_fee": "0.20918592"
+            }
+        ]
+    }
+}
   }
 }
 ```
@@ -604,11 +644,18 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 
 |    参数     | 数据类型 | 说明                         | 必要 |
 | :---------: | :------: | :--------------------------- | :--: |
-|  coin_type  |  string  | 币种                         |  是  |
-| sub-address |  string  | 转出金额的地址               |  是  |
-|  tx_amount  |  number  | 需要收集并转移到主地址的金额 |  是  |
+|  coin_type  |  string  | 币种（[参考](#币种名称)）                        |  是  |
 
 
+##### 响应参数
+
+|          参数           | 数据类型 | 说明                                          |
+| :---------------------: | :------: | :-------------------------------------------- |
+|  chain_name   | string | 链名称                                                             |
+|   coin_type   | string | 币种                                                      |
+| list_fee_step | array  | 按此顺序包含 3 个 map：默认（后两者的均值），快，特快 |
+|   chain_fee   | number | 手续费金额                                                              |
+|    usd_fee    | number | 手续费金额（美元）                                                      |
 
 ### 7.2 交易详情
 
@@ -744,6 +791,8 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 }
 ```
 
+##### 响应参数
+
 |       参数       | 数据类型 | 说明                                          |
 | :--------------: | :------: | :-------------------------------------------- |
 |   wallet_name    |  string  | 钱包名称                                      |
@@ -777,7 +826,8 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
     "coin_type": "",
     "to_address": "",
     "tx_amount": "",
-    "note": ""
+    "note": "",
+    "fee": ""
   },
 
   "Response": {
@@ -799,6 +849,9 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 | to_address |  string  | 入金地址                      | 是   |
 | tx_amount  |  string  | 出金金额                      | 是   |
 |    note    |  string  | 备注                          | 否   |
+|    fee    |  string  | 手续费金额                          | 否   |
+
+> 只有 ERC-20 币种可以自定义手续费金额。默认手续费为当前平均值。金额越高则交易确认越快。
 
 ##### 响应参数
 

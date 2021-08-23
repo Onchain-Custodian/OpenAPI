@@ -1,5 +1,10 @@
 # OpenAPI Update Log
 
+## 23/08/21 Updates
+- Cancelled API key expiration 
+- Increased supported coin types
+- Other minor fixes
+
 ## 20/05/21 Updates
 
 - New endpoints:
