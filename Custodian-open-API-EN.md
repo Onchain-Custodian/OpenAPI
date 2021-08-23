@@ -566,8 +566,6 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 
 #### 7.1.8. Update Auto-collect Configuration
 
-> Currently only ERC-20 tokens are supported.
-
 ```json
 {
   "URL": "v1/api/account/collect/auto",
@@ -597,6 +595,8 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |   threshold    | number  | Minimum balance threshold value (minimum value = 0) |   yes    |
 
 #### 7.1.9. Fetch Current Transaction Fee by Coin Type
+
+> Currently only ERC-20 tokens are supported.
 
 ```json
 {
