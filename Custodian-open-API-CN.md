@@ -173,46 +173,47 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 
 |   币种   |              全称             |      协议       |
 | :------------: | :---------------------------------: | :-----------------: |
-|      BCH       |            Bitcoin Cash             |   Bitcoin（分叉）    |
-|      BTC       |               Bitcoin               |       Bitcoin       |
-|  CGT (ERC-20)  |       Curio Governance Token        |      Ethereum       |
-|  DAI (ERC-20)  |           Dai Stablecoin            |      Ethereum       |
-|      ETH       |              Ethereum               |      Ethereum       |
-|  FTM (ERC-20)  |            Fantom Token             |      Ethereum       |
-|  FXF (ERC-20)  |               Finxflo               |      Ethereum       |
-|  OOE (ERC-20)  |              OpenOcean              |      Ethereum       |
-|  REN (ERC-20)  |              Republic               |      Ethereum       |
-| SATT (ERC-20)  | Smart Advertising Transaction Token |      Ethereum       |
-| USDC (ERC-20)  |              USD Coin               |      Ethereum       |
-| USDT (ERC-20)  |             Tether USD              |      Ethereum       |
-| XSGD (ERC-20)  |                XSGD                 |      Ethereum       |
-|  XSGD (ZRC-2)  |                XSGD                 |       Ziliqa        |
-|      ZIL       |               Ziliqa                |       Ziliqa        |
-|  SNX (ERC-20)  |       Synthetix Network Token       |      Ethereum       |
-| MATIC (ERC-20) |             Matic Token             |      Ethereum       |
-| SHIB (ERC-20)  |              Shiba Inu              |      Ethereum       |
-| 1INCH (ERC-20) |             1Inch Token             |      Ethereum       |
-| SUSHI (ERC-20) |             Sushi Token             |      Ethereum       |
-| AVVE (ERC-20)  |             Aave Token              |      Ethereum       |
-| LINK (ERC-20)  |           ChainLink Token           |      Ethereum       |
-|  CHZ (ERC-20)  |               chiliZ                |      Ethereum       |
-|  BNB (BEP-20)  |            Binance Coin             | Binance Smart Chain |
-|  OKB (ERC-20)  |                 OKB                 |      Ethereum       |
-| BUSD (ERC-20)  |             Binance USD             |      Ethereum       |
-|  YFI (ERC-20)  |            yearn.finance            |      Ethereum       |
-|  HT (ERC-20)   |             Huobi Token             |      Ethereum       |
-| COMP (ERC-20)  |              Compound               |      Ethereum       |
-|  UNI (ERC-20)  |               Uniswap               |      Ethereum       |
-|  MKR (ERC-20)  |                Maker                |      Ethereum       |
-| WAVES (ERC-20) |                Waves                |      Ethereum       |
-| WBTC (ERC-20)  |             Wrapped BTC             |      Ethereum       |
-| HBTC (ERC-20)  |              Huobi BTC              |      Ethereum       |
-|  FTT (ERC-20)  |              FTX Token              |      Ethereum       |
-| TUSD (ERC-20)  |               TrueUSD               |      Ethereum       |
-|  CRO (ERC-20)  |           Crypto.com Coin           |      Ethereum       |
-|  TEL (ERC-20)  |               Telcoin               |      Ethereum       |
-|  CEL (ERC-20)  |               Celsius               |      Ethereum       |
-|  LEO (ERC-20)  |         Bitfinex Leo Token          |      Ethereum       |
+|     BCH     |            Bitcoin Cash             |   Bitcoin（分叉）    |
+|     BTC     |               Bitcoin               |       Bitcoin       |
+|     CGT     |       Curio Governance Token        |      Ethereum       |
+|     DAI     |           Dai Stablecoin            |      Ethereum       |
+|     ETH     |              Ethereum               |      Ethereum       |
+|     FTM     |            Fantom Token             |      Ethereum       |
+|     FXF     |               Finxflo               |      Ethereum       |
+|     OOE     |               OpenOcean             |      Ethereum       |
+|     REN     |              Republic               |      Ethereum       |
+|     SATT    | Smart Advertising Transaction Token |      Ethereum       |
+|     USDC    |              USD Coin               |      Ethereum       |
+| USDT-ERC20  |             Tether USD              |      Ethereum       |
+| XSGD-ERC20  |                XSGD                 |      Ethereum       |
+| XSGD-ZRC2   |                XSGD                 |       Ziliqa        |
+|     ZIL     |               Ziliqa                |       Ziliqa        |
+|     SNX     |       Synthetix Network Token       |      Ethereum       |
+|     MATIC   |             Matic Token             |      Ethereum       |
+|     SHIB    |              Shiba Inu              |      Ethereum       |
+|     1INCH   |             1Inch Token             |      Ethereum       |
+|     SUSHI   |             Sushi Token             |      Ethereum       |
+|     AVVE    |             Aave Token              |      Ethereum       |
+|     LINK    |           ChainLink Token           |      Ethereum       |
+|     CHZ     |               chiliZ                |      Ethereum       |
+|     OKB     |                 OKB                 |      Ethereum       |
+|     BUSD    |             Binance USD             |      Ethereum       |
+|     YFI     |            yearn.finance            |      Ethereum       |
+|     HT      |             Huobi Token             |      Ethereum       |
+|     COMP    |              Compound               |      Ethereum       |
+|     UNI     |               Uniswap               |      Ethereum       |
+|     MKR     |                Maker                |      Ethereum       |
+|     WAVES   |                Waves                |      Ethereum       |
+|     WBTC    |             Wrapped BTC             |      Ethereum       |
+|     HBTC    |              Huobi BTC              |      Ethereum       |
+|     FTT     |              FTX Token              |      Ethereum       |
+|     TUSD    |               TrueUSD               |      Ethereum       |
+|     CRO     |           Crypto.com Coin           |      Ethereum       |
+|     TEL     |               Telcoin               |      Ethereum       |
+|     CEL     |               Celsius               |      Ethereum       |
+|     LEO     |         Bitfinex Leo Token          |      Ethereum       |
+| XIDR-ERC20  |           XIDR Token                |      Ethereum       |
+| XIDR-ZRC2   |           XIDR Token                |      Ziliqa         |
 
 > API 请求限速规则如下：
 >
