@@ -910,6 +910,41 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 }
 ```
 
+#### 7.4.3. Check the Current Withdrawal Transaction Fee for an Address
+
+```json
+{
+  "URL": "/v1/api/account/txfee",
+  "Method": "GET",
+  "Params": {
+    "coin_type": "BTC",
+    "from_Address": "0x0797bb11a5bbe3692a042cfa57873a38b21ab96a",
+    "to_Address": "0x0797bb11a5bbe3692a042cfa57873a38b21ab96b",
+    "amount": "3.14"
+  },
+  "Response": {
+    "code": 0,
+    "msg": "SUCCESS",
+    "result": {
+      "chain_fee_dto": {
+        "fee": 0,
+        "gas_limit": 0,
+        "gas_price": 0
+      },
+      "chain_name": "Bitcoin",
+      "coin_type": "BTC",
+      "eth_usd_price": 0,
+      "list_fee_step": [
+        {
+          "chain_fee": 0,
+          "usd_fee": 0
+        }
+      ]
+    }
+  }
+}
+```
+
 ##### Request Parameters
 
 | Parameter |  Type  | Description                           | Required |
@@ -959,7 +994,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | confirmedBlocks | string | blocks confirmed                                         |
 |       fee       | string | transaction fee                                          |
 |      hash       | string | transaction hash                                         |
-|     status      | string | transaction status (0=pending,1=success,2=fail)          |
+|     status      | string | transaction status (0=pending, 1=success, 2=fail, 4=approval rejected, 5=transaction cancelled, 6=risk control failure, 7=risk control rejected, 8=withdrawal error)          |
 |      txId       | string | transaction ID                                           |
 |     txType      | string | transaction type: ([Reference table](#transaction-type)) |
 
