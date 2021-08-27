@@ -910,6 +910,14 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 }
 ```
 
+##### Request Parameters
+
+| Parameter |  Type  | Description                           | Required |
+| :-------: | :----: | :------------------------------------ | :------: |
+|  address  | string | master address                        |   yes    |
+|  remark   | string | child address name after modification |   yes    |
+
+
 #### 7.4.3. Check the Current Withdrawal Transaction Fee for an Address
 
 ```json
@@ -944,13 +952,30 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
   }
 }
 ```
-
 ##### Request Parameters
 
-| Parameter |  Type  | Description                           | Required |
-| :-------: | :----: | :------------------------------------ | :------: |
-|  address  | string | master address                        |   yes    |
-|  remark   | string | child address name after modification |   yes    |
+|   Paramter   |  Type  | Description                               | Required |
+| :----------: | :----: | :---------------------------------------- | :------: |
+|  coin_type   | String | coin type ([Reference table](#coin-type)) |   yes    |
+| from_address | String | sending address                           |   yes    |
+|  to_address  | String | receiving address                         |   no    |
+|    amount    | String | amount                                    |   no    |
+
+##### Response Paramters
+
+|   Paramter    |  Type  | Description              |
+| :-----------: | :----: | :----------------------- |
+|  chain_name   | String | chain name               |
+|   coin_type   | String | coin type                |
+| eth_usd_price | Number | current gas fee          |
+| chain_fee_dto | Array  | waas erc20 fee structure |
+|      fee      | Number | chain record fee         |
+|   gas_limit   | Number | gas limit                |
+|   gas_price   | Number | gas price                |
+| list_fee_step | Array  | gas fee multiplier       |
+|   chain_fee   | Number | withdrawal fee           |
+|    usd_fee    | Number | fee in usdt              |
+
 
 ### 7.5. API Call Back
 
