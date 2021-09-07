@@ -608,11 +608,11 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 
 #### 7.1.9. 获取指定币种当前手续费
 
-> 目前只支持 ERC-20 币种。
+> 目前只支持 Ethereum。
 
 ```json
 {
-  "URL": "/v1/api/account/txfee?coin_type={}&from_Address={}&to_Address={}&amount={}",
+  "URL": "/v1/api/account/txfee?coin_type={}&from_address={}&to_address={}&amount={}",
   "Method": "GET",
   "Params": {},
   "Response": {
