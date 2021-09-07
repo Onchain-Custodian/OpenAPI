@@ -601,7 +601,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 
 ```json
 {
-  "URL": "/v1/api/account/txfee?coin_type={}",
+  "URL": "/v1/api/account/txfee?coin_type={}&from_address={}&to_address={}&amount={}",
 
   "Method": "GET",
 
@@ -638,16 +638,24 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | Parameter |  Type  | Description                               | Required |
 | :-------: | :----: | :---------------------------------------- | :------: |
 | coin_type | string | Coin type ([Reference table](#coin-type)) |   yes    |
+| from_address | String | sending address                        |   yes    |
+|  to_address  | String | receiving address                      |   no     |
+|    amount    | String | amount                                 |   no     |
 
-##### Response Parameters
+##### Response Paramters
 
-|   Parameter   |  Type  | Description                                                             |
-| :-----------: | :----: | :---------------------------------------------------------------------- |
-|  chain_name   | string | Chain name                                                              |
-|   coin_type   | string | Queried coin type                                                       |
-| list_fee_step | array  | Contains 3 maps in the order: default (average of latter), fast, faster |
-|   chain_fee   | number | Fee amount                                                              |
-|    usd_fee    | number | Fee amount in USD                                                       |
+|   Paramter    |  Type  | Description              |
+| :-----------: | :----: | :----------------------- |
+|  chain_name   | String | chain name               |
+|   coin_type   | String | coin type                |
+| eth_usd_price | Number | current gas fee          |
+| chain_fee_dto | Array  | waas erc20 fee structure |
+|      fee      | Number | chain record fee         |
+|   gas_limit   | Number | gas limit                |
+|   gas_price   | Number | gas price                |
+| list_fee_step | Array  | gas fee multiplier       |
+|   chain_fee   | Number | withdrawal fee           |
+|    usd_fee    | Number | fee in usdt              |
 
 ### 7.2. Transaction Details
 
@@ -917,65 +925,6 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | :-------: | :----: | :------------------------------------ | :------: |
 |  address  | string | master address                        |   yes    |
 |  remark   | string | child address name after modification |   yes    |
-
-
-#### 7.4.3. Check the Current Withdrawal Transaction Fee for an Address
-
-```json
-{
-  "URL": "/v1/api/account/txfee",
-  "Method": "GET",
-  "Params": {
-    "coin_type": "BTC",
-    "from_Address": "0x0797bb11a5bbe3692a042cfa57873a38b21ab96a",
-    "to_Address": "0x0797bb11a5bbe3692a042cfa57873a38b21ab96b",
-    "amount": "3.14"
-  },
-  "Response": {
-    "code": 0,
-    "msg": "SUCCESS",
-    "result": {
-      "chain_fee_dto": {
-        "fee": 0,
-        "gas_limit": 0,
-        "gas_price": 0
-      },
-      "chain_name": "Bitcoin",
-      "coin_type": "BTC",
-      "eth_usd_price": 0,
-      "list_fee_step": [
-        {
-          "chain_fee": 0,
-          "usd_fee": 0
-        }
-      ]
-    }
-  }
-}
-```
-##### Request Parameters
-
-|   Paramter   |  Type  | Description                               | Required |
-| :----------: | :----: | :---------------------------------------- | :------: |
-|  coin_type   | String | coin type ([Reference table](#coin-type)) |   yes    |
-| from_address | String | sending address                           |   yes    |
-|  to_address  | String | receiving address                         |   no    |
-|    amount    | String | amount                                    |   no    |
-
-##### Response Paramters
-
-|   Paramter    |  Type  | Description              |
-| :-----------: | :----: | :----------------------- |
-|  chain_name   | String | chain name               |
-|   coin_type   | String | coin type                |
-| eth_usd_price | Number | current gas fee          |
-| chain_fee_dto | Array  | waas erc20 fee structure |
-|      fee      | Number | chain record fee         |
-|   gas_limit   | Number | gas limit                |
-|   gas_price   | Number | gas price                |
-| list_fee_step | Array  | gas fee multiplier       |
-|   chain_fee   | Number | withdrawal fee           |
-|    usd_fee    | Number | fee in usdt              |
 
 
 ### 7.5. API Call Back
