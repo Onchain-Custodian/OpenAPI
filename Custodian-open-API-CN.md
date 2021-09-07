@@ -612,7 +612,7 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 
 ```json
 {
-  "URL": "/v1/api/account/txfee?coin_type={}",
+  "URL": "/v1/api/account/txfee?coin_type={}&from_Address={}&to_Address={}&amount={}",
   "Method": "GET",
   "Params": {},
   "Response": {
@@ -646,17 +646,24 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 |    参数     | 数据类型 | 说明                         | 必要 |
 | :---------: | :------: | :--------------------------- | :--: |
 |  coin_type  |  string  | 币种（[参考](#币种名称)）                        |  是  |
-
+| from_address  |  String  | 转出地址 | 是   |
+| to_address |  String  |   转入地址   | 否   |
+| amount  |  String  | 金额 | 否   |
 
 ##### 响应参数
 
-|          参数           | 数据类型 | 说明                                          |
-| :---------------------: | :------: | :-------------------------------------------- |
-|  chain_name   | string | 链名称                                                             |
-|   coin_type   | string | 币种                                                      |
-| list_fee_step | array  | 按此顺序包含 3 个 map：默认（后两者的均值），快，特快 |
-|   chain_fee   | number | 手续费金额                                                              |
-|    usd_fee    | number | 手续费金额（美元）                                                      |
+| 参数  | 数据类型 | 说明                   |
+| :---: | :------: | :--------------------- |
+| chain_name |  String  | 链名 |
+| coin_type |  String  | 手续费币种 |
+| eth_usd_price |  Number  | eth美元价格 |
+| chain_fee_dto |  Array  | waas erc20手续费模型 |
+| fee |  Number  | 上链手续费 |
+| gas_limit |  Number  | GAS限制 |
+| gas_price |  Number  | GAS单价 |
+| list_fee_step |  Array  | 根据链获取出金手续费模型梯度 |
+| chain_fee |  Number  | 出金币种费用 |
+| usd_fee |  Number  | usdt折合费用 |
 
 ### 7.2 交易详情
 
@@ -927,69 +934,6 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 | :-----: | :------: | :----------------- | :--- |
 | address |  string  | 子地址的主地址     | 是   |
 | remark  |  string  | 修改后的子地址名称 | 是   |
-
-#### 7.4.3 HD 查询出金手续费
-
->
-
-```json
-{
-  "URL": "/v1/api/account/txfee",
-  "Method": "GET",
-  "Params": {
-    "coin_type": "BTC",
-    "from_Address": "0x0797bb11a5bbe3692a042cfa57873a38b21ab96a",
-    "to_Address": "0x0797bb11a5bbe3692a042cfa57873a38b21ab96b",
-    "amount": "3.14"
-  },
-  "Response": {
-    "code": 0,
-    "msg": "SUCCESS",
-    "result": {
-      "chain_fee_dto": {
-        "fee": 0,
-        "gas_limit": 0,
-        "gas_price": 0
-      },
-      "chain_name": "Bitcoin",
-      "coin_type": "BTC",
-      "eth_usd_price": 0,
-      "list_fee_step": [
-        {
-          "chain_fee": 0,
-          "usd_fee": 0
-        }
-      ]
-    }
-  }
-}
-
-```
-
-##### 请求参数
-
-|  参数   | 数据类型 | 说明                 | 必要 |
-| :-----: | :------: | :------------------- | :--- |
-| coin_type |  String  | 币种名称            | 是   |
-| from_address  |  String  | 转出地址 | 是   |
-| to_address |  String  |   转入地址   | 否   |
-| amount  |  String  | 金额 | 否   |
-
-
-##### 响应参数
-
-| 参数  | 数据类型 | 说明                   |
-| :---: | :------: | :--------------------- |
-| chain_name |  String  | 链名 |
-| coin_type |  String  | 手续费币种 |
-| eth_usd_price |  Number  | eth美元价格 |
-| chain_fee_dto |  Array  | waas erc20手续费模型 |
-| fee |  Number  | 上链手续费 |
-| gas_limit |  Number  | GAS限制 |
-| gas_price |  Number  | GAS单价 |
-| list_fee_step |  Array  | 根据链获取出金手续费模型梯度 |
-| chain_fee |  Number  | 出金币种费用 |
-| usd_fee |  Number  | usdt折合费用 |
 
 
 ### 7.5 接口回调
