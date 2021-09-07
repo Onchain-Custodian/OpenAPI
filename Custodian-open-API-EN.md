@@ -597,7 +597,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 
 #### 7.1.9. Fetch Current Transaction Fee by Coin Type
 
-> Currently only ERC-20 tokens are supported.
+> Only Ethereum-based (ETH/ERC-20) tokens are currently supported.
 
 ```json
 {
