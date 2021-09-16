@@ -991,31 +991,46 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 
 ## 8. 错误代码
 
-|  code  | Description                                                      |
-| :----: | :--------------------------------------------------------------- |
-|   0    | SUCCESS                                                          |
-| 106001 | The request parameter error                                      |
-| 106002 | Unauthorized                                                     |
-| 106003 | The service is temporarily unavailable                           |
-| 106004 | Interface Timeout                                                |
-| 106005 | Ip address check error                                           |
-| 106006 | Signature verification error                                     |
-| 106008 | Data encryption error                                            |
-| 106009 | Data decryption error                                            |
-| 106011 | Service call exception                                           |
-| 106012 | Passphrase error                                                 |
-| 106013 | Timestamp error                                                  |
-| 106015 | ApiKey error                                                     |
-| 106016 | The amount is in the wrong format.                               |
-| 106018 | The hot wallet is frozen                                         |
-| 106019 | The amount of withdrawal is wrong                                |
-| 106020 | The amount of withdrawal is too long in decimal places           |
-| 106021 | The transaction amount exceeds the upper limit of the single pen |
-| 106022 | Authorization format error                                       |
-| 106023 | Address error                                                    |
-| 106024 | Address notes are 1-64 in length and only alphanumeric           |
-| 106025 | HD address quantity exceeds                                      |
-| 106026 | The frequency of the call exceeded the limit.                    |
-| 106027 | The request is too fast                                          |
-| 106028 | The Same request received                                        |
-| 106029 | Cointype not support.                                            |
+| code  |          Description             |
+| :--------: | :------------------------------ |
+|   0    | SUCCESS                                                      |
+| 106001 | The request parameter format is incorrect.                   |
+| 106002 | Unauthorized API request.                                    |
+| 106003 | The service is temporarily unavailable.                      |
+| 106004 | The timestamp has expired.                                   |
+| 106005 | The IP address is incorrect.                                 |
+| 106006 | Signature verification error.                                |
+| 106008 | Data encryption error.                                       |
+| 106009 | Data decryption error.                                       |
+| 106011 | Service call exception.                                      |
+| 106012 | The passphrase is incorrect.                                 |
+| 106013 | The timestamp format is incorrect.                           |
+| 106015 | API key null.                                                |
+| 106016 | The amount parameter is in the wrong format.                 |
+| 106018 | This wallet is currently frozen.                             |
+| 106019 | The withdrawal amount is incorrect.                          |
+| 106020 | The requested withdrawal amount exceeds the decimal limit.   |
+| 106021 | The requested amount exceeds the maximum withdrawal limit defined in the risk control strategy. |
+| 106022 | Authorization parameter format is incorrect.                 |
+| 106023 | The requested information under this respective wallet has not been found. |
+| 106024 | Remarks only supports alphanumeric input with a limited length of 1-32 digits. |
+| 106025 | HD address quantity exceeds the maximum limit.               |
+| 106026 | The API call frequency has exceeded its limit.               |
+| 106027 | The API is being requested too frequent.                     |
+| 106028 | Unable to procceed due to duplicate API request.             |
+| 106029 | Coin type could not be found.                                |
+| 106030 | The requested data has not been found.                       |
+| 106031 | You do not have permission for this action.                  |
+| 106032 | Database operation error.                                    |
+| 106033 | Address status is abnormal.                                  |
+| 106034 | Unable to fetch coin price.                                  |
+| 106035 | The current balance is below the network fee amount required for this transaction. |
+| 106036 | The requested amount exceeds the current available balance.  |
+| 106037 | Failed to query fee rate.                                    |
+| 106038 | The transaction fee is insufficient.                         |
+| 106039 | Error detected with related address data.                    |
+| 106040 | Insufficient balance.                                        |
+| 106041 | From_address request parameter is required.                  |
+|  待定  | Transaction fee is below the minimum required amount.        |
+|  待定  | Transaction fee exceeds the maximum threshold.               |
+|        |                                                              |
