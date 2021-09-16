@@ -1022,6 +1022,4 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | 106039 | Error detected with related address data.                    |
 | 106040 | Insufficient balance.                                        |
 | 106041 | From_address request parameter is required.                  |
-|  待定  | Transaction fee is below the minimum required amount.        |
-|  待定  | Transaction fee exceeds the maximum threshold.               |
-|        |                                                              |
+
