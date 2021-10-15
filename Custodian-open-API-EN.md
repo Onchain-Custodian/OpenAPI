@@ -1020,6 +1020,12 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | 106037 | Failed to query fee rate.                                    |
 | 106038 | The transaction fee is insufficient.                         |
 | 106039 | Error detected with related address data.                    |
-| 106040 | Insufficient balance.                                        |
+| 106040 | Transaction amount + handling fee greater than available balance.|
 | 106041 | From_address request parameter is required.                  |
-
+| 106042 | Address format is incorrect.                  |
+| 106043 | Duplicate withdrawal request.                  |
+| 106044 | The warm wallet status is already normal or frozen.                  |
+| 106045 | Not supported this coin type.                  |
+| 106046 | Transaction fee is below the required threshold.                  |
+| 106047 | Transaction fee exceeds the maximum threshold.                  |
+| 106048 | This wallet does not exist.                  |
