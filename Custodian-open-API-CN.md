@@ -1029,8 +1029,35 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 | 106037 | Failed to query fee rate.                                    |
 | 106038 | The transaction fee is insufficient.                         |
 | 106039 | Error detected with related address data.                    |
-| 106040 | Insufficient balance.                                        |
+| 106040 | Transaction amount + handling fee greater than available balance.|
 | 106041 | From_address request parameter is required.                  |
-|  待定  | Transaction fee is below the minimum required amount.        |
-|  待定  | Transaction fee exceeds the maximum threshold.               |
-|        |                                                              |
+| 106042 | Address format is incorrect.                  |
+| 106043 | Duplicate withdrawal request.                  |
+| 106044 | The warm wallet status is already normal or frozen.                  |
+| 106045 | Not supported this coin type.                  |
+| 106046 | Transaction fee is below the required threshold.                  |
+| 106047 | Transaction fee exceeds the maximum threshold.                  |
+| 106048 | This wallet does not exist.                  |
+| 106049 | Not sufficient funds.                  |
+| 106050 | The status of the withdrawal transaction is not pending, and it's not allowed to initiate speed up.                  |
+| 106051 | Your original transaction has been succesfully processed! Acceleration has terminated.                  |
+| 106052 | Congratulations! Your transaction is being accelerated!                  |
+| 106053 | Attempting cancellation.                  |
+| 106054 | Accelerated transaction already exists.                  |
+| 106055 | Cancel accelerated transaction already exists.                  |
+| 106056 | Wait withdraw call back.                  |
+| 106057 | Asset does not exist.                  |
+| 106058 | Unable to proceed with this action due to unresolved transactions in this wallet.                  |
+| 106059 | The transaction fee amount is not in the correct format.                  |
+| 106060 | Withdrawal Error.                  |
+| 106061 | Withdrawal Verification Error.                  |
+| 106062 | The origin address is not whitelisted to transfer token.                  |
+| 106063 | The transaction can not be canceled.                  |
+| 106064 | Transaction Amount is higher than per Transaction Limit.                  |
+| 106065 | The Hourly Transaction Limit has been exceeded.                  |
+| 106066 | The Daily Transaction Limit has been exceeded.                  |
+| 106067 | Warm wallet approver workflow has not been setup.                  |
+| 106068 | Destination address is not a cold wallet address.                  |
+| 106069 | Warm wallet status is frozen.                  |
+| 106070 | Error occurred during the creation of warm wallet.                  |
+| 106071 | This warm wallet does not exist.                  |
