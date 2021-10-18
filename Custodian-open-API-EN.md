@@ -1030,7 +1030,6 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | 106047 | Transaction fee exceeds the maximum threshold.                  |
 | 106048 | This wallet does not exist.                  |
 | 106049 | Not sufficient funds.                  |
-
 | 106050 | The status of the withdrawal transaction is not pending, and it's not allowed to initiate speed up.                  |
 | 106051 | Your original transaction has been succesfully processed! Acceleration has terminated.                  |
 | 106052 | Congratulations! Your transaction is being accelerated!                  |
