@@ -1061,3 +1061,4 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 | 106069 | Warm wallet status is frozen.                  |
 | 106070 | Error occurred during the creation of warm wallet.                  |
 | 106071 | This warm wallet does not exist.                  |
+| 106072 | The warm wallet nodes are abnormal.                  |
