@@ -1052,3 +1052,4 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | 106069 | Warm wallet status is frozen.                  |
 | 106070 | Error occurred during the creation of warm wallet.                  |
 | 106071 | This warm wallet does not exist.                  |
+| 106072 | The warm wallet nodes are abnormal.                  |
