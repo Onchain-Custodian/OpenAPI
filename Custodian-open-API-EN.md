@@ -213,8 +213,8 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 
 > The request limits set for different API operations are:
 >
-> - **General queries:** 20 times every 2 seconds
-> - **Withdrawal requests:** 10 times every 2 seconds
+> - **General queries:** 80 times every 2 seconds
+> - **Withdrawal requests:** 40 times every 2 seconds
 
 ### 7.1. Account
 
