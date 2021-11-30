@@ -211,6 +211,11 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |     LEO     |         Bitfinex Leo Token          |      Ethereum       |
 | XIDR-ERC20  |           XIDR Token                |      Ethereum       |
 | XIDR-ZRC2   |           XIDR Token                |      Ziliqa         |
+| BNB | Binance Token | Binance Smart Chain |
+| FIL-BEP20 | Filecoin | Binance Smart Chain |
+| USDT-BEP20 | Tether USD | Binance Smart Chain |
+| BUSD-BEP20 | Binance USD | Binance Smart Chain |
+| USDC-BEP20 | USD Coin | Binance Smart Chain |
 | HBAR   |           HBAR Token                |      Hedera Hashgraph         |
 
 > The request limits set for different API operations are:
