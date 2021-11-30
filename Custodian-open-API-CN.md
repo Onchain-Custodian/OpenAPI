@@ -155,6 +155,8 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 |   POST   | [/v1/api/hd-address](#741-为主地址创建子地址)                                                | 为主地址创建子地址                   |
 |   PUT    | [/v1/api/hd-address](#742-修改子地址名称)                                                    | 更改子地址名称                       |
 |   POST   | [host:port/{notice-type}](#751-交易通知接口回调)                                             | 回调方法，可配置                     |
+|   POST   | [/v1/api/Hbar/addressAddHTS](#761-Habr地址关联多个币种)                                             | Habr地址关联多个币种                     |
+|   POST   | [/v1/api/Hbar/HTSAddAddress](#762-Habr币种关联多个地址)                                             | Habr币种关联多个地址                   |
 
 ### 参考
 
@@ -988,6 +990,87 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 | :--: | :------: | :------------------------------------------------------------------------------------------------ |
 | code |   long   | OpenAPI 收到 0 说明通知成功。如果收到其他返回码或没有收到返回，会继续发送通知直到达到最大通知次数 |
 | msg  |  string  | 返回描述                                                                                          |
+### 7.6 Hbar 接口调用
+
+#### 7.6.1  Habr地址关联多个币种
+
+> {notice-type}为通知类型
+
+```json
+{
+  "URL": "/v1/api/Hbar/addressAddHTS",
+
+  "Method": "POST",
+
+  "Params": {
+    "address": "0.0.11973290",
+    "unique_name": ["HTS1","HTS2"]
+
+  },
+
+  "Response": {
+    "code": 0,
+    "msg": "SUCCESS"
+  }
+}
+```
+
+##### 请求参数
+
+|      参数       | 数据类型 | 说明                                  |
+| :-------------: | :------: | :------------------------------------ |
+|     address     |  String  | 币种关联地址                              |
+|     unique_name  |  List  | 币种名称 String类型                             |
+
+
+##### 响应参数
+
+| 参数 | 数据类型 | 说明                                                                                              |
+| :--: | :------: | :------------------------------------------------------------------------------------------------ |
+| code |   long   | OpenAPI 收到 0 说明通知成功。如果收到其他返回码或没有收到返回，会继续发送通知直到达到最大通知次数 |
+| msg  |  string  | 返回描述                                                                                          |
+
+
+#### 7.6.2 Habr币种关联多个地址
+
+> {notice-type}为通知类型
+
+```json
+{
+  "URL": "/v1/api/Hbar/HTSAddAddress",
+
+  "Method": "POST",
+
+  "Params": {
+    "address":[
+    "0.0.11973290","0.0.11972392"
+        ],
+  "unique_name": "HTS"
+
+  },
+
+  "Response": {
+    "code": 0,
+    "msg": "SUCCESS"
+  }
+}
+```
+
+##### 请求参数
+
+|      参数       | 数据类型 | 说明                                  |
+| :-------------: | :------: | :------------------------------------ |
+|     address     |   List | 币种关联地址   String类型                           |
+|     unique_name  |   String | 币种名称                              |
+
+
+##### 响应参数
+
+| 参数 | 数据类型 | 说明                                                                                              |
+| :--: | :------: | :------------------------------------------------------------------------------------------------ |
+| code |   long   | OpenAPI 收到 0或者1 说明通知成功。0代表所有地址都被成功关联，1代表有部分地址关联不成功|
+| msg  |  string  | 返回描述                                                                                          |
+
 
 ## 8. 错误代码
 
@@ -1050,3 +1133,10 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 | 106058 | Unable to proceed with this action due to unresolved transactions in this wallet .                  |
 | 106059 | The transaction fee amount format is incorrect.                 |
 | 106060 | The recipient address has not been whitelisted to receive the respective token.                  |
+| 106061 | Associate warm wallet address error .                  |
+| 106062 | Address not find                  |
+| 106063 | Cointype duplicate binding.                  |
+| 106064 | The primary address is not bound to a currency.                  |
+| 106065 | It already exists in the asset table.                  |
+| 106066 | Data duplication.                  |
+| 106067 | Please select HTS currency.                  |
