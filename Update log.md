@@ -1,9 +1,8 @@
 # OpenAPI Update Log
 
 ## 30/11/21 Updates
-- New endpoints:
-  7.6.1 HBAR address association with multiple HTS coins
-  7.6.2 HTS coin association with multiple HBAR addresses
+- New endpoint: 7.6.1 HBAR address association with multiple HTS coins
+- New endpoint: 7.6.2 HTS coin association with multiple HBAR addresses
 - Added new error codes 106061~106067
 
 ## 22/10/21 Updates
