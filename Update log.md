@@ -1,5 +1,11 @@
 # OpenAPI Update Log
 
+## 22/10/21 Updates
+- Increased API request limits for various API operations
+
+## 20/10/21 Updates
+- Added new error codes 106025~106060
+
 ## 23/08/21 Updates
 - Cancelled API key expiration 
 - Increased supported coin types
