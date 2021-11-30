@@ -1034,10 +1034,8 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 
   "Params": {
     "address":[
-    "0.0.11973290","0.0.11972392","0.0.11972377","0.0.11972366"
-        ],
-  "unique_name": "HTS"
-
+    "0.0.11973290","0.0.11972392","0.0.11972377","0.0.11972366"],
+    "unique_name":"HTS"
   },
 
   "Response": {
