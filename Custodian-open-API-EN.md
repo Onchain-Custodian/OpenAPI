@@ -149,6 +149,8 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |  POST  | [/v1/api/hd-address](#741-generate-child-addresses-for-a-master-address)                            | Create child addresses for a master key                                      |
 |  PUT   | [/v1/api/hd-address](#742-modify-the-name-of-a-child-wallet-address)                                | Assign a new name to a child address                                         |
 |  POST  | [host:port/{notice-type}](#751-transaction-notification-api-callback)                               | Configurable callback method                                                 |
+|   POST   | [/v1/api/Hbar/addressAddHTS](#761-Habr-address-associated-with-multiple-coins)                                             | Habr address associated with multiple coins                    |
+|   POST   | [/v1/api/Hbar/HTSAddAddress](#762-Habr-coins-associated-with-multiple-addresses)                                             |Habr coins associated with multiple addresses                     |
 
 
 ### Reference Tables
@@ -979,6 +981,86 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | :-------: | :----: | :--------------------------------------------------------------------------------------------------------------------------------------- |
 |   code    |  long  | **"0"** if notifications is successfully sent. For other codes or no code, notifications will be sent again as per set maximum frequency |
 |    msg    | string | description                                                                                                                              |
+### 7.6 Hbar API Call
+
+#### 7.6.1 Habr address associated with multiple coins
+
+> {notice-type} is a type of notification
+
+```json
+{
+  "URL": "/v1/api/Hbar/addressAddHTS",
+
+  "Method": "POST",
+
+  "Params": {
+    "address": "0.0.11973290",
+    "uniqueName": ["HTS1","HTS2"]
+
+  },
+
+  "Response": {
+    "code": 0,
+    "msg": "SUCCESS"
+  }
+}
+```
+##### Request Parameters
+
+| Parameter | Type  | Description                     |
+| :-------: | :---: | :------------------------------ |
+|     address     |  String  | coin associated address                              |
+|     uniqueName  |  List  | coins name （String）                             |
+
+
+
+
+##### Response Parameters
+
+| Parameter |  Type  | Description                                                                                                                              |
+| :-------: | :----: | :--------------------------------------------------------------------------------------------------------------------------------------- |
+|   code    |  long  | **"0"** if notifications is successfully sent. For other codes or no code, notifications will be sent again as per set maximum frequency |
+|    msg    | string | description  
+
+#### 7.6.2 Habr coins associated with multiple addresses
+
+> {notice-type} is a type of notification
+
+```json
+{
+  "URL": "/v1/api/Hbar/HTSAddAddress",
+
+  "Method": "POST",
+
+  "Params": {
+    "address":[
+    "0.0.11973290","0.0.11972392","0.0.11972377","0.0.11972366"
+        ],
+  "unique_name": "HTS"
+
+  },
+
+  "Response": {
+    "code": 0,
+    "msg": "SUCCESS"
+  }
+}
+```
+
+##### Request Parameters
+
+| Parameter | Type  | Description                     |
+| :-------: | :---: | :------------------------------ |
+|     address     |   List | coin associated address   （String）                           |
+|     uniqueName  |   String | coin name                              |
+
+
+##### Response Parameters
+
+| Parameter |  Type  | Description                                                                                                                              |
+| :-------: | :----: | :--------------------------------------------------------------------------------------------------------------------------------------- |
+|   code    |  long  | If the OpenAPI receives 0 or 1, the notification is successful. 0 indicates that all IP addresses are associated successfully. 1 indicates that some IP addresses are not associated successfully|
+|    msg    | string | description  
 
 ## 8. Error Codes
 
@@ -1041,3 +1123,10 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | 106058 | Unable to proceed with this action due to unresolved transactions in this wallet .                  |
 | 106059 | The transaction fee amount format is incorrect.                 |
 | 106060 | The recipient address has not been whitelisted to receive the respective token.                  |
+| 106061 | Associate warm wallet address error .                  |
+| 106062 | Address not find                  |
+| 106063 | Cointype duplicate binding.                  |
+| 106064 | The primary address is not bound to a currency.                  |
+| 106065 | It already exists in the asset table.                  |
+| 106066 | Data duplication.                  |
+| 106067 | Please select HTS currency.                  |
