@@ -1,7 +1,7 @@
 # OpenAPI Update Log
 
 ## 30/11/21 Updates
-- Added new coin type: HBAR
+- Added new coin type: BNB, FIL-BEP20, USDT-BEP20, BUSD-BEP20, USDC-BEP20, HBAR
 - New endpoint: 7.6.1 HBAR address association with multiple HTS coins
 - New endpoint: 7.6.2 HTS coin association with multiple HBAR addresses
 - Added new error codes 106061~106067
