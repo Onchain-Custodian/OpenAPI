@@ -155,9 +155,9 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 |   POST   | [/v1/api/hd-address](#741-为主地址创建子地址)                                                | 为主地址创建子地址                   |
 |   PUT    | [/v1/api/hd-address](#742-修改子地址名称)                                                    | 更改子地址名称                       |
 |   POST   | [host:port/{notice-type}](#751-交易通知接口回调)                                             | 回调方法，可配置                     |
-|   POST   | [/v1/api/Hbar/addressAddHTS](#761-Habr地址关联多个币种)                                             | Habr地址关联多个币种                     |
-|   POST   | [/v1/api/Hbar/HTSAddAddress](#762-Habr币种关联多个地址)                                             | Habr币种关联多个地址                   |
-
+|   POST   | [/v1/api/Hbar/addressAddHTS](#761-HBAR地址关联多个币种)                                             | HBAR地址关联多个币种                     |
+|   POST   | [/v1/api/Hbar/HTSAddAddress](#762-HBAR币种关联多个地址)                                             | HBAR币种关联多个地址                   |
+              
 ### 参考
 
 #### 交易类型
@@ -216,6 +216,7 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 |     LEO     |         Bitfinex Leo Token          |      Ethereum       |
 | XIDR-ERC20  |           XIDR Token                |      Ethereum       |
 | XIDR-ZRC2   |           XIDR Token                |      Ziliqa         |
+| HBAR   |           HBAR Token                |      Hedera Hashgraph         |
 
 > API 请求限速规则如下：
 >
@@ -992,7 +993,7 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 | msg  |  string  | 返回描述                                                                                          |
 ### 7.6 Hbar 接口调用
 
-#### 7.6.1  Habr地址关联多个币种
+#### 7.6.1  HBAR地址关联多个币种
 
 > {notice-type}为通知类型
 
@@ -1031,7 +1032,7 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 | msg  |  string  | 返回描述                                                                                          |
 
 
-#### 7.6.2 Habr币种关联多个地址
+#### 7.6.2 HBAR币种关联多个地址
 
 > {notice-type}为通知类型
 
@@ -1133,10 +1134,10 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 | 106058 | Unable to proceed with this action due to unresolved transactions in this wallet .                  |
 | 106059 | The transaction fee amount format is incorrect.                 |
 | 106060 | The recipient address has not been whitelisted to receive the respective token.                  |
-| 106061 | Associate warm wallet address error .                  |
-| 106062 | Address not find                  |
-| 106063 | Cointype duplicate binding.                  |
-| 106064 | The primary address is not bound to a currency.                  |
-| 106065 | It already exists in the asset table.                  |
-| 106066 | Data duplication.                  |
-| 106067 | Please select HTS currency.                  |
+| 106061 | Associate warm wallet address error.                  |
+| 106062 | Address could not be found.                  |
+| 106063 | Coin type duplicate association error.                  |
+| 106064 | The collective address is not associated to the HTS coin.                  |
+| 106065 | HTS token has already been associated to this address.                  |
+| 106066 | Input parameter data duplication error.                  |
+| 106067 | The HTS coin has not been defined.               |
