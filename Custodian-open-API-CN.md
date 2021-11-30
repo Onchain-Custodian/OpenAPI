@@ -1042,11 +1042,9 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 
   "Method": "POST",
 
-  "Params": {
-    "address":[
-    "0.0.11973290","0.0.11972392"
-        ],
-  "unique_name": "HTS"
+  "Params": { 
+   "address":["0.0.11973290","0.0.11972392"],
+   "unique_name": "HTS"
 
   },
 
