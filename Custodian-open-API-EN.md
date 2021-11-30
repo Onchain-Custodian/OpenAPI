@@ -170,7 +170,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 
 |   Coin Type    |              Coin Name              |      Protocol       |
 | :------------: | :---------------------------------: | :-----------------: |
-|     BCH     |            Bitcoin Cash             |   Bitcoin（分叉）    |
+|     BCH     |            Bitcoin Cash             |   Bitcoin (fork)    |
 |     BTC     |               Bitcoin               |       Bitcoin       |
 |     CGT     |       Curio Governance Token        |      Ethereum       |
 |     DAI     |           Dai Stablecoin            |      Ethereum       |
