@@ -149,8 +149,8 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |  POST  | [/v1/api/hd-address](#741-generate-child-addresses-for-a-master-address)                            | Create child addresses for a master key                                      |
 |  PUT   | [/v1/api/hd-address](#742-modify-the-name-of-a-child-wallet-address)                                | Assign a new name to a child address                                         |
 |  POST  | [host:port/{notice-type}](#751-transaction-notification-api-callback)                               | Configurable callback method                                                 |
-|   POST   | [/v1/api/Hbar/addressAddHTS](#761-Habr-address-associated-with-multiple-coins)                                             | Habr address associated with multiple coins                    |
-|   POST   | [/v1/api/Hbar/HTSAddAddress](#762-Habr-coins-associated-with-multiple-addresses)                                             |Habr coins associated with multiple addresses                     |
+|   POST   | [/v1/api/Hbar/addressAddHTS](#761-HBAR-address-association-with-multiple-HTS-coins)                                             | HBAR address association with multiple HTS coins                    |
+|   POST   | [/v1/api/Hbar/HTSAddAddress](#762-HTS-coin-association-with-multiple-HBAR-addresses)                                             | HTS coin association with multiple HBAR addresses                     |
 
 
 ### Reference Tables
@@ -211,7 +211,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |     LEO     |         Bitfinex Leo Token          |      Ethereum       |
 | XIDR-ERC20  |           XIDR Token                |      Ethereum       |
 | XIDR-ZRC2   |           XIDR Token                |      Ziliqa         |
-
+| HBAR   |           HBAR Token                |      Hedera Hashgraph         |
 
 > The request limits set for different API operations are:
 >
@@ -981,9 +981,9 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | :-------: | :----: | :--------------------------------------------------------------------------------------------------------------------------------------- |
 |   code    |  long  | **"0"** if notifications is successfully sent. For other codes or no code, notifications will be sent again as per set maximum frequency |
 |    msg    | string | description                                                                                                                              |
-### 7.6 Hbar API Call
+### 7.6 HBAR/HTS API Call
 
-#### 7.6.1 Habr address associated with multiple coins
+#### 7.6.1 HBAR address association with multiple HTS coins
 
 > {notice-type} is a type of notification
 
@@ -1022,7 +1022,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |   code    |  long  | **"0"** if notifications is successfully sent. For other codes or no code, notifications will be sent again as per set maximum frequency |
 |    msg    | string | description  
 
-#### 7.6.2 Habr coins associated with multiple addresses
+#### 7.6.2 HTS coin association with multiple HBAR addresses
 
 > {notice-type} is a type of notification
 
@@ -1123,10 +1123,10 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | 106058 | Unable to proceed with this action due to unresolved transactions in this wallet .                  |
 | 106059 | The transaction fee amount format is incorrect.                 |
 | 106060 | The recipient address has not been whitelisted to receive the respective token.                  |
-| 106061 | Associate warm wallet address error .                  |
-| 106062 | Address not find                  |
-| 106063 | Cointype duplicate binding.                  |
-| 106064 | The primary address is not bound to a currency.                  |
-| 106065 | It already exists in the asset table.                  |
-| 106066 | Data duplication.                  |
-| 106067 | Please select HTS currency.                  |
+| 106061 | Associate warm wallet address error.                  |
+| 106062 | Address could not be found.                  |
+| 106063 | Coin type duplicate association error.                  |
+| 106064 | The collective address is not associated to the HTS coin.                  |
+| 106065 | HTS token has already been associated to this address.                  |
+| 106066 | Input parameter data duplication error.                  |
+| 106067 | The HTS coin has not been defined.                  |
