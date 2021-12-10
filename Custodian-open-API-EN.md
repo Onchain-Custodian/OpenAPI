@@ -898,7 +898,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | Parameter |     Type     | Description                             | Required |
 | :-------: | :----------: | :-------------------------------------- | :------: |
 |  address  |    string    | master address                          |   yes    |
-|   count   |     int      | number of child addresses to be created,A maximum of five ADDRESSES can be created at a time. You can create only one HTS address at a time |   yes    |
+|   count   |     int      | number of child addresses to be created,A maximum of five addresses can be created at a time. You can create only one HTS address at a time |   yes    |
 |  remarks  | string array | names of the child address              |   yes    |
 
 ##### Response Parameters
