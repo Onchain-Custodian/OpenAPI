@@ -149,8 +149,9 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |  POST  | [/v1/api/hd-address](#741-generate-child-addresses-for-a-master-address)                            | Create child addresses for a master key                                      |
 |  PUT   | [/v1/api/hd-address](#742-modify-the-name-of-a-child-wallet-address)                                | Assign a new name to a child address                                         |
 |  POST  | [host:port/{notice-type}](#751-transaction-notification-api-callback)                               | Configurable callback method                                                 |
-|   POST   | [/v1/api/Hbar/addressAddHTS](#761-HBAR-address-association-with-multiple-HTS-coins)                                             | HBAR address association with multiple HTS coins                    |
-|   POST   | [/v1/api/Hbar/HTSAddAddress](#762-HTS-coin-association-with-multiple-HBAR-addresses)                                             | HTS coin association with multiple HBAR addresses                     |
+|   POST   | [/v1/api/Hbar/HTSAddAddressOne](#761-one-HBAR-address-association-with-one-HTS-coins)                                             | one HBAR address association with one HTS coins                  |   
+<!-- |   POST   | [/v1/api/Hbar/addressAddHTS](#761-HBAR-address-association-with-multiple-HTS-coins)                                             | HBAR address association with multiple HTS coins                    |
+|   POST   | [/v1/api/Hbar/HTSAddAddress](#762-HTS-coin-association-with-multiple-HBAR-addresses)                                             | HTS coin association with multiple HBAR addresses                     | -->
 
 
 ### Reference Tables
@@ -897,7 +898,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | Parameter |     Type     | Description                             | Required |
 | :-------: | :----------: | :-------------------------------------- | :------: |
 |  address  |    string    | master address                          |   yes    |
-|   count   |     int      | number of child addresses to be created |   yes    |
+|   count   |     int      | number of child addresses to be created,A maximum of five ADDRESSES can be created at a time. You can create only one HTS address at a time |   yes    |
 |  remarks  | string array | names of the child address              |   yes    |
 
 ##### Response Parameters
@@ -988,7 +989,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |    msg    | string | description                                                                                                                              |
 ### 7.6 HBAR/HTS API Call
 
-#### 7.6.1 HBAR address association with multiple HTS coins
+<!-- #### 7.6.1 HBAR address association with multiple HTS coins
 
 > {notice-type} is a type of notification
 
@@ -1063,7 +1064,45 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | Parameter |  Type  | Description                                                                                                                              |
 | :-------: | :----: | :--------------------------------------------------------------------------------------------------------------------------------------- |
 |   code    |  long  | If the OpenAPI receives 0 or 1, the notification is successful. 0 indicates that all IP addresses are associated successfully. 1 indicates that some IP addresses are not associated successfully|
-|    msg    | string | description  
+|    msg    | string | description   -->
+
+#### 7.6.1 one HBAR address association with one HTS coins
+
+> {notice-type} is a type of notification
+
+```json
+{
+  "URL": "/v1/api/Hbar/HTSAddAddressOne",
+
+  "Method": "POST",
+
+  "Params": { 
+   "address":"0.0.11973290",
+   "unique_name":"HTS"
+
+  },
+
+  "Response": {
+    "code": 0,
+    "msg": "SUCCESS"
+  }
+}
+```
+
+##### Request Parameters
+
+| Parameter | Type  | Description                     |
+| :-------: | :---: | :------------------------------ |
+|     address     |   String | coin associated address                         |
+|     uniqueName  |   String | coin name                              |
+
+
+##### Response Parameters
+
+| Parameter |  Type  | Description                                                                                                                              |
+| :-------: | :----: | :--------------------------------------------------------------------------------------------------------------------------------------- |
+|   code    |  long  | If the OpenAPI receives 0 or 1, the notification is successful.|
+|    msg    | string | description   -->
 
 ## 8. Error Codes
 
@@ -1133,3 +1172,4 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | 106065 | HTS token has already been associated to this address.                  |
 | 106066 | Input parameter data duplication error.                  |
 | 106067 | The HTS coin has not been defined.                  |
+| 106068 | The number of HBAR addresses cannot exceed 1.               |
