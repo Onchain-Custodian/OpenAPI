@@ -898,7 +898,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | Parameter |     Type     | Description                             | Required |
 | :-------: | :----------: | :-------------------------------------- | :------: |
 |  address  |    string    | master address                          |   yes    |
-|   count   |     int      | number of child addresses to be created,A maximum of five addresses can be created at a time. You can create only one HTS address at a time |   yes    |
+|   count   |     int      | the number of child addresses to be created; a maximum of 5 addresses can be created at a time for any blockchain protocol, with the exception of HBAR/HTS. Only a maximum of 1 HBAR/HTS child address can be created at a time |   yes    |
 |  remarks  | string array | names of the child address              |   yes    |
 
 ##### Response Parameters
@@ -1066,7 +1066,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |   code    |  long  | If the OpenAPI receives 0 or 1, the notification is successful. 0 indicates that all IP addresses are associated successfully. 1 indicates that some IP addresses are not associated successfully|
 |    msg    | string | description   -->
 
-#### 7.6.1 one HBAR address association with one HTS coin
+#### 7.6.1 Single HBAR address association with a single HTS coin
 
 > {notice-type} is a type of notification
 
