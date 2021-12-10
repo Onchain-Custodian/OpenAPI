@@ -155,9 +155,9 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 |   POST   | [/v1/api/hd-address](#741-为主地址创建子地址)                                                | 为主地址创建子地址                   |
 |   PUT    | [/v1/api/hd-address](#742-修改子地址名称)                                                    | 更改子地址名称                       |
 |   POST   | [host:port/{notice-type}](#751-交易通知接口回调)                                             | 回调方法，可配置                     |
-|   POST   | [/v1/api/Hbar/addressAddHTS](#761-HBAR地址关联多个币种)                                             | HBAR地址关联多个币种                     |
-|   POST   | [/v1/api/Hbar/HTSAddAddress](#762-HBAR币种关联多个地址)                                             | HBAR币种关联多个地址                   |
-|   POST   | [/v1/api/Hbar/HTSAddAddressOne](#763-单HBAR币种关联单地址)                                             | 单HBAR币种关联单地址                   |              
+<!-- |   POST   | [/v1/api/Hbar/addressAddHTS](#761-HBAR地址关联多个币种)                                             | HBAR地址关联多个币种                     |
+|   POST   | [/v1/api/Hbar/HTSAddAddress](#762-HBAR币种关联多个地址)                                             | HBAR币种关联多个地址                   | -->
+|   POST   | [/v1/api/Hbar/HTSAddAddressOne](#761-单HBAR币种关联单地址)                                             | 单HBAR币种关联单地址                   |              
 ### 参考
 
 #### 交易类型
@@ -993,7 +993,7 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 | msg  |  string  | 返回描述                                                                                          |
 ### 7.6 Hbar 接口调用
 
-#### 7.6.1  HBAR地址关联多个币种
+<!-- #### 7.6.1  HBAR地址关联多个币种
 
 > {notice-type}为通知类型
 
@@ -1068,8 +1068,8 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 | 参数 | 数据类型 | 说明                                                                                              |
 | :--: | :------: | :------------------------------------------------------------------------------------------------ |
 | code |   long   | OpenAPI 收到 0或者1 说明通知成功。0代表所有地址都被成功关联，1代表有部分地址关联不成功|
-| msg  |  string  | 返回描述                                                                                          |
-#### 7.6.3 单HBAR币种关联单地址
+| msg  |  string  | 返回描述                                                                                          | -->
+#### 7.6.1 单HBAR币种关联单地址
 
 > {notice-type}为通知类型
 
@@ -1176,3 +1176,4 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 | 106065 | HTS token has already been associated to this address.                  |
 | 106066 | Input parameter data duplication error.                  |
 | 106067 | The HTS coin has not been defined.               |
+| 106068 | The number of HBAR addresses cannot exceed 1.               |
