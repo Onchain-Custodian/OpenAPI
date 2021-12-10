@@ -1102,7 +1102,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | Parameter |  Type  | Description                                                                                                                              |
 | :-------: | :----: | :--------------------------------------------------------------------------------------------------------------------------------------- |
 |   code    |  long  | **"0"** if notifications is successfully sent. For other codes or no code, notifications will be sent again as per set maximum frequency.|
-|    msg    | string | description   -->
+|    msg    | string | description  |
 
 ## 8. Error Codes
 
