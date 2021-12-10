@@ -1101,7 +1101,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 
 | Parameter |  Type  | Description                                                                                                                              |
 | :-------: | :----: | :--------------------------------------------------------------------------------------------------------------------------------------- |
-|   code    |  long  | If the OpenAPI receives 0 or 1, the notification is successful.|
+|   code    |  long  | **"0"** if notifications is successfully sent. For other codes or no code, notifications will be sent again as per set maximum frequency.|
 |    msg    | string | description   -->
 
 ## 8. Error Codes
