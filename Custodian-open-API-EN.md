@@ -149,7 +149,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |  POST  | [/v1/api/hd-address](#741-generate-child-addresses-for-a-master-address)                            | Create child addresses for a master key                                      |
 |  PUT   | [/v1/api/hd-address](#742-modify-the-name-of-a-child-wallet-address)                                | Assign a new name to a child address                                         |
 |  POST  | [host:port/{notice-type}](#751-transaction-notification-api-callback)                               | Configurable callback method                                                 |
-|   POST   | [/v1/api/Hbar/HTSAddAddressOne](#761-one-HBAR-address-association-with-one-HTS-coins)                                             | one HBAR address association with one HTS coins                  |   
+|   POST   | [/v1/api/Hbar/HTSAddAddressOne](#761-one-HBAR-address-association-with-one-HTS-coin)                                             | one HBAR address association with one HTS coin                  |   
 <!-- |   POST   | [/v1/api/Hbar/addressAddHTS](#761-HBAR-address-association-with-multiple-HTS-coins)                                             | HBAR address association with multiple HTS coins                    |
 |   POST   | [/v1/api/Hbar/HTSAddAddress](#762-HTS-coin-association-with-multiple-HBAR-addresses)                                             | HTS coin association with multiple HBAR addresses                     | -->
 
@@ -1066,7 +1066,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |   code    |  long  | If the OpenAPI receives 0 or 1, the notification is successful. 0 indicates that all IP addresses are associated successfully. 1 indicates that some IP addresses are not associated successfully|
 |    msg    | string | description   -->
 
-#### 7.6.1 one HBAR address association with one HTS coins
+#### 7.6.1 one HBAR address association with one HTS coin
 
 > {notice-type} is a type of notification
 
