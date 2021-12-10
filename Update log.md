@@ -1,5 +1,11 @@
 # OpenAPI Update Log
 
+## 10/12/21 Updates
+- Added description for HBAR child address creation: 7.4.1. Generate Child Addresses For a Master Address 
+- Modified endpoint: 7.6.1 Single HBAR address association with a single HTS coin
+- Removed endpoint: 7.6.2 HTS coin association with multiple HBAR addresses
+- Added new error code: 106068
+
 ## 30/11/21 Updates
 - Added new coin type: BNB, FIL-BEP20, USDT-BEP20, BUSD-BEP20, USDC-BEP20, HBAR
 - New endpoint: 7.6.1 HBAR address association with multiple HTS coins
