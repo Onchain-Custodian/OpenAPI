@@ -154,10 +154,11 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 |   POST   | [/v1/api/trans/withdrawal](#731-发起出金请求)                                                | 发送出金请求                         |
 |   POST   | [/v1/api/hd-address](#741-为主地址创建子地址)                                                | 为主地址创建子地址                   |
 |   PUT    | [/v1/api/hd-address](#742-修改子地址名称)                                                    | 更改子地址名称                       |
-|   POST   | [host:port/{notice-type}](#751-交易通知接口回调)                                             | 回调方法，可配置                     |
-|   POST   | [/v1/api/Hbar/HTSAddAddressOne](#761-单HBAR币种关联单地址)                                             | 单HBAR币种关联单地址                   |   
-<!-- |   POST   | [/v1/api/Hbar/addressAddHTS](#761-HBAR地址关联多个币种)                                             | HBAR地址关联多个币种                     |
-|   POST   | [/v1/api/Hbar/HTSAddAddress](#762-HBAR币种关联多个地址)                                             | HBAR币种关联多个地址                   | -->
+|   POST   | [host:port/{notice-type}](#751-交易通知接口回调)                                             | 交易通知回调方法，可配置                     |
+|   POST   | [host:port/{notice-type}](#752-币种地址绑定通知接口回调)                                             | 币种地址绑定通知回调方法，可配置                     |
+|   POST   | [/v1/api/Hbar/HTSAddAddressOne](#761-单HBAR币种关联单地址)                                             | 单HBAR币种关联单地址                   |
+|   POST   | [/v1/api/Hbar/addressAddHTS](#762-HBAR地址关联多个币种)                                             | HBAR地址关联多个币种                     |
+|   POST   | [/v1/api/Hbar/HTSAddAddress](#763-HBAR币种关联多个地址)                                             | HBAR币种关联多个地址                   |
 ### 参考
 
 #### 交易类型
@@ -974,7 +975,7 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 
 |      参数       | 数据类型 | 说明                                  |
 | :-------------: | :------: | :------------------------------------ |
-|   notice-type   |  string  | 通知类型。目前只有 transaction-notice |
+|   notice-type   |  string  | 通知类型。 transaction-notice |
 |     address     |  string  | 交易地址                              |
 |     amount      |  string  | 交易金额                              |
 |    coinType     |  string  | 交易币种名称（[参考](#币种名称)）     |
@@ -990,23 +991,20 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 | 参数 | 数据类型 | 说明                                                                                              |
 | :--: | :------: | :------------------------------------------------------------------------------------------------ |
 | code |   long   | OpenAPI 收到 0 说明通知成功。如果收到其他返回码或没有收到返回，会继续发送通知直到达到最大通知次数 |
-| msg  |  string  | 返回描述                                                                                          |
-### 7.6 Hbar 接口调用
+| msg  |  string  | 返回描述                                                                                         |
 
-<!-- #### 7.6.1  HBAR地址关联多个币种
+#### 7.5.2 币种地址绑定通知接口回调
 
 > {notice-type}为通知类型
-
 ```json
 {
-  "URL": "/v1/api/Hbar/addressAddHTS",
-
+  "URL": "host:port/{notice-type}",
   "Method": "POST",
 
   "Params": {
-    "address": "0.0.11973290",
-    "unique_name": ["HTS1","HTS2"]
-
+   "address":"0.0.16404315",
+   "status":"0",
+   "uniqueName":"XSGD-HTS"
   },
 
   "Response": {
@@ -1015,64 +1013,25 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
   }
 }
 ```
-
 ##### 请求参数
 
 |      参数       | 数据类型 | 说明                                  |
 | :-------------: | :------: | :------------------------------------ |
-|     address     |  String  | 币种关联地址                              |
-|     unique_name  |  List  | 币种名称 String类型                             |
-
+|   notice-type   |  string  | 通知类型:hts-notice |
+|     address     |  string  | 绑定地址                              |
+|    uniqueName   |  string  | 绑定币种名称（[参考](#币种名称)）     |
+|     status      |  string  | 0代表绑定成功，1代表绑定失败需要重新发起绑定         |
 
 ##### 响应参数
 
 | 参数 | 数据类型 | 说明                                                                                              |
 | :--: | :------: | :------------------------------------------------------------------------------------------------ |
 | code |   long   | OpenAPI 收到 0 说明通知成功。如果收到其他返回码或没有收到返回，会继续发送通知直到达到最大通知次数 |
-| msg  |  string  | 返回描述                                                                                          |
+| msg  |  string  | 返回描述                                                                                         |
 
+### 7.6 Hbar 接口调用
 
-#### 7.6.2 HBAR币种关联多个地址
-
-> {notice-type}为通知类型
-
-```json
-{
-  "URL": "/v1/api/Hbar/HTSAddAddress",
-
-  "Method": "POST",
-
-  "Params": { 
-   "address":["0.0.11973290","0.0.11972392"],
-   "unique_name":"HTS"
-
-  },
-
-  "Response": {
-    "code": 0,
-    "msg": "SUCCESS"
-  }
-}
-```
-
-##### 请求参数
-
-|      参数       | 数据类型 | 说明                                  |
-| :-------------: | :------: | :------------------------------------ |
-|     address     |   List | 币种关联地址   String类型                           |
-|     unique_name  |   String | 币种名称                              |
-
-
-##### 响应参数
-
-| 参数 | 数据类型 | 说明                                                                                              |
-| :--: | :------: | :------------------------------------------------------------------------------------------------ |
-| code |   long   | OpenAPI 收到 0或者1 说明通知成功。0代表所有地址都被成功关联，1代表有部分地址关联不成功|
-| msg  |  string  | 返回描述                                                                                          | -->
 #### 7.6.1 单HBAR币种关联单地址
-
-> {notice-type}为通知类型
-
 ```json
 {
   "URL": "/v1/api/Hbar/HTSAddAddressOne",
@@ -1094,20 +1053,96 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 
 ##### 请求参数
 
-|      参数       | 数据类型 | 说明                                  |
-| :-------------: | :------: | :------------------------------------ |
-|     address     |   String | 币种关联地址   String类型                           |
-|     unique_name  |   String | 币种名称                              |
+|      参数       | 数据类型 | 说明                                  |必要 |
+| :-------------: | :------: | :------------------------------------ |:--- |
+|     address     |   String | 币种关联地址   String类型                           | 是   |
+|     unique_name  |   String | 币种名称                              | 是   |
+
 
 
 ##### 响应参数
 
 | 参数 | 数据类型 | 说明                                                                                              |
 | :--: | :------: | :------------------------------------------------------------------------------------------------ |
-| code |   long   |  OpenAPI 收到 0 说明通知成功。如果收到其他返回码或没有收到返回，会继续发送通知直到达到最大通知次数。|
+| code |   long   |  0说明成功绑定，1代表绑定失败|
 | msg  |  string  | 返回描述                                                                                          |
 
+#### 7.6.2  HBAR地址关联多个币种
+>这是一个异步接口，用来发起币种绑定地址的请求。绑定结果会通过回调接口(币种地址绑定通知接口回调)通知。请根据需要配置接收通知的noticeUrl
+```json
+{
+  "URL": "/v1/api/Hbar/addressAddHTS",
 
+  "Method": "POST",
+
+  "Params": {
+   "address": "0.0.11973290",
+   "unique_name": ["HTS1","HTS2"],
+   "noticeUrl":"http://127.0.0.1:8090"
+
+  },
+
+  "Response": {
+    "code": 0,
+    "msg": "SUCCESS"
+  }
+}
+```
+
+##### 请求参数
+
+|      参数       | 数据类型 | 说明                                  |必要 |
+| :-------------: | :------: | :------------------------------------ |:--- |
+|     address     |  String  | 币种关联地址                              |是|
+|     unique_name  |  List  | 币种名称 String类型                            |是|
+|     noticeUrl  |   String |    接收所发请求的地址和币种是否绑定通知的Url                          |是|
+
+
+##### 响应参数
+
+| 参数 | 数据类型 | 说明                                                                                              |
+| :--: | :------: | :------------------------------------------------------------------------------------------------ |
+| code |   long   | 0说明成功发起绑定申请，1代表发起绑定申请失败|
+| msg  |  string  | 返回描述                                                                                                |
+
+
+#### 7.6.3 HBAR币种关联多个地址
+>这是一个异步接口，用来发起币种绑定地址的请求。绑定结果会通过回调接口(币种地址绑定通知接口回调)通知。请根据需要配置接收通知的noticeUrl
+```json
+{
+  "URL": "/v1/api/Hbar/HTSAddAddress",
+
+  "Method": "POST",
+
+  "Params": { 
+   "address":["0.0.11973290","0.0.11972392"],
+   "unique_name":"HTS",
+   "noticeUrl":"http://127.0.0.1:8090"
+
+  },
+
+  "Response": {
+    "code": 0,
+    "msg": "SUCCESS"
+  }
+}
+```
+
+##### 请求参数
+
+|      参数       | 数据类型 | 说明                                  |必要 |
+| :-------------: | :------: | :------------------------------------ |:--- |
+|     address     |   List | 币种关联地址   String类型                           |是|
+|     unique_name  |   String | 币种名称                              |是|
+|     noticeUrl  |   String |    接收所发请求的地址和币种是否绑定通知的Url                          |是|
+
+
+##### 响应参数
+
+| 参数 | 数据类型 | 说明                                                                                              |
+| :--: | :------: | :------------------------------------------------------------------------------------------------ |
+| code |   long   |0说明成功发起绑定申请，1代表发起绑定申请失败|
+| msg  |  string  | 返回描述                                                                                          |
 ## 8. 错误代码
 
 | code  |          Description             |
@@ -1177,3 +1212,4 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 | 106066 | Input parameter data duplication error.                  |
 | 106067 | The HTS coin has not been defined.               |
 | 106068 | The number of HBAR addresses cannot exceed 1.               |
+| 106069 | The corresponding address and currency are waiting to be connected.               |
