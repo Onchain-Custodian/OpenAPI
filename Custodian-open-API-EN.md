@@ -149,8 +149,8 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |  POST  | [/v1/api/hd-address](#741-generate-child-addresses-for-a-master-address)                            | Create child addresses for a master key                                      |
 |  PUT   | [/v1/api/hd-address](#742-modify-the-name-of-a-child-wallet-address)                                | Assign a new name to a child address                                         |
 |  POST  | [host:port/{notice-type}](#751-transaction-notification-api-callback)                               | Configurable callback method for transaction notification
-|   POST   | [host:port/{notice-type}](#752-coin-address-binding-notifies-the-interface-callback)| Configurable callback method for HTS coin association notification
-|   POST   | [/v1/api/Hbar/HTSAddAddressOne](761-single-hbar-address-association-with-single-hts-coin)                                             | Single HBAR address association with single HTS coin                  |
+|   POST   | [host:port/{notice-type}](#752-hts-coin-association-notification-api-callback)| Configurable callback method for HTS coin association notification
+|   POST   | [/v1/api/Hbar/HTSAddAddressOne](#761-single-hbar-address-association-with-single-hts-coin)                                             | Single HBAR address association with single HTS coin                  |
 |   POST   | [/v1/api/Hbar/addressAddHTS](#762-HBAR-address-association-with-multiple-HTS-coins)                                             | Single HBAR address association with multiple HTS coins                    |
 |   POST   | [/v1/api/Hbar/HTSAddAddress](#763-HTS-coin-association-with-multiple-HBAR-addresses)                                             | Single HTS coin association with multiple HBAR addresses                     |
 
