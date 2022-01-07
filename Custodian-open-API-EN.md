@@ -148,11 +148,11 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |  POST  | [/v1/api/trans/withdrawal](#731-send-a-withdrawal-request)                                          | Send a withdrawal request                                                    |
 |  POST  | [/v1/api/hd-address](#741-generate-child-addresses-for-a-master-address)                            | Create child addresses for a master key                                      |
 |  PUT   | [/v1/api/hd-address](#742-modify-the-name-of-a-child-wallet-address)                                | Assign a new name to a child address                                         |
-|  POST  | [host:port/{notice-type}](#751-transaction-notification-api-callback)                               | Configurable callback method                                                 |
-|   POST   | [/v1/api/Hbar/HTSAddAddressOne](#761-one-HBAR-address-association-with-one-HTS-coin)                                             | one HBAR address association with one HTS coin                  |   
-<!-- |   POST   | [/v1/api/Hbar/addressAddHTS](#761-HBAR-address-association-with-multiple-HTS-coins)                                             | HBAR address association with multiple HTS coins                    |
-|   POST   | [/v1/api/Hbar/HTSAddAddress](#762-HTS-coin-association-with-multiple-HBAR-addresses)                                             | HTS coin association with multiple HBAR addresses                     | -->
-
+|  POST  | [host:port/{notice-type}](#751-transaction-notification-api-callback)                               | Transaction notice callback method，Configurable                                                   |
+|   POST   | [host:port/{notice-type}](#752-coin-address-binding-notifies-the-interface-callback)| coin address binding notification callback method, configurable                     |
+|   POST   | [/v1/api/Hbar/HTSAddAddressOne](#761-one-HBAR-address-association-with-one-HTS-coin)                                             | one HBAR address association with one HTS coin                  |
+|   POST   | [/v1/api/Hbar/addressAddHTS](#762-HBAR-address-association-with-multiple-HTS-coins)                                             | HBAR address association with multiple HTS coins                    |
+|   POST   | [/v1/api/Hbar/HTSAddAddress](#763-HTS-coin-association-with-multiple-HBAR-addresses)                                             | HTS coin association with multiple HBAR addresses                     |
 
 ### Reference Tables
 
@@ -937,7 +937,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 
 ### 7.5. API Call Back
 
-#### 7.5.1. Transaction Notification API Callback
+#### 7.5.1. Transaction Notification Api Callback
 
 > {notice-type} is a type of notification
 
@@ -987,22 +987,19 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | :-------: | :----: | :--------------------------------------------------------------------------------------------------------------------------------------- |
 |   code    |  long  | **"0"** if notifications is successfully sent. For other codes or no code, notifications will be sent again as per set maximum frequency |
 |    msg    | string | description                                                                                                                              |
-### 7.6 HBAR/HTS API Call
 
-<!-- #### 7.6.1 HBAR address association with multiple HTS coins
+#### 7.5.2 Coin Address Binding Notifies The Interface Callback
 
 > {notice-type} is a type of notification
-
 ```json
 {
-  "URL": "/v1/api/Hbar/addressAddHTS",
-
+  "URL": "host:port/{notice-type}",
   "Method": "POST",
 
   "Params": {
-    "address": "0.0.11973290",
-    "uniqueName": ["HTS1","HTS2"]
-
+   "address":"0.0.16404315",
+   "status":"0",
+   "uniqueName":"XSGD-HTS"
   },
 
   "Response": {
@@ -1013,62 +1010,22 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 ```
 ##### Request Parameters
 
-| Parameter | Type  | Description                     |
-| :-------: | :---: | :------------------------------ |
-|     address     |  String  | coin associated address                              |
-|     uniqueName  |  List  | coins name （String）                             |
-
-
-
+|      Parameter       | Type | Description                                  |
+| :-------------: | :------: | :------------------------------------ |
+|   notice-type   |  string  | notice type: hts-notice |
+|     address     |  string  | Binding address                             |
+|    uniqueName   |  string  | Binding coin ([Reference table](#coin-type))     |
+|     status      |  string  | 0 indicates that the binding is successful. 1 indicates that the binding fails and you need to initiate the binding again         |
 
 ##### Response Parameters
 
 | Parameter |  Type  | Description                                                                                                                              |
 | :-------: | :----: | :--------------------------------------------------------------------------------------------------------------------------------------- |
 |   code    |  long  | **"0"** if notifications is successfully sent. For other codes or no code, notifications will be sent again as per set maximum frequency |
-|    msg    | string | description  
+|    msg    | string | description|
 
-#### 7.6.2 HTS coin association with multiple HBAR addresses
-
-> {notice-type} is a type of notification
-
-```json
-{
-  "URL": "/v1/api/Hbar/HTSAddAddress",
-
-  "Method": "POST",
-
-  "Params": {
-    "address":[
-    "0.0.11973290","0.0.11972392","0.0.11972377","0.0.11972366"],
-    "unique_name":"HTS"
-  },
-
-  "Response": {
-    "code": 0,
-    "msg": "SUCCESS"
-  }
-}
-```
-
-##### Request Parameters
-
-| Parameter | Type  | Description                     |
-| :-------: | :---: | :------------------------------ |
-|     address     |   List | coin associated address   （String）                           |
-|     uniqueName  |   String | coin name                              |
-
-
-##### Response Parameters
-
-| Parameter |  Type  | Description                                                                                                                              |
-| :-------: | :----: | :--------------------------------------------------------------------------------------------------------------------------------------- |
-|   code    |  long  | If the OpenAPI receives 0 or 1, the notification is successful. 0 indicates that all IP addresses are associated successfully. 1 indicates that some IP addresses are not associated successfully|
-|    msg    | string | description   -->
-
-#### 7.6.1 Single HBAR address association with a single HTS coin
-
-> {notice-type} is a type of notification
+### 7.6 HBAR/HTS API Call
+#### 7.6.1 One HBAR Address Association With One HTS Coin
 
 ```json
 {
@@ -1091,17 +1048,96 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 
 ##### Request Parameters
 
-| Parameter | Type  | Description                     |
-| :-------: | :---: | :------------------------------ |
-|     address     |   String | coin associated address                         |
-|     uniqueName  |   String | coin name                              |
+| Parameter | Type  | Description                     | Required|
+| :-------: | :---: | :------------------------------ | :------:|
+|     address     |   String | coin associated address                         | yes|
+|     uniqueName  |   String | coin name                              | yes|
 
 
 ##### Response Parameters
 
 | Parameter |  Type  | Description                                                                                                                              |
 | :-------: | :----: | :--------------------------------------------------------------------------------------------------------------------------------------- |
-|   code    |  long  | **"0"** if notifications is successfully sent. For other codes or no code, notifications will be sent again as per set maximum frequency.|
+|   code    |  long  | 0 indicates that the binding application is successfully initiated. 1 indicates that the binding application fails to be initiated|
+|    msg    | string | description  |
+
+#### 7.6.2 HBAR Address Association With Multiple HTS Coins
+
+> This is an asynchronous interface used to initiate coin bound address requests. The result of the binding is notified via the callback interface(Coin Address Binding Notifies The Interface Callback). Configure a noticeUrl to receive notifications as required
+
+```json
+{
+  "URL": "/v1/api/Hbar/addressAddHTS",
+
+  "Method": "POST",
+
+  "Params": {
+    "address": "0.0.11973290",
+    "uniqueName": ["HTS1","HTS2"],
+    "noticeUrl":"http://127.0.0.1:8090"
+
+  },
+
+  "Response": {
+    "code": 0,
+    "msg": "SUCCESS"
+  }
+}
+```
+##### Request Parameters
+
+| Parameter | Type  | Description                     | Required|
+| :-------: | :---: | :------------------------------ |:------:|
+|     address     |  String  | coin associated address                              |yes|
+|     uniqueName  |  List  | coins name （String）                             |yes|
+|     noticeUrl  |   String |    Whether the Url of the notification is bound to the address and coin of the received request                          |yes|
+
+
+##### Response Parameters
+
+| Parameter |  Type  | Description                                                                                                                              |
+| :-------: | :----: | :--------------------------------------------------------------------------------------------------------------------------------------- |
+|   code    |  long  | 0 indicates that the binding application is successfully initiated. 1 indicates that the binding application fails to be initiated |
+|    msg    | string | description  |
+
+#### 7.6.3 HTS Coin Association With Multiple HBAR Addresses
+
+> This is an asynchronous interface used to initiate coin bound address requests. The result of the binding is notified via the callback interface(Coin Address Binding Notifies The Interface Callback). Configure a noticeUrl to receive notifications as required
+
+```json
+{
+  "URL": "/v1/api/Hbar/HTSAddAddress",
+
+  "Method": "POST",
+
+  "Params": {
+    "address":[
+    "0.0.11973290","0.0.11972392","0.0.11972377","0.0.11972366"],
+    "unique_name":"HTS",
+    "noticeUrl":"http://127.0.0.1:8090"
+
+  },
+
+  "Response": {
+    "code": 0,
+    "msg": "SUCCESS"
+  }
+}
+```
+
+##### Request Parameters
+
+| Parameter | Type  | Description                     |Required|
+| :-------: | :---: | :------------------------------ |:------:|
+|     address     |   List | coin associated address   （String）                           |yes|
+|     uniqueName  |   String | coin name                              |yes|
+|     noticeUrl  |   String |    Whether the Url of the notification is bound to the address and coin of the received request                          |yes|
+
+##### Response Parameters
+
+| Parameter |  Type  | Description                                                                                                                              |
+| :-------: | :----: | :--------------------------------------------------------------------------------------------------------------------------------------- |
+|   code    |  long  |0 indicates that the binding application is successfully initiated. 1 indicates that the binding application fails to be initiated|
 |    msg    | string | description  |
 
 ## 8. Error Codes
@@ -1173,3 +1209,4 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | 106066 | Input parameter data duplication error.                  |
 | 106067 | The HTS coin has not been defined.                  |
 | 106068 | The number of HBAR addresses cannot exceed 1.               |
+| 106069 | The corresponding address and coin are waiting to be connected.               |
