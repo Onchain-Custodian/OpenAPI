@@ -1,5 +1,11 @@
 # OpenAPI Update Log
 
+## 07/01/21 Updates
+- New endpoint: 7.5.2 HTS Coin Association Notification API Callback
+- New endpoint: 7.6.2 HBAR Address Association With Multiple HTS Coins
+- New endpoint: 7.6.3 HTS Coin Association With Multiple HBAR Addresses
+- New error code: 106069
+
 ## 10/12/21 Updates
 - Added description for HBAR child address creation: 7.4.1. Generate Child Addresses For a Master Address 
 - Modified endpoint: 7.6.1 Single HBAR address association with a single HTS coin
