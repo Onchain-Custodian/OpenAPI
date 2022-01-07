@@ -148,11 +148,11 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |  POST  | [/v1/api/trans/withdrawal](#731-send-a-withdrawal-request)                                          | Send a withdrawal request                                                    |
 |  POST  | [/v1/api/hd-address](#741-generate-child-addresses-for-a-master-address)                            | Create child addresses for a master key                                      |
 |  PUT   | [/v1/api/hd-address](#742-modify-the-name-of-a-child-wallet-address)                                | Assign a new name to a child address                                         |
-|  POST  | [host:port/{notice-type}](#751-transaction-notification-api-callback)                               | Transaction notice callback method，Configurable                                                   |
-|   POST   | [host:port/{notice-type}](#752-coin-address-binding-notifies-the-interface-callback)| coin address binding notification callback method, configurable                     |
-|   POST   | [/v1/api/Hbar/HTSAddAddressOne](#761-one-HBAR-address-association-with-one-HTS-coin)                                             | one HBAR address association with one HTS coin                  |
-|   POST   | [/v1/api/Hbar/addressAddHTS](#762-HBAR-address-association-with-multiple-HTS-coins)                                             | HBAR address association with multiple HTS coins                    |
-|   POST   | [/v1/api/Hbar/HTSAddAddress](#763-HTS-coin-association-with-multiple-HBAR-addresses)                                             | HTS coin association with multiple HBAR addresses                     |
+|  POST  | [host:port/{notice-type}](#751-transaction-notification-api-callback)                               | Configurable callback method for transaction notification
+|   POST   | [host:port/{notice-type}](#752-coin-address-binding-notifies-the-interface-callback)| Configurable callback method for HTS coin association notification
+|   POST   | [/v1/api/Hbar/HTSAddAddressOne](761-single-hbar-address-association-with-single-hts-coin)                                             | Single HBAR address association with single HTS coin                  |
+|   POST   | [/v1/api/Hbar/addressAddHTS](#762-HBAR-address-association-with-multiple-HTS-coins)                                             | Single HBAR address association with multiple HTS coins                    |
+|   POST   | [/v1/api/Hbar/HTSAddAddress](#763-HTS-coin-association-with-multiple-HBAR-addresses)                                             | Single HTS coin association with multiple HBAR addresses                     |
 
 ### Reference Tables
 
@@ -935,9 +935,9 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |  remark   | string | child address name after modification |   yes    |
 
 
-### 7.5. API Call Back
+### 7.5. API Callback
 
-#### 7.5.1. Transaction Notification Api Callback
+#### 7.5.1. Transaction Notification API Callback
 
 > {notice-type} is a type of notification
 
@@ -988,7 +988,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |   code    |  long  | **"0"** if notifications is successfully sent. For other codes or no code, notifications will be sent again as per set maximum frequency |
 |    msg    | string | description                                                                                                                              |
 
-#### 7.5.2 Coin Address Binding Notifies The Interface Callback
+#### 7.5.2 HTS Coin Association Notification API Callback
 
 > {notice-type} is a type of notification
 ```json
@@ -1013,19 +1013,19 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |      Parameter       | Type | Description                                  |
 | :-------------: | :------: | :------------------------------------ |
 |   notice-type   |  string  | notice type: hts-notice |
-|     address     |  string  | Binding address                             |
-|    uniqueName   |  string  | Binding coin ([Reference table](#coin-type))     |
-|     status      |  string  | 0 indicates that the binding is successful. 1 indicates that the binding fails and you need to initiate the binding again         |
+|     address     |  string  | associated address                             |
+|    uniqueName   |  string  | coin name ([Reference table](#coin-type))     |
+|     status      |  string  | 0 indicates that the association is successful. 1 indicates that the association has failed and needs to re-initiate again         |
 
 ##### Response Parameters
 
 | Parameter |  Type  | Description                                                                                                                              |
 | :-------: | :----: | :--------------------------------------------------------------------------------------------------------------------------------------- |
-|   code    |  long  | **"0"** if notifications is successfully sent. For other codes or no code, notifications will be sent again as per set maximum frequency |
+|   code    |  long  | **"0"** indicates that the notification is successfully sent. For other codes or no code, notifications will be sent again as per set maximum frequency |
 |    msg    | string | description|
 
 ### 7.6 HBAR/HTS API Call
-#### 7.6.1 One HBAR Address Association With One HTS Coin
+#### 7.6.1 Single HBAR Address Association With Single HTS Coin
 
 ```json
 {
@@ -1050,7 +1050,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 
 | Parameter | Type  | Description                     | Required|
 | :-------: | :---: | :------------------------------ | :------:|
-|     address     |   String | coin associated address                         | yes|
+|     address     |   String | associated address                         | yes|
 |     uniqueName  |   String | coin name                              | yes|
 
 
@@ -1058,12 +1058,12 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 
 | Parameter |  Type  | Description                                                                                                                              |
 | :-------: | :----: | :--------------------------------------------------------------------------------------------------------------------------------------- |
-|   code    |  long  | 0 indicates that the binding application is successfully initiated. 1 indicates that the binding application fails to be initiated|
+|   code    |  long  | 0 indicates that the association request is successfully initiated. 1 indicates that the association request has failed to initiate|
 |    msg    | string | description  |
 
 #### 7.6.2 HBAR Address Association With Multiple HTS Coins
 
-> This is an asynchronous interface used to initiate coin bound address requests. The result of the binding is notified via the callback interface(Coin Address Binding Notifies The Interface Callback). Configure a noticeUrl to receive notifications as required
+> This is an asynchronous interface used to initiate coin association to address requests. The result of the association is notified via the callback interface [host:port/{notice-type}](752-hts-coin-association-notification-api-callback). Configure a noticeUrl to receive notifications as required.
 
 ```json
 {
@@ -1088,21 +1088,21 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 
 | Parameter | Type  | Description                     | Required|
 | :-------: | :---: | :------------------------------ |:------:|
-|     address     |  String  | coin associated address                              |yes|
+|     address     |  String  | associated address                              |yes|
 |     uniqueName  |  List  | coins name （String）                             |yes|
-|     noticeUrl  |   String |    Whether the Url of the notification is bound to the address and coin of the received request                          |yes|
+|     noticeUrl  |   String |    URL to receive the result of the association request                           |yes|
 
 
 ##### Response Parameters
 
 | Parameter |  Type  | Description                                                                                                                              |
 | :-------: | :----: | :--------------------------------------------------------------------------------------------------------------------------------------- |
-|   code    |  long  | 0 indicates that the binding application is successfully initiated. 1 indicates that the binding application fails to be initiated |
+|   code    |  long  | 0 indicates that the association request is successfully initiated. 1 indicates that the association request has failed to initiate |
 |    msg    | string | description  |
 
 #### 7.6.3 HTS Coin Association With Multiple HBAR Addresses
 
-> This is an asynchronous interface used to initiate coin bound address requests. The result of the binding is notified via the callback interface(Coin Address Binding Notifies The Interface Callback). Configure a noticeUrl to receive notifications as required
+> This is an asynchronous interface used to initiate coin association to address requests. The result of the association is notified via the callback interface [host:port/{notice-type}](752-hts-coin-association-notification-api-callback). Configure a noticeUrl to receive notifications as required.
 
 ```json
 {
@@ -1129,15 +1129,15 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 
 | Parameter | Type  | Description                     |Required|
 | :-------: | :---: | :------------------------------ |:------:|
-|     address     |   List | coin associated address   （String）                           |yes|
+|     address     |   List |  associated address   （String）                           |yes|
 |     uniqueName  |   String | coin name                              |yes|
-|     noticeUrl  |   String |    Whether the Url of the notification is bound to the address and coin of the received request                          |yes|
+|     noticeUrl  |   String |    URL to receive the result of the association request                            |yes|
 
 ##### Response Parameters
 
 | Parameter |  Type  | Description                                                                                                                              |
 | :-------: | :----: | :--------------------------------------------------------------------------------------------------------------------------------------- |
-|   code    |  long  |0 indicates that the binding application is successfully initiated. 1 indicates that the binding application fails to be initiated|
+|   code    |  long  |0 indicates that the association request is successfully initiated. 1 indicates that the association request has failed to initiate |
 |    msg    | string | description  |
 
 ## 8. Error Codes
@@ -1209,4 +1209,4 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | 106066 | Input parameter data duplication error.                  |
 | 106067 | The HTS coin has not been defined.                  |
 | 106068 | The number of HBAR addresses cannot exceed 1.               |
-| 106069 | The corresponding address and coin are waiting to be connected.               |
+| 106069 | An identical association request operation is still pending execution.              |
