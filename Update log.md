@@ -1,4 +1,6 @@
 # OpenAPI Update Log
+## 14/01/21 Updates
+- New coin type: XSGD-HTS
 
 ## 07/01/21 Updates
 - New endpoint: 7.5.2 HTS Coin Association Notification API Callback
