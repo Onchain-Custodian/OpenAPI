@@ -218,6 +218,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | BUSD-BEP20 | Binance USD | Binance Smart Chain |
 | USDC-BEP20 | USD Coin | Binance Smart Chain |
 | HBAR   |           HBAR Token                |      Hedera Hashgraph         |
+| SAC | Sanuscoin | Bitcoin (CC) | 
 
 > The request limits set for different API operations are:
 >
