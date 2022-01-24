@@ -173,7 +173,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | :------------: | :---------------------------------: | :-----------------: |
 |     BCH     |            Bitcoin Cash             |   Bitcoin (fork)    |
 |     BTC     |               Bitcoin               |       Bitcoin       |
-|     CGT     |       Curio Governance Token        |      Ethereum       |
+|     CGT     |       CACHE Gold        |      Ethereum       |
 |     DAI     |           Dai Stablecoin            |      Ethereum       |
 |     ETH     |              Ethereum               |      Ethereum       |
 |     FTM     |            Fantom Token             |      Ethereum       |
