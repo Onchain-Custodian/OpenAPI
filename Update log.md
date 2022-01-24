@@ -1,8 +1,10 @@
 # OpenAPI Update Log
-## 14/01/21 Updates
+## 24/01/22
+- New coin type: SAC
+## 14/01/22 Updates
 - New coin type: XSGD-HTS
 
-## 07/01/21 Updates
+## 07/01/22 Updates
 - New endpoint: 7.5.2 HTS Coin Association Notification API Callback
 - New endpoint: 7.6.2 HBAR Address Association With Multiple HTS Coins
 - New endpoint: 7.6.3 HTS Coin Association With Multiple HBAR Addresses
