@@ -1213,3 +1213,5 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 | 106067 | The HTS coin has not been defined.               |
 | 106068 | The number of HBAR addresses cannot exceed 1.               |
 | 106069 | The corresponding address and currency are waiting to be connected.               |
+| 106070 | The beneficiary address is the same as the originating address.               |
+
