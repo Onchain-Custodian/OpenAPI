@@ -1211,3 +1211,4 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | 106067 | The HTS coin has not been defined.                  |
 | 106068 | The number of HBAR addresses cannot exceed 1.               |
 | 106069 | An identical association request operation is still pending execution.              |
+| 106070 | The beneficiary address is the same as the originating address.              |
