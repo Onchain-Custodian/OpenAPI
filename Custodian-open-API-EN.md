@@ -143,7 +143,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |  PUT   | [v1/api/account/collect](#717-collect-funds-from-child-addresses-and-transfer-to-master-address)    | Collect funds from child addresses and transfer to master address            |
 |  PUT   | [v1/api/account/collect/auto](#718-update-auto-collect-configuration)                               | Update auto-collect configuration                                            |
 |  GET   | [v1/api/account/txfee](#719-fetch-current-transaction-fee-by-coin-type)                             | Fetch the current transaction fee for a particular coin type                 |
-|  PUT   | [v1/api/account/hd/collect](#7110-collect-customize-funds-from-child-addresse-and-transfer-to-master-address) | Collect customize funds from child addresse and transfer to master address                 |
+|  PUT   | [v1/api/account/hd/collect](#7110-specify-amount-to-collect-from-child-address-to-master-address) | Specify amount to collect from child address to master address                 |
 |  POST  | [/v1/api/list-trans](#721-fetch-list-of-transactions)                                               | Fetch the transaction history for a wallet, can be filtered using parameters |
 |  GET   | [/v1/api/trans/{tx_id}](#722-fetch-transaction-details-by-transaction-id)                           | Fetch details for a transaction using the transaction ID                     |
 |  POST  | [/v1/api/trans/withdrawal](#731-send-a-withdrawal-request)                                          | Send a withdrawal request                                                    |
@@ -667,7 +667,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |   chain_fee   | Number | withdrawal fee           |
 |    usd_fee    | Number | fee in usdt              |
 
-#### 7.1.10. Collect customize funds from child addresse and transfer to master address
+#### 7.1.10. Specify amount to collect from child address to master address        
 
 
 ```json
