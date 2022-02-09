@@ -144,7 +144,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |  PUT   | [v1/api/account/collect/auto](#718-update-auto-collect-configuration)                               | Update auto-collect configuration                                            |
 |  GET   | [v1/api/account/txfee](#719-fetch-current-transaction-fee-by-coin-type)                             | Fetch the current transaction fee for a particular coin type                 |
 
-|  PUT   | [v1/api/account/hd/collect](#7110-collect-customize-funds-from-child-addresse-and-transfer-to-master-address)                             | Collect customize funds from child addresse and transfer to master address                 |
+|  PUT   | [v1/api/account/hd/collect](#7110-collect-customize-funds-from-child-addresse-and-transfer-to-master-address) | Collect customize funds from child addresse and transfer to master address                 |
 
 |  POST  | [/v1/api/list-trans](#721-fetch-list-of-transactions)                                               | Fetch the transaction history for a wallet, can be filtered using parameters |
 |  GET   | [/v1/api/trans/{tx_id}](#722-fetch-transaction-details-by-transaction-id)                           | Fetch details for a transaction using the transaction ID                     |
