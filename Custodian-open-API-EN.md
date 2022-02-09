@@ -143,6 +143,9 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |  PUT   | [v1/api/account/collect](#717-collect-funds-from-child-addresses-and-transfer-to-master-address)    | Collect funds from child addresses and transfer to master address            |
 |  PUT   | [v1/api/account/collect/auto](#718-update-auto-collect-configuration)                               | Update auto-collect configuration                                            |
 |  GET   | [v1/api/account/txfee](#719-fetch-current-transaction-fee-by-coin-type)                             | Fetch the current transaction fee for a particular coin type                 |
+
+|  PUT   | [v1/api/account/hd/collect](#7110-collect-customize-funds-from-child-addresse-and-transfer-to-master-address)                             | Collect customize funds from child addresse and transfer to master address                 |
+
 |  POST  | [/v1/api/list-trans](#721-fetch-list-of-transactions)                                               | Fetch the transaction history for a wallet, can be filtered using parameters |
 |  GET   | [/v1/api/trans/{tx_id}](#722-fetch-transaction-details-by-transaction-id)                           | Fetch details for a transaction using the transaction ID                     |
 |  POST  | [/v1/api/trans/withdrawal](#731-send-a-withdrawal-request)                                          | Send a withdrawal request                                                    |
@@ -665,6 +668,35 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | list_fee_step | Array  | gas fee multiplier       |
 |   chain_fee   | Number | withdrawal fee           |
 |    usd_fee    | Number | fee in usdt              |
+
+#### 7.1.10. Collect customize funds from child addresse and transfer to master address
+
+
+```json
+{
+  "URL": "/v1/api/account/hd/collect",
+  "Method": "PUT",
+  "Params":  {
+    "coin_type": "BTC",
+    "sub_address": "0x59e29511e5049fef98c00b4ad6954de27cdfafa3",
+    "tx_amount": 2.0
+  },
+  "Response": {
+    "code": 0,
+    "msg": "string",
+    "result": {}
+  }
+}
+```
+
+##### Request Parameters
+
+|    Parameter     | Type | Description                         | Required |
+| :---------: | :------: | :--------------------------- | :--: |
+|  coin_type  |  string  | Coin type ([Reference table](#coin-type))                        |  yes  |
+| sub_address  |  String  | collect sub address | yes   |
+| tx_amount |  String  |   collect amount   | yes   |
+
 
 ### 7.2. Transaction Details
 
