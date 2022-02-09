@@ -149,7 +149,7 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 |  PUT   | [v1/api/account/collect](#717-将子地址余额归集至主地址)                                | 当余额超过指定值时将子地址余额归集至主地址                                         |
 |  PUT  | [v1/api/account/collect/auto](#718-更新自动归集配置)                               | 更新自动归集配置                                                 |
 |  PUT  | [v1/api/account/txfee](#719-获取指定币种当前手续费)                               | 获取指定币种当前手续费                                                 |
-|  PUT  | [v1/api/account/hd/collect](#720-指定子地址金额归集)                               | 指定子地址金额归集                                                |
+|  PUT  | [v1/api/account/hd/collect](#7110-指定子地址金额归集)                               | 指定子地址金额归集                                                |
 |   POST   | [/v1/api/list-trans](#721-获取交易列表)                                                      | 获取钱包交易历史，可通过参数筛选     |
 |   GET    | [/v1/api/trans/{tx_id}](#722-根据交易单号查询交易详情)                                       | 通过交易单号获取交易详情             |
 |   POST   | [/v1/api/trans/withdrawal](#731-发起出金请求)                                                | 发送出金请求                         |
@@ -655,6 +655,20 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 | to_address |  String  |   转入地址   | 否   |
 | amount  |  String  | 金额 | 否   |
 
+##### 响应参数
+
+| 参数  | 数据类型 | 说明                   |
+| :---: | :------: | :--------------------- |
+| chain_name |  String  | 链名 |
+| coin_type |  String  | 手续费币种 |
+| eth_usd_price |  Number  | eth美元价格 |
+| chain_fee_dto |  Array  | waas erc20手续费模型 |
+| fee |  Number  | 上链手续费 |
+| gas_limit |  Number  | GAS限制 |
+| gas_price |  Number  | GAS单价 |
+| list_fee_step |  Array  | 根据链获取出金手续费模型梯度 |
+| chain_fee |  Number  | 出金币种费用 |
+| usd_fee |  Number  | usdt折合费用 |
 
 #### 7.1.10. 指定子地址金额归集
 
@@ -682,21 +696,6 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 |  coin_type  |  string  | 币种（[参考](#币种名称)）                        |  是  |
 | sub_address  |  String  | 归集地址 | 是   |
 | tx_amount |  String  |   归集金额   | 是   |
-
-##### 响应参数
-
-| 参数  | 数据类型 | 说明                   |
-| :---: | :------: | :--------------------- |
-| chain_name |  String  | 链名 |
-| coin_type |  String  | 手续费币种 |
-| eth_usd_price |  Number  | eth美元价格 |
-| chain_fee_dto |  Array  | waas erc20手续费模型 |
-| fee |  Number  | 上链手续费 |
-| gas_limit |  Number  | GAS限制 |
-| gas_price |  Number  | GAS单价 |
-| list_fee_step |  Array  | 根据链获取出金手续费模型梯度 |
-| chain_fee |  Number  | 出金币种费用 |
-| usd_fee |  Number  | usdt折合费用 |
 
 
 ### 7.2 交易详情
