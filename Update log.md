@@ -3,7 +3,8 @@
 - New endpoint: 7.1.10. Specify amount to collect from child address to master address
 
 ## 24/01/22
-- New coin type: SAC
+- New coin type: SAC, GXT
+
 ## 14/01/22 Updates
 - New coin type: XSGD-HTS
 
