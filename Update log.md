@@ -1,6 +1,6 @@
 # OpenAPI Update Log
 ## 09/02/22
-- New endpoint: 7.1.10. Specify amount to collect from child address to master address
+- New endpoint: 7.1.10 Specify amount to collect from child address to master address
 
 ## 24/01/22
 - New coin type: `SAC`, `GXT`
