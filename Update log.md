@@ -60,10 +60,8 @@
 - Other minor fixes
 
 ## 22/02/21 Updates
-  
 - 7.2.1 Fetch list of transactions
     \- New request parameters: `address`
-
 
 ## 03/02/21 Updates
 
