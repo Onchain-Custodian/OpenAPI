@@ -3,10 +3,10 @@
 - New endpoint: 7.1.10. Specify amount to collect from child address to master address
 
 ## 24/01/22
-- New coin type: SAC, GXT
+- New coin type: `SAC`, `GXT`
 
 ## 14/01/22 Updates
-- New coin type: XSGD-HTS
+- New coin type: `XSGD-HTS`
 
 ## 07/01/22 Updates
 - New endpoint: 7.5.2 HTS Coin Association Notification API Callback
@@ -21,7 +21,7 @@
 - Added new error code: 106068
 
 ## 30/11/21 Updates
-- Added new coin type: BNB, FIL-BEP20, USDT-BEP20, BUSD-BEP20, USDC-BEP20, HBAR
+- Added new coin type: `BNB`, `FIL-BEP20`, `USDT-BEP20`, `BUSD-BEP20`, `USDC-BEP20`, `HBAR`
 - New endpoint: 7.6.1 HBAR address association with multiple HTS coins
 - New endpoint: 7.6.2 HTS coin association with multiple HBAR addresses
 - Added new error codes 106061~106067
