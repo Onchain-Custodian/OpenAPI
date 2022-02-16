@@ -1033,7 +1033,7 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
   "Params": {
    "address":"0.0.16404315",
    "status":"0",
-   "uniqueName":"XSGD-HTS"
+   "unique_name":"XSGD-HTS"
   },
 
   "Response": {
@@ -1048,7 +1048,7 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 | :-------------: | :------: | :------------------------------------ |
 |   notice-type   |  string  | 通知类型:hts-notice |
 |     address     |  string  | 绑定地址                              |
-|    uniqueName   |  string  | 绑定币种名称（[参考](#币种名称)）     |
+|    unique_name   |  string  | 绑定币种名称（[参考](#币种名称)）     |
 |     status      |  string  | 0代表绑定成功，1代表绑定失败需要重新发起绑定         |
 
 ##### 响应参数
@@ -1071,7 +1071,7 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
   "Params": { 
    "address":"0.0.11973290",
    "unique_name":"HTS",
-   "noticeUrl":"http://127.0.0.1:8090"
+   "notice_url":"http://127.0.0.1:8090"
   },
 
   "Response": {
@@ -1087,7 +1087,7 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 | :-------------: | :------: | :------------------------------------ |:--- |
 |     address     |   String | 币种关联地址   String类型                           | 是   |
 |     unique_name  |   String | 币种名称                              | 是   |
-|     noticeUrl  |   String |    接收所发请求的地址和币种是否绑定通知的Url                          |是|
+|     notice_url  |   String |    接收所发请求的地址和币种是否绑定通知的Url                          |是|
 
 
 ##### 响应参数
@@ -1108,7 +1108,7 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
   "Params": {
    "address": "0.0.11973290",
    "unique_name": ["HTS1","HTS2"],
-   "noticeUrl":"http://127.0.0.1:8090"
+   "notice_url":"http://127.0.0.1:8090"
 
   },
 
@@ -1125,7 +1125,7 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 | :-------------: | :------: | :------------------------------------ |:--- |
 |     address     |  String  | 币种关联地址                              |是|
 |     unique_name  |  List  | 币种名称 String类型                            |是|
-|     noticeUrl  |   String |    接收所发请求的地址和币种是否绑定通知的Url                          |是|
+|     notice_url  |   String |    接收所发请求的地址和币种是否绑定通知的Url                          |是|
 
 
 ##### 响应参数
@@ -1147,7 +1147,7 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
   "Params": { 
    "address":["0.0.11973290","0.0.11972392"],
    "unique_name":"HTS",
-   "noticeUrl":"http://127.0.0.1:8090"
+   "notice_url":"http://127.0.0.1:8090"
 
   },
 
@@ -1164,7 +1164,7 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 | :-------------: | :------: | :------------------------------------ |:--- |
 |     address     |   List | 币种关联地址   String类型                           |是|
 |     unique_name  |   String | 币种名称                              |是|
-|     noticeUrl  |   String |    接收所发请求的地址和币种是否绑定通知的Url                          |是|
+|     notice_url  |   String |    接收所发请求的地址和币种是否绑定通知的Url                          |是|
 
 
 ##### 响应参数
