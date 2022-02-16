@@ -1058,6 +1058,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 
 ### 7.6 HBAR/HTS API Call
 #### 7.6.1 Single HBAR Address Association With Single HTS Coin
+> This is an asynchronous interface used to initiate coin association to address requests. The result of the association is notified via the callback interface [host:port/{notice-type}](752-hts-coin-association-notification-api-callback). Configure a noticeUrl to receive notifications as required.
 
 ```json
 {
@@ -1067,8 +1068,8 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 
   "Params": { 
    "address":"0.0.11973290",
-   "unique_name":"HTS"
-
+   "unique_name":"HTS",
+   "noticeUrl":"http://127.0.0.1:8090"
   },
 
   "Response": {
@@ -1084,6 +1085,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | :-------: | :---: | :------------------------------ | :------:|
 |     address     |   String | associated address                         | yes|
 |     uniqueName  |   String | coin name                              | yes|
+|     noticeUrl  |   String |    URL to receive the result of the association request                            |yes|
 
 
 ##### Response Parameters
