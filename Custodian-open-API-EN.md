@@ -1046,7 +1046,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | :-------------: | :------: | :------------------------------------ |
 |   notice-type   |  string  | notice type: hts-notice |
 |     address     |  string  | associated address                             |
-|    uniqueName   |  string  | coin name ([Reference table](#coin-type))     |
+|    unique_name   |  string  | coin name ([Reference table](#coin-type))     |
 |     status      |  string  | 0 indicates that the association is successful. 1 indicates that the association has failed and needs to re-initiate again         |
 
 ##### Response Parameters
@@ -1069,7 +1069,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
   "Params": { 
    "address":"0.0.11973290",
    "unique_name":"HTS",
-   "noticeUrl":"http://127.0.0.1:8090"
+   "notice_url":"http://127.0.0.1:8090"
   },
 
   "Response": {
@@ -1084,8 +1084,8 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | Parameter | Type  | Description                     | Required|
 | :-------: | :---: | :------------------------------ | :------:|
 |     address     |   String | associated address                         | yes|
-|     uniqueName  |   String | coin name                              | yes|
-|     noticeUrl  |   String |    URL to receive the result of the association request                            |yes|
+|     unique_name  |   String | coin name                              | yes|
+|     notice_url  |   String |    URL to receive the result of the association request                            |yes|
 
 
 ##### Response Parameters
@@ -1107,8 +1107,8 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 
   "Params": {
     "address": "0.0.11973290",
-    "uniqueName": ["HTS1","HTS2"],
-    "noticeUrl":"http://127.0.0.1:8090"
+    "unique_name": ["HTS1","HTS2"],
+    "notice_url":"http://127.0.0.1:8090"
 
   },
 
@@ -1123,8 +1123,8 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | Parameter | Type  | Description                     | Required|
 | :-------: | :---: | :------------------------------ |:------:|
 |     address     |  String  | associated address                              |yes|
-|     uniqueName  |  List  | coins name （String）                             |yes|
-|     noticeUrl  |   String |    URL to receive the result of the association request                           |yes|
+|     unique_name  |  List  | coins name （String）                             |yes|
+|     notice_url  |   String |    URL to receive the result of the association request                           |yes|
 
 
 ##### Response Parameters
@@ -1148,7 +1148,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
     "address":[
     "0.0.11973290","0.0.11972392","0.0.11972377","0.0.11972366"],
     "unique_name":"HTS",
-    "noticeUrl":"http://127.0.0.1:8090"
+    "notice_url":"http://127.0.0.1:8090"
 
   },
 
@@ -1164,8 +1164,8 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | Parameter | Type  | Description                     |Required|
 | :-------: | :---: | :------------------------------ |:------:|
 |     address     |   List |  associated address   （String）                           |yes|
-|     uniqueName  |   String | coin name                              |yes|
-|     noticeUrl  |   String |    URL to receive the result of the association request                            |yes|
+|     unique_name  |   String | coin name                              |yes|
+|     notice_url  |   String |    URL to receive the result of the association request                            |yes|
 
 ##### Response Parameters
 
