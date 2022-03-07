@@ -683,7 +683,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
   "Response": {
     "code": 0,
     "msg": "string",
-    "result": {}
+    "result": "20220304130128348281"
   }
 }
 ```
@@ -696,6 +696,12 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | sub_address  |  String  | collect sub address | yes   |
 | tx_amount |  String  |   collect amount   | yes   |
 
+
+##### Response Parameters
+
+| Parameter |  Type  | Description    |
+| :-------: | :----: | :------------- |
+|   result   | string | transaction ID |
 
 ### 7.2. Transaction Details
 
