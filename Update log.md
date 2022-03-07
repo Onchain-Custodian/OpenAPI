@@ -1,5 +1,9 @@
 # OpenAPI Update Log
 
+## 07/03/22
+- 7.1.10. Specify amount to collect from child address to master address  
+   \- New response parameter: `transaction ID`
+
 ## 16/02/22
 - New endpoint: 7.5.2 HTS Coin Association Notification API Callback
 
