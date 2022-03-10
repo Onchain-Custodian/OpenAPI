@@ -186,6 +186,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | USDT-ERC20  |             Tether USD              |      Ethereum       |
 | XSGD-ERC20  |                XSGD                 |      Ethereum       |
 | XSGD-ZRC2   |                XSGD                 |       Ziliqa        |
+| XSGD-HTS | XSGD | Hedera Hashgraph |
 |     ZIL     |               Ziliqa                |       Ziliqa        |
 |     SNX     |       Synthetix Network Token       |      Ethereum       |
 |     MATIC   |             Matic Token             |      Ethereum       |
