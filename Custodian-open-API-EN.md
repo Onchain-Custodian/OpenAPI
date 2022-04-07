@@ -215,6 +215,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | XIDR-ERC20  |           XIDR Token                |      Ethereum       |
 | XIDR-ZRC2   |           XIDR Token                |      Ziliqa         |
 | BNB | Binance Token | Binance Smart Chain |
+| FIL | Filecoin | Filecoin |
 | FIL-BEP20 | Filecoin | Binance Smart Chain |
 | USDT-BEP20 | Tether USD | Binance Smart Chain |
 | BUSD-BEP20 | Binance USD | Binance Smart Chain |
@@ -222,6 +223,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | HBAR   |           HBAR Token                |      Hedera Hashgraph         |
 | SAC | Sanuscoin | Bitcoin (CC) | 
 | GXT | Gemma Extending Tech | Ethereum |
+| GXT-BEP20 | Gemma Extending Tech | Binance Smart Chain |
 
 > The request limits set for different API operations are:
 >
