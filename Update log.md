@@ -1,5 +1,8 @@
 # OpenAPI Update Log
 
+## 18/03/22
+- New coin type: `FIL`, `GXT-BEP20`
+
 ## 07/03/22
 - 7.1.10. Specify amount to collect from child address to master address  
    \- New response parameter: `transaction ID`
