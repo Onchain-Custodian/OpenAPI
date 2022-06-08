@@ -1,4 +1,7 @@
 # OpenAPI Update Log
+## 12/05/22
+- Modified endpoint: 7.4.1. Generate Child Addresses For a Master Address
+   \- Change: the number of child addresses that can be created per request has changed
 
 ## 18/03/22
 - New coin type: `FIL`, `GXT-BEP20`
