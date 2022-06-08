@@ -939,7 +939,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | Parameter |     Type     | Description                             | Required |
 | :-------: | :----------: | :-------------------------------------- | :------: |
 |  address  |    string    | master address                          |   yes    |
-|   count   |     int      | the number of child addresses to be created; a maximum of 500 addresses can be created at a time for blockchain protocol that is ERC20/ZRC2, with the exception of HBAR/HTS. Only a maximum of 1 HBAR/HTS child address can be created at a time. Others protocol can create 5 addresses at a time |   yes    |
+|   count   |     int      | The number of child addresses that can be created; a maximum of 500 addresses can be created at a time for blockchain protocols ERC20/ZRC2, with the exception of HBAR/HTS. Only a maximum of 1 HBAR/HTS child address can be created at a time. All other protocols can onnly create 5 addresses at a time. |   yes    |
 |  remarks  | string array | names of the child address              |   yes    |
 
 ##### Response Parameters
