@@ -1249,4 +1249,12 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 | 106068 | The number of HBAR addresses cannot exceed 1.               |
 | 106069 | The corresponding address and currency are waiting to be connected.               |
 | 106070 | The beneficiary address is the same as the originating address.               |
+| 106071 | Param error.               |
+| 106072 | The number of ETH addresses cannot exceed 500.               |
+| 106073 | The number addresses cannot exceed 5.               |
+| 106074 | Master address handling fee is insufficient to support full collection transactions.               |
+| 106075 | There are no addresses need to collect.               |
+
+
+
 
