@@ -1254,3 +1254,8 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | 106068 | The number of HBAR addresses cannot exceed 1.               |
 | 106069 | An identical association request operation is still pending execution.              |
 | 106070 | The beneficiary address is the same as the originating address.              |
+| 106071 | Param error.               |
+| 106072 | The number of ETH addresses cannot exceed 500.               |
+| 106073 | The number addresses cannot exceed 5.               |
+| 106074 | Master address handling fee is insufficient to support full collection transactions.               |
+| 106075 | There are no addresses need to collect.               |
