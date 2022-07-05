@@ -180,6 +180,7 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 |     BTC     |               Bitcoin               |       Bitcoin       |
 |     BCH     |            Bitcoin Cash             |   Bitcoin（分叉）    |
 |     ETH     |              Ethereum               |      Ethereum       |
+|     PASS  |                Blockpass              |      Ethereum       |
 | USDT-ERC20  |             Tether USD              |      Ethereum       |
 |     USDC    |             USD Coin                |      Ethereum       |
 |     CGT     |       Curio Governance Token        |      Ethereum       |
