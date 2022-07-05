@@ -224,6 +224,9 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | SAC | Sanuscoin | Bitcoin (CC) | 
 | GXT | Gemma Extending Tech | Ethereum |
 | GXT-BEP20 | Gemma Extending Tech | Binance Smart Chain |
+| TRX | Tron | Tron Network |
+| USDT-TRC20 | Tether USD | Tron Network |
+| KLAY | Klaytn | Klaytn Network |
 
 > The request limits set for different API operations are:
 >
