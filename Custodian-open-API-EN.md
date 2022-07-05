@@ -172,22 +172,18 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 
 |   Coin Type    |              Coin Name              |      Protocol       |
 | :------------: | :---------------------------------: | :-----------------: |
-|     BCH     |            Bitcoin Cash             |   Bitcoin (fork)    |
 |     BTC     |               Bitcoin               |       Bitcoin       |
-|     CGT     |       CACHE Gold        |      Ethereum       |
-|     DAI     |           Dai Stablecoin            |      Ethereum       |
+|     BCH     |            Bitcoin Cash             |   Bitcoin（分叉）    |
 |     ETH     |              Ethereum               |      Ethereum       |
-|     FTM     |            Fantom Token             |      Ethereum       |
-|     FXF     |               Finxflo               |      Ethereum       |
-|     OOE     |               OpenOcean             |      Ethereum       |
-|     REN     |              Republic               |      Ethereum       |
-|     SATT    | Smart Advertising Transaction Token |      Ethereum       |
-|     USDC    |              USD Coin               |      Ethereum       |
 | USDT-ERC20  |             Tether USD              |      Ethereum       |
+|     USDC    |             USD Coin                |      Ethereum       |
+|     CGT     |       Curio Governance Token        |      Ethereum       |
+|     REN     |              Republic               |      Ethereum       |
+|     FTM     |            Fantom Token             |      Ethereum       |
 | XSGD-ERC20  |                XSGD                 |      Ethereum       |
-| XSGD-ZRC2   |                XSGD                 |       Ziliqa        |
-| XSGD-HTS | XSGD | Hedera Hashgraph |
-|     ZIL     |               Ziliqa                |       Ziliqa        |
+|     DAI     |           Dai Stablecoin            |      Ethereum       |
+|     FXF     |               Finxflo               |      Ethereum       |
+|     SATT    | Smart Advertising Transaction Token |      Ethereum       |
 |     SNX     |       Synthetix Network Token       |      Ethereum       |
 |     MATIC   |             Matic Token             |      Ethereum       |
 |     SHIB    |              Shiba Inu              |      Ethereum       |
@@ -205,28 +201,32 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |     MKR     |                Maker                |      Ethereum       |
 |     WAVES   |                Waves                |      Ethereum       |
 |     WBTC    |             Wrapped BTC             |      Ethereum       |
-|     HBTC    |              Huobi BTC              |      Ethereum       |
 |     FTT     |              FTX Token              |      Ethereum       |
 |     TUSD    |               TrueUSD               |      Ethereum       |
 |     CRO     |           Crypto.com Coin           |      Ethereum       |
 |     TEL     |               Telcoin               |      Ethereum       |
 |     CEL     |               Celsius               |      Ethereum       |
+|     HBTC    |              Huobi BTC              |      Ethereum       |
 |     LEO     |         Bitfinex Leo Token          |      Ethereum       |
+|     GXT     |         Gem Exchange and Trading    |      Ethereum       |
+|     OOE     |               OpenOcean             |      Ethereum       |
 | XIDR-ERC20  |           XIDR Token                |      Ethereum       |
-| XIDR-ZRC2   |           XIDR Token                |      Ziliqa         |
-| BNB | Binance Token | Binance Smart Chain |
-| FIL | Filecoin | Filecoin |
-| FIL-BEP20 | Filecoin | Binance Smart Chain |
-| USDT-BEP20 | Tether USD | Binance Smart Chain |
-| BUSD-BEP20 | Binance USD | Binance Smart Chain |
-| USDC-BEP20 | USD Coin | Binance Smart Chain |
-| HBAR   |           HBAR Token                |      Hedera Hashgraph         |
-| SAC | Sanuscoin | Bitcoin (CC) | 
-| GXT | Gemma Extending Tech | Ethereum |
-| GXT-BEP20 | Gemma Extending Tech | Binance Smart Chain |
-| TRX | Tron | Tron Network |
-| USDT-TRC20 | Tether USD | Tron Network |
-| KLAY | Klaytn | Klaytn Network |
+|     ZIL     |               Ziliqa                |       Ziliqa        |
+| XSGD-ZRC2   |                XSGD                 |       Ziliqa        |
+| XIDR-ZRC2   |           XIDR Token                |       Ziliqa        |
+|    HBAR     |           HBAR Token                |   Hedera Hashgraph  |
+| XSGD-HTS    |                XSGD                 |   Hedera Hashgraph  |
+|     BNB     |           BNB Token                 |       Binance       |
+| BUSD-BEP20  |           Binance USD               |       Binance       |
+| USDC-BEP20  |           USD Coin                  |       Binance       |
+| USDT-BEP20  |           Tether USD                |       Binance       |
+| FIL-BEP20   |           Filecoin                  |       Binance       |
+| GXT-BEP20   |       Gem Exchange and Trading      |       Binance       |
+|     SAC     |              SAC                    |       Sanus         |
+|     FIL     |           Filecoin                  |       Filecoin      |
+|     TRX     |           TRON                      |       Tron          |
+| USDT-TRC20  |           Tether USD                |       Tron          |
+|     KLAY    |           Klaytn                    |       Klaytn        |
 
 > The request limits set for different API operations are:
 >
