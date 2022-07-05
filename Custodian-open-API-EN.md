@@ -175,6 +175,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |     BTC     |               Bitcoin               |       Bitcoin       |
 |     BCH     |            Bitcoin Cash             |   Bitcoin（分叉）    |
 |     ETH     |              Ethereum               |      Ethereum       |
+|     PASS  |                Blockpass              |      Ethereum       |
 | USDT-ERC20  |             Tether USD              |      Ethereum       |
 |     USDC    |             USD Coin                |      Ethereum       |
 |     CGT     |       Curio Governance Token        |      Ethereum       |
