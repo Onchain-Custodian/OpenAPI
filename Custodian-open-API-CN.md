@@ -191,7 +191,7 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 |     FXF     |               Finxflo               |      Ethereum       |
 |     SATT    | Smart Advertising Transaction Token |      Ethereum       |
 |     SNX     |       Synthetix Network Token       |      Ethereum       |
-|     MATIC   |             Matic Token             |      Ethereum       |
+| MATIC-ERC20 |             Matic Token             |      Ethereum       |
 |     SHIB    |              Shiba Inu              |      Ethereum       |
 |     1INCH   |             1Inch Token             |      Ethereum       |
 |     SUSHI   |             Sushi Token             |      Ethereum       |
@@ -233,6 +233,10 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 |     TRX     |           TRON                      |       Tron          |
 | USDT-TRC20  |           Tether USD                |       Tron          |
 |     KLAY    |           Klaytn                    |       Klaytn        |
+|     MATIC   |          Matic Token                |       Polygon       |
+|  USDC-POS   |           USD Coin                  |       Polygon       |
+|  XIDR-POS   |           XIDR Token                |       Polygon       |
+|  XSGD-POS   |           XSGD                      |       Polygon       |
 
 > API 请求限速规则如下：
 >
