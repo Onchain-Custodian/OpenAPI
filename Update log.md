@@ -1,4 +1,8 @@
 # OpenAPI Update Log
+## 27/07/22
+- New coin type: `MATIC`, `USDC-POS`, `XIDR-POS`, `XSGD-POS`
+- Updated coin type name: `MATIC-ERC20`
+
 ## 12/05/22
 - Modified endpoint: 7.4.1. Generate Child Addresses For a Master Address
   - Change: the number of child addresses that can be created per request has changed
