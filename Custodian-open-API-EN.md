@@ -186,7 +186,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |     FXF     |               Finxflo               |      Ethereum       |
 |     SATT    | Smart Advertising Transaction Token |      Ethereum       |
 |     SNX     |       Synthetix Network Token       |      Ethereum       |
-|     MATIC   |             Matic Token             |      Ethereum       |
+| MATIC-ERC20 |             Matic Token             |      Ethereum       |
 |     SHIB    |              Shiba Inu              |      Ethereum       |
 |     1INCH   |             1Inch Token             |      Ethereum       |
 |     SUSHI   |             Sushi Token             |      Ethereum       |
@@ -228,6 +228,10 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |     TRX     |           TRON                      |       Tron          |
 | USDT-TRC20  |           Tether USD                |       Tron          |
 |     KLAY    |           Klaytn                    |       Klaytn        |
+|     MATIC   |          Matic Token                |       Polygon       |
+|  USDC-POS   |           USD Coin                  |       Polygon       |
+|  XIDR-POS   |           XIDR Token                |       Polygon       |
+|  XSGD-POS   |           XSGD                      |       Polygon       |
 
 > The request limits set for different API operations are:
 >
