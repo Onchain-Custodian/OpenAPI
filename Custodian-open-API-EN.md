@@ -232,6 +232,8 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |  USDC-POS   |           USD Coin                  |       Polygon       |
 |  XIDR-POS   |           XIDR Token                |       Polygon       |
 |  XSGD-POS   |           XSGD                      |       Polygon       |
+|  SOL        |           Solana                    |       Solana        |
+|  AVAX       |           Avalanche                 |       Avalanche     |
 
 > The request limits set for different API operations are:
 >
