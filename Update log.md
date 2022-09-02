@@ -1,4 +1,7 @@
 # OpenAPI Update Log
+## 11/08/22
+- New coin type: `SOL`, `AVAX` (C-Chain)
+
 ## 27/07/22
 - New coin type: `MATIC`, `USDC-POS`, `XIDR-POS`, `XSGD-POS`
 - Updated coin type name: `MATIC-ERC20`
