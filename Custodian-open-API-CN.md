@@ -237,6 +237,8 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 |  USDC-POS   |           USD Coin                  |       Polygon       |
 |  XIDR-POS   |           XIDR Token                |       Polygon       |
 |  XSGD-POS   |           XSGD                      |       Polygon       |
+|  SOL        |           Solana                    |       Solana        |
+|  AVAX       |           Avalanche                 |       Avalanche     |
 
 > API 请求限速规则如下：
 >
