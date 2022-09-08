@@ -1292,7 +1292,7 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 | is_frozen  |  Boolean  | 是否冻结                                                                                          |
 | create_time  |  Long  | 创建时间，时间戳格式                                                                                 |
 
-#### 7.6.5 查询NFT资产
+#### 7.6.6 查询NFT资产
 
 ```json
 {
@@ -1342,6 +1342,111 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 | contract_address  |  String  | 合约地址                                                                                          |
 | token_id  |  String  | token id                                                                                          |
 
+#### 7.6.7 查询NFT出金手续费
+
+```json
+{
+  "URL": "/v1/nft/withdraw/fee",
+
+  "Method": "POST",
+
+  "Params": {
+    "wallet_id":136,
+    "chain":"Ethereum",
+    "to_address":"0xdc587bc9a15383f2267f93b5f4379f10f75918b7",
+    "contract_address":"0x0714f49f3527f8160f39a6e4d5003aeedc1409f8",
+    "token_id":"6"
+},
+
+  "Response": {
+    "code": 0,
+    "msg": "SUCCESS",
+    "result": {
+        "chain_name": "Ethereum",
+        "coin_type": "NFTETH",
+        "fee_step": {
+            "chain_fee": "0.00004821",
+            "usd_fee": "0.07815774"
+        },
+        "chain_fee_dto": {
+            "fee": "0.00004821",
+            "gas_price": "1.00000001",
+            "gas_limit": "48211"
+        },
+        "eth_usd_price": "1621.159954"
+    }
+}
+}
+```
+
+##### 请求参数
+
+|      参数       | 数据类型 | 说明                                  |必要 |
+| :-------------: | :------: | :------------------------------------ |:--- |
+|     wallet_id     |   Integer | 钱包id                          |是|
+|     chain  |   String | 当前只支持Ethereum，固定值Ethereum                        |是|
+|     to_address  |   String | to地址                        |是|
+|     contract_address  |   String | 合约地址                       |是|
+|     token_id  |   String | token id                        |是|
+
+
+##### 响应参数
+
+| 参数 | 数据类型 | 说明                                                                                              |
+| :--: | :------: | :------------------------------------------------------------------------------------------------ |
+| code |   long   |0说明成功发起绑定申请，1代表发起绑定申请失败|
+| msg  |  String  | 返回描述                                                                                          |
+
+#### 7.6.8 发送NFT出金申请
+
+```json
+{
+  "URL": "/v1/nft/withdraw",
+
+  "Method": "POST",
+
+  "Params": {
+    "request_id":"17f4d2d95b444e60b777bc129e8c6e18",
+    "wallet_id":136,
+    "chain":"Ethereum",
+    "to_address":"0xdc587bc9a15383f2267f93b5f4379f10f75918b7",
+    "contract_address":"0x0714f49f3527f8160f39a6e4d5003aeedc1409f8",
+    "token_id":"6",
+    "note":"",
+    "fee":"0.00006531"
+},
+
+  "Response": {
+    "code": 0,
+    "msg": "SUCCESS",
+    "result": {
+      "tx_id": "20220908092725348944"
+    }
+  }
+}
+```
+
+##### 请求参数
+
+|      参数       | 数据类型 | 说明                                  |必要 |
+| :-------------: | :------: | :------------------------------------ |:--- |
+|     request_id     |   String | 唯一请求id                          |是|
+|     wallet_id     |   Integer | 钱包id                          |是|
+|     chain  |   String | 当前只支持Ethereum，固定值Ethereum                        |是|
+|     to_address  |   String | to地址                        |是|
+|     contract_address  |   String | 合约地址                       |是|
+|     token_id  |   String | token id                        |是|
+|     note  |   String | 备注                        |否|
+|     fee  |   String | 手续费                        |是|
+
+
+##### 响应参数
+
+| 参数 | 数据类型 | 说明                                                                                              |
+| :--: | :------: | :------------------------------------------------------------------------------------------------ |
+| code |   long   |0说明成功发起绑定申请，1代表发起绑定申请失败|
+| msg  |  String  | 返回描述                                                                                          |
+| tx_id  |  String  | 事务id                                                                                          |
 
 ## 8. 错误代码
 
