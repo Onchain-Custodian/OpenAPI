@@ -1216,7 +1216,6 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
   "Params": { 
    "wallet_name":"钱包1",
    "chain":"Ethereum"
-
   },
 
   "Response": {
@@ -1247,7 +1246,9 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 | wallet_id  |  Integer  | 钱包id                                                                                          |
 | address  |  String  | 钱包地址                                                                                          |
 
+
 #### 7.6.5 查询NFT钱包
+
 
 ```json
 {
@@ -1278,7 +1279,6 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 }
 ```
 
-
 ##### 响应参数
 
 | 参数 | 数据类型 | 说明                                                                                              |
@@ -1292,7 +1292,9 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 | is_frozen  |  Boolean  | 是否冻结                                                                                          |
 | create_time  |  Long  | 创建时间，时间戳格式                                                                                 |
 
+
 #### 7.6.6 查询NFT资产
+
 
 ```json
 {
@@ -1342,7 +1344,9 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 | contract_address  |  String  | 合约地址                                                                                          |
 | token_id  |  String  | token id                                                                                          |
 
+
 #### 7.6.7 查询NFT出金手续费
+
 
 ```json
 {
@@ -1397,7 +1401,9 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 | code |   long   |0说明成功发起绑定申请，1代表发起绑定申请失败|
 | msg  |  String  | 返回描述                                                                                          |
 
+
 #### 7.6.8 发送NFT出金申请
+
 
 ```json
 {
