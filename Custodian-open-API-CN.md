@@ -160,6 +160,12 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 |   POST   | [/v1/api/Hbar/HTSAddAddressOne](#761-单HBAR币种关联单地址)                                             | 单HBAR币种关联单地址                   |
 |   POST   | [/v1/api/Hbar/addressAddHTS](#762-HBAR地址关联多个币种)                                             | HBAR地址关联多个币种                     |
 |   POST   | [/v1/api/Hbar/HTSAddAddress](#763-HBAR币种关联多个地址)                                             | HBAR币种关联多个地址                   |
+|   POST   | [/v1/nft/wallet](#764-创建NFT钱包)                                             | 创建NFT钱包                   |
+|   GET    | [/v1/nft/wallet](#765-查询NFT钱包列表)                                             | 查询NFT钱包列表                   |
+|   GET    | [/v1/nft/wallet/asset](#766-查询NFT资产列表)                                             | 查询NFT资产列表                   |
+|   POST   | [/v1/nft/withdraw/fee](#767-查询NFT出金手续费)                                             | 查询NFT出金手续费                   |
+|   POST   | [/v1/nft/withdraw](#768-发送NFT出金请求)                                             | 发送NFT出金请求                   |
+
 ### 参考
 
 #### 交易类型
@@ -1198,6 +1204,145 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 | :--: | :------: | :------------------------------------------------------------------------------------------------ |
 | code |   long   |0说明成功发起绑定申请，1代表发起绑定申请失败|
 | msg  |  string  | 返回描述                                                                                          |
+
+#### 7.6.4 创建NFT钱包
+
+```json
+{
+  "URL": "/v1/nft/wallet",
+
+  "Method": "POST",
+
+  "Params": { 
+   "wallet_name":"钱包1",
+   "chain":"Ethereum"
+
+  },
+
+  "Response": {
+    "code": 0,
+    "msg": "SUCCESS",
+    "result": {
+      "wallet_id": 1,
+      "address": "0x29d912b930c2288a2a54ad0446b3b53dce2718d5"
+    }
+  }
+}
+```
+
+##### 请求参数
+
+|      参数       | 数据类型 | 说明                                  |必要 |
+| :-------------: | :------: | :------------------------------------ |:--- |
+|     wallet_name     |   String | 钱包名字                          |是|
+|     chain  |   String | 当前只支持Ethereum，固定值Ethereum                        |是|
+
+
+##### 响应参数
+
+| 参数 | 数据类型 | 说明                                                                                              |
+| :--: | :------: | :------------------------------------------------------------------------------------------------ |
+| code |   long   |0说明成功发起绑定申请，1代表发起绑定申请失败|
+| msg  |  String  | 返回描述                                                                                          |
+| wallet_id  |  Integer  | 钱包id                                                                                          |
+| address  |  String  | 钱包地址                                                                                          |
+
+#### 7.6.5 查询NFT钱包
+
+```json
+{
+  "URL": "/v1/nft/wallet",
+
+  "Method": "GET",
+
+  "Response": {
+    "code": 0,
+    "msg": "SUCCESS",
+    "result": [{
+      "wallet_id": 1,
+      "wallet_name": ”钱包1“,
+      "chain": ”Ethereum“,
+      "address": "0x29d912b930c2288a2a54ad0446b3b53dce2718d5",
+      "isFrozen": false,
+      "create_time": 1662541288000
+    },
+    {
+      "wallet_id": 2,
+      "wallet_name": ”钱包2“,
+      "chain": ”Ethereum“,
+      "address": "0x29d912b930c2288a2a54ad0446b3b53dce2718f6",
+      "is_frozen": true,
+      "create_time": 1648453695000
+    }]
+  }
+}
+```
+
+
+##### 响应参数
+
+| 参数 | 数据类型 | 说明                                                                                              |
+| :--: | :------: | :------------------------------------------------------------------------------------------------ |
+| code |   long   |0说明成功发起绑定申请，1代表发起绑定申请失败|
+| msg  |  String  | 返回描述                                                                                          |
+| wallet_id  |  Integer  | 钱包id                                                                                          |
+| wallet_name  |  String  | 钱包名称                                                                                          |
+| chain  |   String | 当前只支持Ethereum，固定值Ethereum                 
+| address  |  String  | 钱包地址                                                                                          |
+| is_frozen  |  Boolean  | 是否冻结                                                                                          |
+| create_time  |  Long  | 创建时间，时间戳格式                                                                                 |
+
+#### 7.6.5 查询NFT资产
+
+```json
+{
+  "URL": "/v1/nft/wallet/asset?wallet_id=1&page_index=1&page_offset=10",
+
+  "Method": "GET",
+
+  "Response": {
+    "code": 0,
+    "msg": "SUCCESS",
+    "result": {
+        "total": 2,
+        "records": [
+            {
+                "wallet_id": "136",
+                "address": "0xebbdb7d9916c142cb8d082077f2f671436ad4bec",
+                "contract_address": "0xebe96a77e9a80595d1106babe57e652a9d8e2b0f",
+                "token_id": "0"
+            },
+            {
+                "wallet_id": "136",
+                "address": "0xebbdb7d9916c142cb8d082077f2f671436ad4bec",
+                "contract_address": "0xebe96a77e9a80595d1106babe57e652a9d8e2b0f",
+                "token_id": "1"
+            }
+        ]
+    }}
+}
+```
+
+##### 请求参数
+
+|      参数       | 数据类型 | 说明                                  |必要 |
+| :-------------: | :------: | :------------------------------------ |:--- |
+|     wallet_id     |   Integer | 钱包id                          |是|
+|     page_index     |   Integer | 第几页                          |是|
+|     page_offset     |   Integer | 每页条数                         |是|
+
+##### 响应参数
+
+| 参数 | 数据类型 | 说明                                                                                              |
+| :--: | :------: | :------------------------------------------------------------------------------------------------ |
+| code |   long   |0说明成功发起绑定申请，1代表发起绑定申请失败|
+| msg  |  String  | 返回描述                                                                                          |
+| wallet_id  |  Integer  | 钱包id                                                                                          |
+| address  |  String  | 钱包地址                                                                                          |
+| contract_address  |  String  | 合约地址                                                                                          |
+| token_id  |  String  | token id                                                                                          |
+
+
 ## 8. 错误代码
 
 | code  |          Description             |
