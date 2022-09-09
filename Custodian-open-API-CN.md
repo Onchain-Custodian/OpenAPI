@@ -1261,7 +1261,7 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
     "msg": "SUCCESS",
     "result": [{
       "wallet_id": 1,
-      "wallet_name": ”钱包1“,
+      "wallet_name": ”钱包名称“,
       "chain": ”Ethereum“,
       "address": "0x29d912b930c2288a2a54ad0446b3b53dce2718d5",
       "isFrozen": false,
@@ -1269,7 +1269,7 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
     },
     {
       "wallet_id": 2,
-      "wallet_name": ”钱包2“,
+      "wallet_name": ”钱包名称“,
       "chain": ”Ethereum“,
       "address": "0x29d912b930c2288a2a54ad0446b3b53dce2718f6",
       "is_frozen": true,
@@ -1385,6 +1385,7 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 
 ##### 请求参数
 
+
 |      参数       | 数据类型 | 说明                                  |必要 |
 | :-------------: | :------: | :------------------------------------ |:--- |
 |     wallet_id     |   Integer | 钱包id                          |是|
@@ -1396,10 +1397,21 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 
 ##### 响应参数
 
+
 | 参数 | 数据类型 | 说明                                                                                              |
 | :--: | :------: | :------------------------------------------------------------------------------------------------ |
 | code |   long   |0说明成功发起绑定申请，1代表发起绑定申请失败|
 | msg  |  String  | 返回描述                                                                                          |
+| chain_name |  String  | 链名 |
+| coin_type |  String  | 手续费币种 |
+| eth_usd_price |  Number  | eth美元价格 |
+| chain_fee_dto |  Array  | waas erc20手续费模型 |
+| fee |  Number  | 上链手续费 |
+| gas_limit |  Number  | GAS限制 |
+| gas_price |  Number  | GAS单价 |
+| list_fee_step |  Object  | 根据链获取出金手续费模型 |
+| chain_fee |  Number  | 出金币种费用 |
+| usd_fee |  Number  | usdt折合费用 |
 
 
 #### 7.6.8 发送NFT出金申请
