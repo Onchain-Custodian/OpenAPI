@@ -138,33 +138,33 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 
 ## 7.API 列表
 
-| 请求方法 | URL                                                                                          | 描述                                 |
-| :------: | -------------------------------------------------------------------------------------------- | ------------------------------------ |
-|   GET    | [/v1/api/account](#711-查询钱包内全部资产详情)                                               | 获取钱包中各种类资产的详情           |
-|   GET    | [/v1/api/account/{coinType}](#712-根据币种查询钱包详情)                                      | 获取钱包中某一种资产的详情           |
-|   GET    | [/v1/api/account/deposit-address/{coinType}](#713-根据币种查询钱包地址)                      | 获取钱包中一种资产的充值地址         |
-|   GET    | [/v1/api/account/verify-deposit-address/{coinType}/{address}](#714-验证钱包充值地址是否正确) | 验证一个地址是否是某个资产的充值地址 |
-|   GET    | [/v1/api/account/list-hdaddress](#715-获取主地址和子地址详情)                                | 通过主地址获取子地址                 |
-|  POST  | [/v1/api/account/balance](#716-根据币种获取钱包地址余额详情)                            | 根据币种获取钱包地址余额详情                                      |
-|  PUT   | [v1/api/account/collect](#717-将子地址余额归集至主地址)                                | 当余额超过指定值时将子地址余额归集至主地址                                         |
-|  PUT  | [v1/api/account/collect/auto](#718-更新自动归集配置)                               | 更新自动归集配置                                                 |
-|  PUT  | [v1/api/account/txfee](#719-获取指定币种当前手续费)                               | 获取指定币种当前手续费                                                 |
-|  PUT  | [v1/api/account/hd/collect](#7110-指定子地址金额归集)                               | 指定子地址金额归集                                                |
-|   POST   | [/v1/api/list-trans](#721-获取交易列表)                                                      | 获取钱包交易历史，可通过参数筛选     |
-|   GET    | [/v1/api/trans/{tx_id}](#722-根据交易单号查询交易详情)                                       | 通过交易单号获取交易详情             |
-|   POST   | [/v1/api/trans/withdrawal](#731-发起出金请求)                                                | 发送出金请求                         |
-|   POST   | [/v1/api/hd-address](#741-为主地址创建子地址)                                                | 为主地址创建子地址                   |
-|   PUT    | [/v1/api/hd-address](#742-修改子地址名称)                                                    | 更改子地址名称                       |
-|   POST   | [host:port/{notice-type}](#751-交易通知接口回调)                                             | 交易通知回调方法，可配置                     |
-|   POST   | [host:port/{notice-type}](#752-币种地址绑定通知接口回调)                                             | 币种地址绑定通知回调方法，可配置                     |
-|   POST   | [/v1/api/Hbar/HTSAddAddressOne](#761-单HBAR币种关联单地址)                                             | 单HBAR币种关联单地址                   |
-|   POST   | [/v1/api/Hbar/addressAddHTS](#762-HBAR地址关联多个币种)                                             | HBAR地址关联多个币种                     |
-|   POST   | [/v1/api/Hbar/HTSAddAddress](#763-HBAR币种关联多个地址)                                             | HBAR币种关联多个地址                   |
-|   POST   | [/v1/nft/wallet](#764-创建NFT钱包)                                             | 创建NFT钱包                   |
-|   GET    | [/v1/nft/wallet](#765-查询NFT钱包列表)                                             | 查询NFT钱包列表                   |
-|   GET    | [/v1/nft/wallet/asset](#766-查询NFT资产列表)                                             | 查询NFT资产列表                   |
-|   POST   | [/v1/nft/withdraw/fee](#767-查询NFT出金手续费)                                             | 查询NFT出金手续费                   |
-|   POST   | [/v1/nft/withdraw](#768-发送NFT出金请求)                                             | 发送NFT出金请求                   |
+| 请求方法 | URL                                                                                  | 描述                         |
+| :------: |--------------------------------------------------------------------------------------|----------------------------|
+|   GET    | [/v1/api/account](#711-查询钱包内全部资产详情)                                                  | 获取钱包中各种类资产的详情              |
+|   GET    | [/v1/api/account/{coinType}](#712-根据币种查询钱包详情)                                        | 获取钱包中某一种资产的详情              |
+|   GET    | [/v1/api/account/deposit-address/{coinType}](#713-根据币种查询钱包地址)                        | 获取钱包中一种资产的充值地址             |
+|   GET    | [/v1/api/account/verify-deposit-address/{coinType}/{address}](#714-验证钱包充值地址是否正确)     | 验证一个地址是否是某个资产的充值地址         |
+|   GET    | [/v1/api/account/list-hdaddress](#715-获取主地址和子地址详情)                                   | 通过主地址获取子地址                 |
+|  POST  | [/v1/api/account/balance](#716-根据币种获取钱包地址余额详情)                                       | 根据币种获取钱包地址余额详情             |
+|  PUT   | [v1/api/account/collect](#717-将子地址余额归集至主地址)                                          | 当余额超过指定值时将子地址余额归集至主地址      |
+|  PUT  | [v1/api/account/collect/auto](#718-更新自动归集配置)                                         | 更新自动归集配置                   |
+|  PUT  | [v1/api/account/txfee](#719-获取指定币种当前手续费)                                             | 获取指定币种当前手续费                |
+|  PUT  | [v1/api/account/hd/collect](#7110-指定子地址金额归集)                                         | 指定子地址金额归集                  |
+|   POST   | [/v1/api/list-trans](#721-获取交易列表)                                                    | 获取钱包交易历史，可通过参数筛选           |
+|   GET    | [/v1/api/trans/{tx_id}](#722-根据交易单号查询交易详情)                                           | 通过交易单号获取交易详情               |
+|   POST   | [/v1/api/trans/withdrawal](#731-发起出金请求)                                              | 发送出金请求                     |
+|   POST   | [/v1/api/hd-address](#741-为主地址创建子地址)                                                 | 为主地址创建子地址                  |
+|   PUT    | [/v1/api/hd-address](#742-修改子地址名称)                                                   | 更改子地址名称                    |
+|   POST   | [host:port/{notice-type}](#751-交易通知接口回调)                                             | 交易通知回调方法，可配置               |
+|   POST   | [host:port/{notice-type}](#752-币种地址绑定通知接口回调)                                         | 币种地址绑定通知回调方法，可配置           |
+|   POST   | [/v1/api/Hbar/HTSAddAddressOne](#761-单HBAR币种关联单地址)                                   | 单HBAR币种关联单地址               |
+|   POST   | [/v1/api/Hbar/addressAddHTS](#762-HBAR地址关联多个币种)                                      | HBAR地址关联多个币种               |
+|   POST   | [/v1/api/Hbar/HTSAddAddress](#763-HBAR币种关联多个地址)                                      | HBAR币种关联多个地址               |
+|   POST   | [/v1/nft/wallet](#764-创建NFT钱包)                                                       | 创建NFT钱包                    |
+|   GET    | [/v1/nft/wallet](#765-查询NFT钱包列表)                                                     | 查询NFT钱包列表                  |
+|   GET    | [/v1/nft/wallet/asset](#766-查询NFT资产列表)                                               | 查询NFT资产列表                  |
+|   POST   | [/v1/nft/withdraw/fee](#767-查询NFT出金手续费)                                              | 查询NFT出金手续费                 |
+|   POST   | [/v1/nft/withdraw](#768-发送NFT出金请求)                                                   | 发送NFT出金请求                  |
 
 ### 参考
 
@@ -650,24 +650,23 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
     "code": 0,
     "msg": "SUCCESS",
     "result": {
-        "chain_name": "Ethereum",
-        "coin_type": "USDT-ERC20",
-        "list_fee_step": [
-            {
-                "chain_fee": "0.000053",
-                "usd_fee": "0.13945728"
-            },
-            {
-                "chain_fee": "0.0000636",
-                "usd_fee": "0.16734874"
-            },
-            {
-                "chain_fee": "0.0000795",
-                "usd_fee": "0.20918592"
-            }
-        ]
+      "chain_name": "Ethereum",
+      "coin_type": "USDT-ERC20",
+      "list_fee_step": [
+        {
+          "chain_fee": "0.000053",
+          "usd_fee": "0.13945728"
+        },
+        {
+          "chain_fee": "0.0000636",
+          "usd_fee": "0.16734874"
+        },
+        {
+          "chain_fee": "0.0000795",
+          "usd_fee": "0.20918592"
+        }
+      ]
     }
-}
   }
 }
 ```
@@ -1261,16 +1260,16 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
     "msg": "SUCCESS",
     "result": [{
       "wallet_id": 1,
-      "wallet_name": ”钱包名称“,
-      "chain": ”Ethereum“,
+      "wallet_name": "钱包1",
+      "chain": "Ethereum",
       "address": "0x29d912b930c2288a2a54ad0446b3b53dce2718d5",
       "isFrozen": false,
       "create_time": 1662541288000
     },
     {
       "wallet_id": 2,
-      "wallet_name": ”钱包名称“,
-      "chain": ”Ethereum“,
+      "wallet_name": "钱包2",
+      "chain": "Ethereum",
       "address": "0x29d912b930c2288a2a54ad0446b3b53dce2718f6",
       "is_frozen": true,
       "create_time": 1648453695000
@@ -1321,7 +1320,8 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
                 "token_id": "1"
             }
         ]
-    }}
+    }
+  }
 }
 ```
 
@@ -1360,26 +1360,26 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
     "to_address":"0xdc587bc9a15383f2267f93b5f4379f10f75918b7",
     "contract_address":"0x0714f49f3527f8160f39a6e4d5003aeedc1409f8",
     "token_id":"6"
-},
+  },
 
   "Response": {
     "code": 0,
     "msg": "SUCCESS",
     "result": {
-        "chain_name": "Ethereum",
-        "coin_type": "NFTETH",
-        "fee_step": {
-            "chain_fee": "0.00004821",
-            "usd_fee": "0.07815774"
-        },
-        "chain_fee_dto": {
-            "fee": "0.00004821",
-            "gas_price": "1.00000001",
-            "gas_limit": "48211"
-        },
-        "eth_usd_price": "1621.159954"
+      "chain_name": "Ethereum",
+      "coin_type": "NFTETH",
+      "fee_step": {
+        "chain_fee": "0.00004821",
+        "usd_fee": "0.07815774"
+      },
+      "chain_fee_dto": {
+        "fee": "0.00004821",
+        "gas_price": "1.00000001",
+        "gas_limit": "48211"
+      },
+      "eth_usd_price": "1621.159954"
     }
-}
+  }
 }
 ```
 
