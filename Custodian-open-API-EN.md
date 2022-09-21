@@ -154,6 +154,11 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |   POST   | [/v1/api/Hbar/HTSAddAddressOne](#761-single-hbar-address-association-with-single-hts-coin)                                             | Single HBAR address association with single HTS coin                  |
 |   POST   | [/v1/api/Hbar/addressAddHTS](#762-HBAR-address-association-with-multiple-HTS-coins)                                             | Single HBAR address association with multiple HTS coins                    |
 |   POST   | [/v1/api/Hbar/HTSAddAddress](#763-HTS-coin-association-with-multiple-HBAR-addresses)                                             | Single HTS coin association with multiple HBAR addresses                     |
+|   POST   | [/v1/nft/wallet](#764-Create an NFT Wallet)                                                       | Create an NFT Wallet                   |
+|   GET    | [/v1/nft/wallet](#765-Query a List of NFT Wallets)                                                     | Query a List of NFT Wallets      |
+|   GET    | [/v1/nft/wallet/asset](#766-Query a List of NFT Assets)                                               | Query a List of NFT Assets     |
+|   POST   | [/v1/nft/withdraw/fee](#767-Query Transaction Fee for NFT Withdrawal)                   | Query Transaction Fee for NFT Withdrawal       |
+|   POST   | [/v1/nft/withdraw](#768-Send NFT Withdrawal Request)                                         | Send NFT Withdrawal Request              |
 
 
 
