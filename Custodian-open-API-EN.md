@@ -155,6 +155,8 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |   POST   | [/v1/api/Hbar/addressAddHTS](#762-HBAR-address-association-with-multiple-HTS-coins)                                             | Single HBAR address association with multiple HTS coins                    |
 |   POST   | [/v1/api/Hbar/HTSAddAddress](#763-HTS-coin-association-with-multiple-HBAR-addresses)                                             | Single HTS coin association with multiple HBAR addresses                     |
 
+
+
 ### Reference Tables
 
 #### Transaction Type
@@ -1192,6 +1194,267 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | :-------: | :----: | :--------------------------------------------------------------------------------------------------------------------------------------- |
 |   code    |  long  |0 indicates that the association request is successfully initiated. 1 indicates that the association request has failed to initiate |
 |    msg    | string | description  |
+
+#### 7.6.4 Create an NFT Wallet
+
+```json
+{
+  "URL": "/v1/nft/wallet",
+
+  "Method": "POST",
+
+  "Params": { 
+   "wallet_name":"wallet 1",
+   "chain":"Ethereum"
+  },
+
+  "Response": {
+    "code": 0,
+    "msg": "SUCCESS",
+    "result": {
+      "wallet_id": 1,
+      "address": "0x29d912b930c2288a2a54ad0446b3b53dce2718d5"
+    }
+  }
+}
+```
+
+##### Request Parameters
+
+|  Parameter  |  Type  | Description                                               | Required |
+| :---------: | :----: | :-------------------------------------------------------- | :------- |
+| wallet_name | String | wallet name                                               | yes      |
+|    chain    | String | fixed value `Ethereum`, currently only Ethereum supported | yes      |
+
+
+##### Response Parameters
+
+| Parameter |  Type   | Description                                                 |
+| :-------: | :-----: | :---------------------------------------------------------- |
+|   code    |  Long   | 0: request successful; value greater than 0: request failed |
+|    msg    | String  | description of response                                     |
+| wallet_id | Integer | wallet ID                                                   |
+|  address  | String  | wallet address                                              |
+
+
+#### 7.6.5 Query a List of NFT Wallets
+
+
+```json
+{
+  "URL": "/v1/nft/wallet",
+
+  "Method": "GET",
+
+  "Response": {
+    "code": 0,
+    "msg": "SUCCESS",
+    "result": [{
+      "wallet_id": 1,
+      "wallet_name": "wallet 1",
+      "chain": "Ethereum",
+      "address": "0x29d912b930c2288a2a54ad0446b3b53dce2718d5",
+      "isFrozen": false,
+      "create_time": 1662541288000
+    },
+    {
+      "wallet_id": 2,
+      "wallet_name": "wallet 2",
+      "chain": "Ethereum",
+      "address": "0x29d912b930c2288a2a54ad0446b3b53dce2718f6",
+      "is_frozen": true,
+      "create_time": 1648453695000
+    }]
+  }
+}
+```
+
+##### Response Parameters
+
+|  Parameter  |  Type   | Description                                                 |
+| :---------: | :-----: | :---------------------------------------------------------- |
+|    code     |  Long   | 0: request successful; value greater than 0: request failed |
+|     msg     | String  | description of response                                     |
+|  wallet_id  | Integer | wallet ID                                                   |
+| wallet_name | String  | wallet name                                                 |
+|    chain    | String  | fixed value `Ethereum`, currently only Ethereum supported   |
+|   address   | String  | wallet address                                              |
+|  is_frozen  | Boolean | whether being frozen                                        |
+| create_time |  Long   | timestamp of creation time                                  |
+
+
+#### 7.6.6 Query a List of NFT Assets
+
+
+```json
+{
+  "URL": "/v1/nft/wallet/asset?wallet_id=1&page_index=1&page_offset=10",
+
+  "Method": "GET",
+
+  "Response": {
+    "code": 0,
+    "msg": "SUCCESS",
+    "result": {
+        "total": 2,
+        "records": [
+            {
+                "wallet_id": "136",
+                "address": "0xebbdb7d9916c142cb8d082077f2f671436ad4bec",
+                "contract_address": "0xebe96a77e9a80595d1106babe57e652a9d8e2b0f",
+                "token_id": "0"
+            },
+            {
+                "wallet_id": "136",
+                "address": "0xebbdb7d9916c142cb8d082077f2f671436ad4bec",
+                "contract_address": "0xebe96a77e9a80595d1106babe57e652a9d8e2b0f",
+                "token_id": "1"
+            }
+        ]
+    }
+  }
+}
+```
+
+##### Request Parameters
+
+|  Parameter  |  Type   | Description                         | Required |
+| :---------: | :-----: | :---------------------------------- | :------- |
+|  wallet_id  | Integer | wallet ID                           | yes      |
+| page_index  | Integer | page number                         | yes      |
+| page_offset | Integer | amount of entries shown on one page | yes      |
+
+##### Response Parameters
+
+|    Parameter     |  Type   | Description                                                 |
+| :--------------: | :-----: | :---------------------------------------------------------- |
+|       code       |  Long   | 0: request successful; value greater than 0: request failed |
+|       msg        | String  | description of response                                     |
+|    wallet_id     | Integer | wallet ID                                                   |
+|     address      | String  | wallet address                                              |
+| contract_address | String  | contract address                                            |
+|     token_id     | String  | token ID                                                    |
+
+
+#### 7.6.7 Query Transaction Fee for NFT Withdrawal
+
+
+```json
+{
+  "URL": "/v1/nft/withdraw/fee",
+
+  "Method": "POST",
+
+  "Params": {
+    "wallet_id":136,
+    "chain":"Ethereum",
+    "to_address":"0xdc587bc9a15383f2267f93b5f4379f10f75918b7",
+    "contract_address":"0x0714f49f3527f8160f39a6e4d5003aeedc1409f8",
+    "token_id":"6"
+  },
+
+  "Response": {
+    "code": 0,
+    "msg": "SUCCESS",
+    "result": {
+      "chain_name": "Ethereum",
+      "coin_type": "NFTETH",
+      "fee_step": {
+        "chain_fee": "0.00004821",
+        "usd_fee": "0.07815774"
+      },
+      "chain_fee_dto": {
+        "fee": "0.00004821",
+        "gas_price": "1.00000001",
+        "gas_limit": "48211"
+      },
+      "eth_usd_price": "1621.159954"
+    }
+  }
+}
+```
+
+##### Request Parameters
+
+
+|    Parameter     |  Type   | Description                                               | Required |
+| :--------------: | :-----: | :-------------------------------------------------------- | :------- |
+|    wallet_id     | Integer | wallet ID                                                 | yes      |
+|      chain       | String  | fixed value `Ethereum`, currently only Ethereum supported | yes      |
+|    to_address    | String  | recipient address                                         | yes      |
+| contract_address | String  | contract address                                          | yes      |
+|     token_id     | String  | token ID                                                  | yes      |
+
+
+##### Response Parameters
+
+
+|   Parameter   |  Type  | Description                                                               |
+| :-----------: | :----: | :------------------------------------------------------------------------ |
+|     code      |  Long  | 0: request successful; value greater than 0: request failed               |
+|      msg      | String | description of response                                                   |
+|  chain_name   | String | chain name                                                                |
+|   coin_type   | String | transaction fee coin type ([reference table](#coin-type))                 |
+| eth_usd_price | Number | ETH price in USD                                                          |
+| chain_fee_dto | Array  | waas erc20 transaction fee model                                          |
+|      fee      | Number | transaction fee for recording data onchain                                |
+|   gas_limit   | Number | gas limit                                                                 |
+|   gas_price   | Number | gas price                                                                 |
+| list_fee_step | Object | gets withdrawal fee model based on type of the chain                      |
+|   chain_fee   | Number | transaction fee for withdrawal in chain native token (currently ETH only) |
+|    usd_fee    | Number | transaction fee in USDT                                                   |
+
+
+#### 7.6.8 Send NFT Withdrawal Request
+
+
+```json
+{
+  "URL": "/v1/nft/withdraw",
+
+  "Method": "POST",
+
+  "Params": {
+    "request_id":"17f4d2d95b444e60b777bc129e8c6e18",
+    "wallet_id":136,
+    "chain":"Ethereum",
+    "to_address":"0xdc587bc9a15383f2267f93b5f4379f10f75918b7",
+    "contract_address":"0x0714f49f3527f8160f39a6e4d5003aeedc1409f8",
+    "token_id":"6",
+    "note":"",
+    "fee":"0.00006531"
+},
+
+  "Response": {
+    "code": 0,
+    "msg": "SUCCESS",
+    "result": {
+      "tx_id": "20220908092725348944"
+    }
+  }
+}
+```
+
+##### Request Parameters
+
+|    Parameter     |  Type   | Description                                               | Required |
+| :--------------: | :-----: | :-------------------------------------------------------- | :------- |
+|    request_id    | String  | unique request ID                                         | yes      |
+|    wallet_id     | Integer | wallet ID                                                 | yes      |
+|      chain       | String  | fixed value `Ethereum`, currently only Ethereum supported | yes      |
+|    to_address    | String  | recipient address                                         | yes      |
+| contract_address | String  | contract address                                          | yes      |
+|     token_id     | String  | token ID                                                  | yes      |
+|       note       | String  | Note                                                      | no       |
+|       fee        | String  | transaction fee                                           | yes      |
+
+##### Response Parameters
+
+| Parameter |  Type  | Description                                                 |
+| :-------: | :----: | :---------------------------------------------------------- |
+|   code    |  Long  | 0: request successful; value greater than 0: request failed |
+|    msg    | String | description of response                                     |
+|   tx_id   | String | transaction ID                                              |
 
 ## 8. Error Codes
 
