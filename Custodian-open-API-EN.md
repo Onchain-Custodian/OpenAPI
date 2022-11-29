@@ -1537,3 +1537,10 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 | 106073 | The number addresses cannot exceed 5.               |
 | 106074 | Master address handling fee is insufficient to support full collection transactions.               |
 | 106075 | There are no addresses need to collect.               |
+| 106076 | The nft wallet name is illegal.               |
+| 106077 | The nft wallet chain is illegal.               |
+| 106078| The nft wallet name is repeat.               |
+| 106079| The nft wallet has been exist.               |
+| 106080 |The nft wallet address has not been reserved.               |
+| 106081|The nft wallet has been frozen.               |
+| 106082|This type of transaction is temporarily suspended.               |
