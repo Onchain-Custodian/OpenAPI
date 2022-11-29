@@ -1541,7 +1541,14 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 | 106072 | The number of ETH addresses cannot exceed 500.               |
 | 106073 | The number addresses cannot exceed 5.               |
 | 106074 | Master address handling fee is insufficient to support full collection transactions.               |
-| 106075 | There are no addresses need to collect.               |
+| 106075| There are no addresses need to collect.               |
+| 106076 | The nft wallet name is illegal.               |
+| 106077 | The nft wallet chain is illegal.               |
+| 106078| The nft wallet name is repeat.               |
+| 106079| The nft wallet has been exist.               |
+| 106080 |The nft wallet address has not been reserved.               |
+| 106081|The nft wallet has been frozen.               |
+| 106082|This type of transaction is temporarily suspended.               |
 
 
 
