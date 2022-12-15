@@ -241,6 +241,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |  XSGD-POS   |           XSGD                      |       Polygon       |
 |  SOL        |           Solana                    |       Solana        |
 |  AVAX       |           Avalanche                 |       Avalanche (C-Chain)     |
+|  XSGD-POS-BRIDGED       |           XSGD (Bridged)                 |      Polygon    |
 
 > The request limits set for different API operations are:
 >
