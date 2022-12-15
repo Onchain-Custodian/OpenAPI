@@ -1,4 +1,7 @@
 # OpenAPI Update Log
+## 13/12/22
+- New coin type: `SGD-POS-BRIDGED`
+
 ## 11/08/22
 - New coin type: `SOL`, `AVAX` (C-Chain)
 
