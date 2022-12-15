@@ -180,7 +180,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |   Coin Type    |              Coin Name              |      Protocol       |
 | :------------: | :---------------------------------: | :-----------------: |
 |     BTC     |               Bitcoin               |       Bitcoin       |
-|     BCH     |            Bitcoin Cash             |   Bitcoin（分叉）    |
+|     BCH     |            Bitcoin Cash             |   Bitcoin    |
 |     ETH     |              Ethereum               |      Ethereum       |
 |     PASS  |                Blockpass              |      Ethereum       |
 | USDT-ERC20  |             Tether USD              |      Ethereum       |
