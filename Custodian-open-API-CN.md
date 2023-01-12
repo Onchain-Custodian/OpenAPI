@@ -1018,6 +1018,7 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
     "coinType": "ETH",
     "confirmedBlocks": "6",
     "fee": "0.000999999999999",
+    "processTime":1670383934059,
     "hash": "0xc24b4b8ecec4de14aed9523591de867fff965517d02d66a3f1d110ef5c4dcbd4",
     "status": "1",
     "txId": "20200103025302304697",
@@ -1042,6 +1043,7 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 | confirmedBlocks |  string  | 区块确认数                            |
 |       fee       |  string  | 手续费                                |
 |      hash       |  string  | 交易哈希                              |
+|      processTime|  string  | 交易状态变更时间                             |
 |     status      |  string  | 交易状态（0=等待，1=成功，2=失败，4=审核失败，5=手动取消，6=发起风控失败，7=风控不通过，8=发起出金失败）    |
 |      txId       |  string  | 交易单号。同一交易可多次通知，ID 唯一 |
 |     txType      |  string  | 交易类型（[参考](#交易类型)）         |
