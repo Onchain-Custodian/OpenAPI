@@ -1012,6 +1012,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
     "coinType": "ETH",
     "confirmedBlocks": "6",
     "fee": "0.000999999999999",
+    "processTime":1670383934059,
     "hash": "0xc24b4b8ecec4de14aed9523591de867fff965517d02d66a3f1d110ef5c4dcbd4",
     "status": "1",
     "txId": "20200103025302304697",
@@ -1034,6 +1035,8 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |     amount      | string | transaction amount                                       |
 |    coinType     | string | coin type ([Reference table](#coin-type))                |
 | confirmedBlocks | string | blocks confirmed                                         |
+|       fee       | string | transaction fee                                          |
+|      processTime| string | transaction status upgrade timestamp                     |
 |       fee       | string | transaction fee                                          |
 |      hash       | string | transaction hash                                         |
 |     status      | string | transaction status (0=pending, 1=success, 2=fail, 4=approval rejected, 5=transaction cancelled, 6=risk control failure, 7=risk control rejected, 8=withdrawal error)          |
