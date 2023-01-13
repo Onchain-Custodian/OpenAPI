@@ -1,10 +1,10 @@
 # OpenAPI Update Log
 ## 12/01/23
 - Modified endpoint: 7.5.1. Transaction Notification API Callback
-  \- New request parameter: `processTime` 
-  \- Callbacks will be sent in sequence based on the generic order of the transaction status 
-  \- Callbacks for transactions will be sent independently per transaction and in parallel sequence when concurrent transactions occur, instead of sending batch transactions in a single callback 
-  \- Callbacks for separate transaction statuses will be sent in minimum intervals of 1 second
+  - New request parameter: `processTime` 
+  - Callbacks will be sent in sequence based on the generic order of the transaction status 
+  - Callbacks for transactions will be sent independently per transaction and in parallel sequence when concurrent transactions occur, instead of sending batch transactions in a single callback 
+  - Callbacks for separate transaction statuses will be sent in minimum intervals of 1 second
 
 ## 13/12/22
 - New coin type: `SGD-POS-BRIDGED`
