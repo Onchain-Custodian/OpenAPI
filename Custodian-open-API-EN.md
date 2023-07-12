@@ -159,6 +159,7 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |   GET    | [/v1/nft/wallet/asset](#766-Query-a-List-of-NFT-Assets)                                               | Query a List of NFT Assets     |
 |   POST   | [/v1/nft/withdraw/fee](#767-Query-Transaction-Fee-for-NFT-Withdrawal)                   | Query Transaction Fee for NFT Withdrawal       |
 |   POST   | [/v1/nft/withdraw](#768-Send-NFT-Withdrawal-Request)                                         | Send NFT Withdrawal Request              |
+|  GET   | [/v1/api/trans/requestId](#769-fetch-transaction-details-by-request-id)                           | Fetch details for a transaction using the request ID                     |
 
 
 
@@ -1463,6 +1464,60 @@ Refer to github link: https://github.com/aixingjuele/custodian-sdk-java
 |   code    |  Long  | 0: request successful; value greater than 0: request failed |
 |    msg    | String | description of response                                     |
 |   tx_id   | String | transaction ID                                              |
+
+#### 7.6.9. Fetch Transaction Details by Request ID
+
+```json
+{
+  "URL": "/v1/api/trans/requestId?request_id=17f4d2d95b444e60b777bc129e8c6e18",
+
+  "Method": "GET",
+
+  "Params": {},
+
+  "Response": {
+    "code": 0,
+    "msg": "SUCCESS",
+    "result": {
+      "wallet_name": "",
+      "coin_unique_name": "",
+      "coin_full_name": "",
+      "coin_decimal": "",
+      "address": "",
+      "source_address": "",
+      "tx_type": "1-withdrawal,2-master address deposit,3-hd address deposit,4-collect transaction",
+      "amount": 100,
+      "tx_id": "",
+      "tx_hash": "",
+      "tx_status": "",
+      "create_time": 1614308646000,
+      "confirm_time": 1614308646000,
+      "fee_coin": "",
+      "fee": ""
+    }
+  }
+}
+```
+##### Response Parameters
+
+|    Parameter     |  Type  | Description                                                          |
+| :--------------: | :----: | :------------------------------------------------------------------- |
+|   wallet_name    | string | wallet name                                                          |
+| coin_unique_name | string | system alias                                                         |
+|  coin_full_name  | string | coin full name                                                       |
+|   coin_decimal   |  int   | decimal precision of balance value                                   |
+|     address      | string | wallet address                                                       |
+|  source_address  | string | in case of deposit: sender's address. withdrawal: receiver's address |
+|     tx_type      | string | Transaction type ([Reference table](#transaction-type))              |
+|      amount      |  int   | transaction amount                                                   |
+|      tx_id       | string | transaction ID                                                       |
+|     tx_hash      | string | transaction hash                                                     |
+|    tx_status     | string | transaction status (0=pending,1=success,2=fail)                      |
+|   create_time    |  date  | transaction creation time                                            |
+|   confirm_time   |  date  | transaction confirmation (success or failure) time                   |
+|     fee_coin     | string | coin type of the transaction fee                                     |
+|       fee        | string | transaction fee amount                                               |
+
 
 ## 8. Error Codes
 
