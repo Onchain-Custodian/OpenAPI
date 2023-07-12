@@ -165,6 +165,7 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 |   GET    | [/v1/nft/wallet/asset](#766-查询NFT资产列表)                                               | 查询NFT资产列表                  |
 |   POST   | [/v1/nft/withdraw/fee](#767-查询NFT出金手续费)                                              | 查询NFT出金手续费                 |
 |   POST   | [/v1/nft/withdraw](#768-发送NFT出金请求)                                                   | 发送NFT出金请求                  |
+|   GET    | [/v1/api/trans/requestId](#769-根据requestId查询交易详情)                                    | 通过requestId获取交易详情         |
 
 ### 参考
 
@@ -1468,6 +1469,60 @@ API 接口在创建时必须设置 IP 白名单。在后续的接口调用中，
 | code |   long   | 0说明请求成功，大于0说明请求失败|
 | msg  |  String  | 返回描述                                                                                          |
 | tx_id  |  String  | 事务id                                                                                          |
+
+#### 7.6.9 根据requestId查询交易详情
+
+```json
+{
+  "URL": "/v1/api/trans/requestId?request_id=17f4d2d95b444e60b777bc129e8c6e18",
+
+  "Method": "GET",
+
+  "Params": {},
+
+  "Response": {
+    "code": 0,
+    "msg": "SUCCESS",
+    "result": {
+      "wallet_name": "",
+      "coin_unique_name": "",
+      "coin_full_name": "",
+      "coin_decimal": "",
+      "address": "",
+      "source_address": "",
+      "tx_type": "1-withdrawal,2-master address deposit,3-hd address deposit,4-collect transaction",
+      "amount": 100,
+      "tx_id": "",
+      "tx_hash": "",
+      "tx_status": "",
+      "create_time": "",
+      "confirm_time": "",
+      "fee_coin": "",
+      "fee": ""
+    }
+  }
+}
+```
+
+##### 响应参数
+
+|       参数       | 数据类型 | 说明                                          |
+| :--------------: | :------: | :-------------------------------------------- |
+|   wallet_name    |  string  | 钱包名称                                      |
+| coin_unique_name |  string  | 币种在本系统中的代号                          |
+|  coin_full_name  |  string  | 币种全称                                      |
+|   coin_decimal   |   int    | 余额值精度                                    |
+|     address      |  string  | 钱包地址                                      |
+|  source_address  |  string  | 交易对方地址                                  |
+|     tx_type      |  string  | 交易类型[参考](#交易类型)）                   |
+|      amount      |   int    | 交易金额                                      |
+|      tx_id       |  string  | 交易单号                                      |
+|     tx_hash      |  string  | 交易哈希                                      |
+|    tx_status     |  string  | 交易状态（0=待确认，1=成功，2=失败,3=审核中） |
+|   create_time    |  date  | 交易创建时间                                  |
+|   confirm_time   |  date  | 交易状态（成功或失败)确定时间                 |
+|     fee_coin     |  string  | 手续费所用币种                                |
+|       fee        |  string  | 手续费金额                                    |
 
 ## 8. 错误代码
 
