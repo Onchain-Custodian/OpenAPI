@@ -1,5 +1,5 @@
 # OpenAPI Update Log
-## 12/12/23
+## 12/07/23
 - New endpoint: 7.6.9. Fetch Transaction Details by Request ID
   
 ## 12/01/23
