@@ -1,4 +1,7 @@
 # OpenAPI Update Log
+## 12/12/23
+- New endpoint: 7.6.9. Fetch Transaction Details by Request ID
+  
 ## 12/01/23
 - Modified endpoint: 7.5.1. Transaction Notification API Callback
   - New request parameter: `processTime` 
